@@ -1,6 +1,6 @@
 {
   "name": "@magister_zito/eslint-config-react",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "license": "MIT",
   "author": "Matthew Zito <matthewtzito@gmail.com> (goldmund)",
   "files": [
@@ -17,7 +17,7 @@
     "access": "public"
   },
   "dependencies": {
-    "@magister_zito/eslint-config-typescript": "^0.0.1",
+    "@magister_zito/eslint-config-typescript": "^0.0.2",
     "eslint-plugin-react": "^7.25.1"
   },
   "devDependencies": {

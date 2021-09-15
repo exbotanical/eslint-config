@@ -6,7 +6,7 @@
   "scripts": {
     "preinstall": "npx only-allow pnpm",
     "lint": "npx eslint",
-    "publish": "lerna publish --conventional-commits"
+    "release": "lerna publish --conventional-commits"
   },
   "keywords": [],
   "author": "Matthew Zito <matthewtzito@gmail.com> (goldmund)",

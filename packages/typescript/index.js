@@ -10,14 +10,15 @@ module.exports = {
 
   rules: {
     'import/named': 'off',
+    'no-tabs': 'off',
 
     'no-useless-constructor': 'off',
     '@typescript-eslint/semi': ['error', 'always'],
-    '@typescript-eslint/member-delimiter-style': ['error', { multiline: { delimiter: 'none' } }],
+    '@typescript-eslint/member-delimiter-style': ['error', { multiline: { delimiter: 'semi' } }],
     '@typescript-eslint/type-annotation-spacing': ['error', {}],
 
     'indent': 'off',
-    '@typescript-eslint/indent': ['error', 2],
+    '@typescript-eslint/indent': ['error', 'tab'],
     'no-unused-vars': 'off',
     '@typescript-eslint/no-unused-vars': 'error',
     'no-redeclare': 'off',
@@ -34,6 +35,6 @@ module.exports = {
     '@typescript-eslint/no-non-null-assertion': 'off',
     '@typescript-eslint/ban-ts-comment': 'off',
     '@typescript-eslint/explicit-module-boundary-types': 'off',
-    '@typescript-eslint/ban-types': 'off',
+    '@typescript-eslint/ban-types': 'off'
   }
 };

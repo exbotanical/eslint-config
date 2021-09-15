@@ -90,21 +90,20 @@ module.exports = {
     'import/no-unresolved': 'off',
     'import/no-absolute-path': 'off',
 
-    'comma-dangle': 'error',
-    'semi': 'error',
+    'semi': ['error', 'always'],
     'space-before-function-paren': 'error',
-    'curly': ['error', 'multi-or-nest', 'consistent'],
+    'curly': ['error', 'multi-line', 'consistent'],
     'quotes': ['error', 'single'],
     'quote-props': ['error', 'consistent-as-needed'],
     'no-unused-vars': 'warn',
     'no-param-reassign': 'off',
     'array-bracket-spacing': ['error', 'never'],
-    'brace-style': ['error', 'stroustrup', { allowSingleLine: true }],
+    'brace-style': ['error', '1tbs'],
     'block-spacing': ['error', 'always'],
     'camelcase': 'off',
     'comma-spacing': ['error', { before: false, after: true }],
     'comma-style': ['error', 'last'],
-    'comma-dangle': ['error', 'always-multiline'],
+    'comma-dangle': ['error', 'never'],
     'no-constant-condition': 'warn',
     'no-debugger': 'error',
     'no-console': ['error', { allow: ['warn', 'error'] }],
@@ -149,7 +148,7 @@ module.exports = {
     'prefer-spread': 'error',
     'prefer-template': 'error',
     'template-curly-spacing': 'error',
-    'arrow-parens': ['error', 'as-needed', { requireForBlockBody: true }],
+    'arrow-parens': ['error', 'always', { requireForBlockBody: true }],
     'generator-star-spacing': 'off',
 
     'array-callback-return': 'error',
@@ -166,11 +165,11 @@ module.exports = {
     'vars-on-top': 'error',
     'require-await': 'off',
     'no-return-assign': 'off',
-    'operator-linebreak': ['error', 'before'],
-
-    'no-use-before-define': ['error', { functions: false, classes: false, variables: true }],
-    'eslint-comments/disable-enable-pair': 'off'
+    'operator-linebreak': ['error', 'after'],
+    'no-use-before-define': 'off',
+    'eslint-comments/disable-enable-pair': 'off',
+    'eqeqeq': 'off'
   },
-  
+
   'reportUnusedDisableDirectives': true
 }

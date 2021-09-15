@@ -3,10 +3,13 @@
   "version": "0.0.4",
   "license": "MIT",
   "author": "Matthew Zito <matthewtzito@gmail.com> (goldmund)",
-  "main": "index.js",
   "files": [
     "index.js"
   ],
+  "main": "index.js",
+  "peerDependencies": {
+    "eslint": ">=7.4.0"
+  },
   "dependencies": {
     "@magister_zito/eslint-config-javascript": "^0.0.4",
     "@magister_zito/eslint-config-react": "^0.0.4",
@@ -27,9 +30,6 @@
   },
   "devDependencies": {
     "eslint": "^7.32.0"
-  },
-  "peerDependencies": {
-    "eslint": ">=7.4.0"
   },
   "publishConfig": {
     "access": "public"

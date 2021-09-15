@@ -1,6 +1,6 @@
 {
   "name": "@magister_zito/eslint-config-typescript",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "license": "MIT",
   "author": "Matthew Zito <matthewtzito@gmail.com> (goldmund)",
   "files": [
@@ -15,7 +15,7 @@
     "typescript": ">=3.9"
   },
   "dependencies": {
-    "@magister_zito/eslint-config-base": "^0.0.4",
+    "@magister_zito/eslint-config-base": "^0.0.5",
     "@typescript-eslint/eslint-plugin": "^4.31.0",
     "@typescript-eslint/parser": "^4.31.0"
   },

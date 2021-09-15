@@ -1,7 +1,6 @@
 {
   "name": "@magister_zito/eslint-config-collection",
   "version": "0.0.1",
-  "description": "",
   "main": "index.js",
   "private": true,
   "scripts": {

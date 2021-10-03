@@ -9,7 +9,7 @@ module.exports = {
 			version: "17.0",
 		},
 	},
-	plugins: ["jsx-a11y", "react/hooks"],
+	plugins: ["jsx-a11y", "react-hooks"],
 	rules: {
 		"jsx-quotes": ["error", "prefer-double"],
 		"react/react-in-jsx-scope": "off",

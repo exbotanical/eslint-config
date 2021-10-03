@@ -1,6 +1,6 @@
 root = true
 
-[*{ts,js,sh}]
+[*{ts,js,json,sh}]
 indent_style = tab
 indent_size = 2
 charset = utf-8

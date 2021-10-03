@@ -1,6 +1,6 @@
 {
   "name": "@magister_zito/eslint-config",
-  "version": "0.0.8",
+  "version": "0.0.9",
   "license": "MIT",
   "author": "Matthew Zito <matthewtzito@gmail.com> (goldmund)",
   "files": [
@@ -11,9 +11,9 @@
     "eslint": ">=7.4.0"
   },
   "dependencies": {
-    "@magister_zito/eslint-config-javascript": "^0.0.8",
-    "@magister_zito/eslint-config-react": "^0.0.8",
-    "@magister_zito/eslint-config-vue": "^0.0.8",
+    "@magister_zito/eslint-config-javascript": "^0.0.9",
+    "@magister_zito/eslint-config-react": "^0.0.9",
+    "@magister_zito/eslint-config-vue": "^0.0.9",
     "@typescript-eslint/eslint-plugin": "^4.31.0",
     "@typescript-eslint/parser": "^4.31.0",
     "eslint-config-standard": "^16.0.3",

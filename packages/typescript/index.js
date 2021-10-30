@@ -14,7 +14,10 @@ module.exports = {
 
 		'no-useless-constructor': 'off',
 		'@typescript-eslint/semi': ['error', 'always'],
-		'@typescript-eslint/member-delimiter-style': ['error', { multiline: { delimiter: 'semi' } }],
+		'@typescript-eslint/member-delimiter-style': [
+			'error',
+			{ multiline: { delimiter: 'semi' } }
+		],
 		'@typescript-eslint/type-annotation-spacing': ['error', {}],
 
 		'indent': 'off',

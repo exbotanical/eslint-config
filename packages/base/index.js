@@ -11,9 +11,7 @@ module.exports = {
 		'plugin:jsonc/recommended-with-jsonc',
 		'plugin:yml/standard'
 	],
-	plugins: [
-		'html'
-	],
+	plugins: ['html'],
 	settings: {
 		'import/resolver': {
 			node: { extensions: ['.js', '.mjs', '.ts', '.d.ts'] }
@@ -110,7 +108,11 @@ module.exports = {
 		'no-cond-assign': ['error', 'always'],
 		'func-call-spacing': ['off', 'never'],
 		'key-spacing': ['error', { beforeColon: false, afterColon: true }],
-		'indent': ['error', 2, { SwitchCase: 1, VariableDeclarator: 1, outerIIFEBody: 1 }],
+		'indent': [
+			'error',
+			2,
+			{ SwitchCase: 1, VariableDeclarator: 1, outerIIFEBody: 1 }
+		],
 		'no-restricted-syntax': [
 			'error',
 			'DebuggerStatement',

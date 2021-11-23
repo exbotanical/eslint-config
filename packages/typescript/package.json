@@ -16,11 +16,11 @@
   },
   "dependencies": {
     "@magister_zito/eslint-config-base": "^0.0.11",
-    "@typescript-eslint/eslint-plugin": "^4.33.0",
-    "@typescript-eslint/parser": "^4.33.0"
+    "@typescript-eslint/eslint-plugin": "^5.4.0",
+    "@typescript-eslint/parser": "^5.4.0"
   },
   "devDependencies": {
-    "eslint": "^7.32.0"
+    "eslint": "^8.3.0"
   },
   "gitHead": "f916ecc123e9b3efb6f9dc5fac7f0ed5191e57bd"
 }

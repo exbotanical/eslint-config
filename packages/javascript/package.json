@@ -17,7 +17,7 @@
     "@magister_zito/eslint-config-base": "^0.0.11"
   },
   "devDependencies": {
-    "eslint": "^7.32.0"
+    "eslint": "^8.3.0"
   },
   "gitHead": "f916ecc123e9b3efb6f9dc5fac7f0ed5191e57bd"
 }

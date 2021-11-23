@@ -15,10 +15,10 @@
   },
   "dependencies": {
     "@magister_zito/eslint-config-typescript": "^0.0.11",
-    "eslint-plugin-vue": "7.17.0"
+    "eslint-plugin-vue": "8.1.1"
   },
   "devDependencies": {
-    "eslint": "^7.32.0"
+    "eslint": "^8.3.0"
   },
   "gitHead": "f916ecc123e9b3efb6f9dc5fac7f0ed5191e57bd"
 }

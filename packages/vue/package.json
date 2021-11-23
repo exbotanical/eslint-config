@@ -14,7 +14,7 @@
     "access": "public"
   },
   "dependencies": {
-    "@magister_zito/eslint-config-typescript": "^0.0.10",
+    "@magister_zito/eslint-config-typescript": "workspace:^0.0.10",
     "eslint-plugin-vue": "7.17.0"
   },
   "devDependencies": {

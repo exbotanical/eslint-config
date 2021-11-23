@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.1.0](https://github.com/MatthewZito/eslint-config/compare/v0.0.11...v0.1.0) (2021-11-23)
+
+
+### Features
+
+* release 0.0.11 ([3c122a7](https://github.com/MatthewZito/eslint-config/commit/3c122a71aae24b77cfa97bffe5333d29f239d546))
+
+
+
+
+
 ## [0.0.11](https://github.com/MatthewZito/eslint-config/compare/v0.0.10...v0.0.11) (2021-11-23)
 
 **Note:** Version bump only for package @magister_zito/eslint-config-base

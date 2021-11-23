@@ -1,6 +1,6 @@
 {
   "name": "@magister_zito/eslint-config-vue",
-  "version": "0.0.11",
+  "version": "0.1.0",
   "license": "MIT",
   "author": "Matthew Zito <matthewtzito@gmail.com> (goldmund)",
   "files": [
@@ -14,7 +14,7 @@
     "access": "public"
   },
   "dependencies": {
-    "@magister_zito/eslint-config-typescript": "^0.0.11",
+    "@magister_zito/eslint-config-typescript": "^0.1.0",
     "eslint-plugin-vue": "8.1.1"
   },
   "devDependencies": {

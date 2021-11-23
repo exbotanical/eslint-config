@@ -11,7 +11,7 @@
     "release": "lerna publish --conventional-commits"
   },
   "devDependencies": {
-    "@magister_zito/eslint-config": "workspace:*",
+    "@magister_zito/eslint-config": "*",
     "eslint": "^7.32.0",
     "lerna": "^4.0.0",
     "typescript": "^4.5.2"

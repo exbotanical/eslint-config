@@ -5,8 +5,9 @@ module.exports = {
 		node: true
 	},
 	extends: [
-		'standard',
+		'eslint:all',
 		'plugin:import/recommended',
+		'plugin:import/typescript',
 		'plugin:eslint-comments/recommended',
 		'plugin:jsonc/recommended-with-jsonc',
 		'plugin:yml/standard'
@@ -18,6 +19,49 @@ module.exports = {
 		}
 	},
 	overrides: [
+		{
+			files: ['**/*.{ts,tsx}'],
+			extends: ['plugin:@typescript-eslint/all'],
+
+			parser: '@typescript-eslint/parser',
+			parserOptions: {
+				project: 'tsconfig.json'
+			},
+			rules: {
+				'semi': 'off',
+				'@typescript-eslint/semi': ['error', 'always'],
+				'indent': 'off',
+				'@typescript-eslint/indent': ['error', 'tab'],
+				'no-unused-vars': 'off',
+				'@typescript-eslint/no-unused-vars': 'error',
+				'no-redeclare': 'off',
+				'@typescript-eslint/no-redeclare': ['error'],
+				'object-curly-spacing': 'off',
+				'@typescript-eslint/object-curly-spacing': ['error', 'always'],
+				'quotes': 'off',
+				'@typescript-eslint/quotes': ['error', 'single'],
+
+				'@typescript-eslint/no-type-alias': 'off',
+				'@typescript-eslint/ban-ts-ignore': 'off',
+				'@typescript-eslint/ban-ts-comment': 'off',
+				'@typescript-eslint/explicit-module-boundary-types': 'off',
+				'@typescript-eslint/no-empty-function': 'off',
+				'@typescript-eslint/no-explicit-any': 'off',
+				'@typescript-eslint/explicit-function-return-type': 'off',
+				'@typescript-eslint/prefer-readonly-parameter-types': 'off',
+				'@typescript-eslint/explicit-member-accessibility': 'off',
+				'@typescript-eslint/no-use-before-define': 'off',
+				// TODO refine
+				'@typescript-eslint/naming-convention': 'off',
+				'@typescript-eslint/no-magic-numbers': 'off',
+				'@typescript-eslint/no-parameter-properties': 'off',
+				// see https://github.com/typescript-eslint/typescript-eslint/issues/1824
+				'@typescript-eslint/indent': 'off',
+				'@typescript-eslint/method-signature-style': 'off',
+				'@typescript-eslint/strict-boolean-expressions': 'off',
+				'@typescript-eslint/no-floating-promises': 'off'
+			}
+		},
 		{
 			files: ['*.json', '*.json5'],
 			parser: 'jsonc-eslint-parser',
@@ -81,12 +125,54 @@ module.exports = {
 			}
 		}
 	],
+
 	rules: {
-		'import/order': 'error',
+		'import/order': [
+			'error',
+			{
+				'newlines-between': 'always',
+				'alphabetize': {
+					order: 'asc',
+					caseInsensitive: true
+				},
+				'groups': [
+					'builtin',
+					'external',
+					'internal',
+					'parent',
+					'sibling',
+					'index',
+					'object',
+					'type'
+				],
+				'pathGroups': [
+					{
+						pattern: '{vue,@vue/**}',
+						group: 'external',
+						position: 'before'
+					},
+					{
+						pattern: '{react,@react/**}',
+						group: 'external',
+						position: 'before'
+					},
+					{
+						pattern: '{@**}',
+						group: 'external',
+						position: 'before'
+					},
+					{
+						pattern: '{@/**}',
+						group: 'internal',
+						position: 'before'
+					}
+				]
+			}
+		],
 		'import/first': 'error',
 		'import/no-mutable-exports': 'error',
 		'import/no-unresolved': 'off',
-		'import/no-absolute-path': 'off',
+		'sort-imports': 'off',
 
 		'semi': ['error', 'always'],
 		'space-before-function-paren': 'error',
@@ -102,12 +188,14 @@ module.exports = {
 		'comma-spacing': ['error', { before: false, after: true }],
 		'comma-style': ['error', 'last'],
 		'comma-dangle': ['error', 'never'],
+		'no-tabs': 'off',
 		'no-constant-condition': 'warn',
 		'no-debugger': 'error',
 		'no-console': ['error', { allow: ['warn', 'error'] }],
 		'no-cond-assign': ['error', 'always'],
 		'func-call-spacing': ['off', 'never'],
 		'key-spacing': ['error', { beforeColon: false, afterColon: true }],
+		'func-style': ['error', 'declaration', { allowArrowFunctions: true }],
 		'indent': [
 			'error',
 			2,
@@ -122,6 +210,8 @@ module.exports = {
 		],
 		'object-curly-spacing': ['error', 'always'],
 		'no-return-await': 'off',
+		'one-var': ['error', 'never'],
+		'no-ternary': 'off',
 
 		'no-var': 'error',
 		'prefer-const': [
@@ -170,8 +260,30 @@ module.exports = {
 		'operator-linebreak': ['error', 'after'],
 		'no-use-before-define': 'off',
 		'eslint-comments/disable-enable-pair': 'off',
-		'eqeqeq': 'off'
+		'eqeqeq': 'off',
+		'class-methods-use-this': 'off',
+		'id-length': 'off',
+		'max-lines-per-function': 'off',
+		'no-warning-comments': 'off',
+		'max-len': 'off',
+		'padding-line-between-statements': [
+			'error',
+			{ blankLine: 'never', prev: '*', next: '*' },
+			{ blankLine: 'always', prev: 'let', next: 'return' },
+			{ blankLine: 'always', prev: 'const', next: 'return' },
+			{ blankLine: 'always', prev: 'function', next: 'return' },
+			{ blankLine: 'always', prev: 'function', next: 'function' },
+			{ blankLine: 'always', prev: 'const', next: 'let' },
+			{ blankLine: 'always', prev: 'const', next: 'if' },
+			{ blankLine: 'always', prev: 'let', next: 'const' }
+		],
+		'block-spacing': 'error',
+		'padded-blocks': ['error', 'never'],
+		'object-curly-spacing': ['error', 'always'],
+		'quotes': ['error', 'single']
 	},
+
+	ignorePatterns: ['node_modules', 'dist'],
 
 	reportUnusedDisableDirectives: true
 };

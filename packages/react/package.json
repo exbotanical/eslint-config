@@ -1,6 +1,6 @@
 {
   "name": "@magister_zito/eslint-config-react",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "license": "MIT",
   "author": "Matthew Zito <matthewtzito@gmail.com> (goldmund)",
   "files": [
@@ -17,14 +17,14 @@
     "access": "public"
   },
   "dependencies": {
-    "@magister_zito/eslint-config-base": "^0.2.0",
-		"eslint-plugin-cypress": "2.12.1",
-		"eslint-plugin-jest": "25.2.2",
-		"eslint-plugin-jest-dom": "3.9.2",
-		"eslint-plugin-testing-library": "5.0.0",
+    "@magister_zito/eslint-config-base": "^0.3.0",
+    "eslint-plugin-cypress": "2.12.1",
+    "eslint-plugin-jest": "25.2.2",
+    "eslint-plugin-jest-dom": "3.9.2",
     "eslint-plugin-jsx-a11y": "6.5.1",
     "eslint-plugin-react": "^7.27.1",
-    "eslint-plugin-react-hooks": "4.3.0"
+    "eslint-plugin-react-hooks": "4.3.0",
+    "eslint-plugin-testing-library": "5.0.0"
   },
   "devDependencies": {
     "eslint": "^8.3.0",

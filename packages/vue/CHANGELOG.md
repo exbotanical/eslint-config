@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.3.0](https://github.com/MatthewZito/eslint-config/compare/v0.2.0...v0.3.0) (2021-12-01)
+
+
+### Features
+
+* refine base, react, vite configs ([8f1a2e9](https://github.com/MatthewZito/eslint-config/commit/8f1a2e9e46af3c8d015e3ec96e39f90c2bc3f37e))
+
+
+
+
+
 # [0.2.0](https://github.com/MatthewZito/eslint-config/compare/v0.1.0...v0.2.0) (2021-12-01)
 
 **Note:** Version bump only for package @magister_zito/eslint-config-vue

@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.4.0](https://github.com/MatthewZito/eslint-config/compare/v0.3.0...v0.4.0) (2021-12-01)
+
+
+### Features
+
+* **all,base,react,vue:** alphabetize configs ([4651c6c](https://github.com/MatthewZito/eslint-config/commit/4651c6c7b01d5bf3ea5bff83ed0374ec432f6ca5))
+
+
+
+
+
 # [0.3.0](https://github.com/MatthewZito/eslint-config/compare/v0.2.0...v0.3.0) (2021-12-01)
 
 

@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.2.0](https://github.com/MatthewZito/eslint-config/compare/v0.1.0...v0.2.0) (2021-12-01)
+
+
+### Features
+
+* update all configs, soft-deprecate ts config ([02a953a](https://github.com/MatthewZito/eslint-config/commit/02a953ae6f29a26001efa0cda2c1d858bdc82a6a))
+
+
+
+
+
 # [0.1.0](https://github.com/MatthewZito/eslint-config/compare/v0.0.11...v0.1.0) (2021-11-23)
 
 

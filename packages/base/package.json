@@ -1,6 +1,6 @@
 {
   "name": "@magister_zito/eslint-config-base",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "license": "MIT",
   "author": "Matthew Zito <matthewtzito@gmail.com> (goldmund)",
   "files": [
@@ -12,11 +12,11 @@
   },
   "peerDependencies": {
     "eslint": ">=7.4.0",
-		"typescript": ">=3.9"
+    "typescript": ">=3.9"
   },
   "dependencies": {
-		"@typescript-eslint/eslint-plugin": "^5.4.0",
-	  "@typescript-eslint/parser": "^5.4.0",
+    "@typescript-eslint/eslint-plugin": "^5.4.0",
+    "@typescript-eslint/parser": "^5.4.0",
     "eslint-config-standard": "^16.0.3",
     "eslint-plugin-eslint-comments": "^3.2.0",
     "eslint-plugin-html": "^6.2.0",

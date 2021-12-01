@@ -44,6 +44,7 @@ module.exports = {
 				'@typescript-eslint/no-type-alias': 'off',
 				'@typescript-eslint/ban-ts-ignore': 'off',
 				'@typescript-eslint/ban-ts-comment': 'off',
+				'@typescript-eslint/no-shadow': 'off',
 				'@typescript-eslint/explicit-module-boundary-types': 'off',
 				'@typescript-eslint/no-empty-function': 'off',
 				'@typescript-eslint/no-explicit-any': 'off',
@@ -51,15 +52,24 @@ module.exports = {
 				'@typescript-eslint/prefer-readonly-parameter-types': 'off',
 				'@typescript-eslint/explicit-member-accessibility': 'off',
 				'@typescript-eslint/no-use-before-define': 'off',
+				'@typescript-eslint/consistent-indexed-object-style': 'off',
+				'@typescript-eslint/prefer-function-type': 'off',
+				'@typescript-eslint/init-declarations': 'off',
+				'@typescript-eslint/no-unused-expressions': 'off',
 				// TODO refine
 				'@typescript-eslint/naming-convention': 'off',
 				'@typescript-eslint/no-magic-numbers': 'off',
 				'@typescript-eslint/no-parameter-properties': 'off',
+				'@typescript-eslint/no-unsafe-return': 'off',
 				// see https://github.com/typescript-eslint/typescript-eslint/issues/1824
 				'@typescript-eslint/indent': 'off',
 				'@typescript-eslint/method-signature-style': 'off',
 				'@typescript-eslint/strict-boolean-expressions': 'off',
-				'@typescript-eslint/no-floating-promises': 'off'
+				'@typescript-eslint/no-floating-promises': 'off',
+				'@typescript-eslint/no-misused-promises': 'off',
+				'@typescript-eslint/restrict-plus-operands': 'off',
+				'@typescript-eslint/prefer-nullish-coalescing': 'off',
+				'@typescript-eslint/restrict-template-expressions': 'off'
 			}
 		},
 		{
@@ -68,7 +78,8 @@ module.exports = {
 			rules: {
 				'quotes': ['error', 'double'],
 				'quote-props': ['error', 'always'],
-				'comma-dangle': ['error', 'never']
+				'comma-dangle': ['error', 'never'],
+				'max-lines': 'off'
 			}
 		},
 		{
@@ -173,7 +184,22 @@ module.exports = {
 		'import/no-mutable-exports': 'error',
 		'import/no-unresolved': 'off',
 		'sort-imports': 'off',
-
+		'prefer-destructuring': [
+			'error',
+			{
+				VariableDeclarator: {
+					array: false,
+					object: false
+				},
+				AssignmentExpression: {
+					array: false,
+					object: true
+				}
+			},
+			{
+				enforceForRenamedProperties: false
+			}
+		],
 		'semi': ['error', 'always'],
 		'space-before-function-paren': 'error',
 		'curly': ['error', 'multi-line', 'consistent'],
@@ -254,6 +280,7 @@ module.exports = {
 		'no-with': 'error',
 		'no-void': 'error',
 		'no-useless-escape': 'off',
+		'max-statements-per-line': 'off',
 		'vars-on-top': 'error',
 		'require-await': 'off',
 		'no-return-assign': 'off',
@@ -264,11 +291,15 @@ module.exports = {
 		'class-methods-use-this': 'off',
 		'id-length': 'off',
 		'max-lines-per-function': 'off',
+		'max-lines': [
+			'error',
+			{ max: 500, skipBlankLines: true, skipComments: true }
+		],
 		'no-warning-comments': 'off',
 		'max-len': 'off',
+		'no-empty-function': 'off',
 		'padding-line-between-statements': [
 			'error',
-			{ blankLine: 'never', prev: '*', next: '*' },
 			{ blankLine: 'always', prev: 'let', next: 'return' },
 			{ blankLine: 'always', prev: 'const', next: 'return' },
 			{ blankLine: 'always', prev: 'function', next: 'return' },
@@ -277,13 +308,32 @@ module.exports = {
 			{ blankLine: 'always', prev: 'const', next: 'if' },
 			{ blankLine: 'always', prev: 'let', next: 'const' }
 		],
+		'no-magic-numbers': 'off',
+		'no-plusplus': 'off',
+		'max-statements': 'off',
+		'no-nested-ternary': 'off',
+		'arrow-body-style': 'off',
+		'capitalized-comments': 'off',
+		'line-comment-position': 'off',
+		'no-inline-comments': 'off',
+		'no-underscore-dangle': 'off',
+		'no-negated-condition': 'off',
+		'no-implicit-coercion': 'off',
+		'no-unmodified-loop-condition': 'off',
+		'no-unused-expressions': 'off',
+		'multiline-comment-style': 'off',
+		'no-eq-null': 'off',
+		'new-cap': 'off',
+		'max-params': 'off',
+		'require-unicode-regexp': 'off',
+		'prefer-named-capture-group': 'off',
 		'block-spacing': 'error',
 		'padded-blocks': ['error', 'never'],
 		'object-curly-spacing': ['error', 'always'],
 		'quotes': ['error', 'single']
 	},
 
-	ignorePatterns: ['node_modules', 'dist'],
+	ignorePatterns: ['node_modules', 'dist', 'public'],
 
 	reportUnusedDisableDirectives: true
 };

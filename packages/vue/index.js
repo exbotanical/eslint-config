@@ -1,7 +1,10 @@
+const base = require('@magister_zito/eslint-config-base');
+
 module.exports = {
 	overrides: [
+		...base.overrides,
 		{
-			files: ['*.vue'],
+			files: ['*.vue', '*.tsx'],
 			parser: 'vue-eslint-parser',
 			parserOptions: {
 				parser: '@typescript-eslint/parser'
@@ -9,18 +12,55 @@ module.exports = {
 			rules: {
 				'no-unused-vars': 'off',
 				'no-undef': 'off',
+				'sort-keys': 'off',
 				'@typescript-eslint/no-unused-vars': 'off'
+			}
+		},
+		{
+			files: '**/cypress/**',
+			extends: ['plugin:cypress/recommended'],
+			env: {
+				'browser': true,
+				'es6': true,
+				'cypress/globals': true
+			},
+			rules: {
+				'no-undefined': 'off',
+				'sort-keys': 'off',
+				'@typescript-eslint/no-unsafe-call': 'off',
+				'@typescript-eslint/no-unsafe-assignment': 'off',
+				'@typescript-eslint/no-unsafe-member-access': 'off'
+			}
+		},
+		{
+			files: ['**/__tests__/**', '**/test/**'],
+			extends: ['plugin:jest/all', 'plugin:jest-dom/recommended'],
+			plugins: ['jest', 'testing-library'],
+			env: {
+				'browser': true,
+				'es6': true,
+				'jest/globals': true
+			},
+			rules: {
+				'no-undefined': 'off',
+				'sort-keys': 'off',
+				'jest/no-hooks': 'off',
+				'jest/no-disabled-tests': 'off',
+				'jest/prefer-expect-assertions': 'off',
+				'@typescript-eslint/no-unsafe-call': 'off',
+				'@typescript-eslint/no-unsafe-assignment': 'off',
+				'@typescript-eslint/no-unsafe-member-access': 'off'
 			}
 		}
 	],
+
 	extends: [
 		'plugin:vue/vue3-recommended',
-		'@magister_zito/eslint-config-typescript'
+		'plugin:vuejs-accessibility/recommended',
+		'@magister_zito/eslint-config-base'
 	],
-	rules: {
-		'no-tabs': 'off',
-		'indent': ['error', 'tab'],
 
+	rules: {
 		'vue/max-attributes-per-line': ['warn', { singleline: 5 }],
 		'vue/html-indent': 'off',
 		'vue/html-closing-bracket-newline': 'off',
@@ -59,14 +99,8 @@ module.exports = {
 					'renderError'
 				]
 			}
-		],
+		]
+	},
 
-		'no-useless-escape': 'off',
-		'no-irregular-whitespace': 'off',
-		'no-mixed-spaces-and-tabs': 'off',
-		'standard/no-callback-literal': 'off',
-		'generator-star-spacing': 'off',
-		'import/no-webpack-loader-syntax': 'off',
-		'padded-blocks': 'off'
-	}
+	ignorePatterns: ['.quasar']
 };

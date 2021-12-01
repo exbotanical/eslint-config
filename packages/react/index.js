@@ -1,69 +1,58 @@
 const base = require('@magister_zito/eslint-config-base');
 
 module.exports = {
-	overrides: [
-		...base.overrides,
-		{
-			files: '**/cypress/**',
-			extends: ['plugin:cypress/recommended'],
-			env: {
-				'browser': true,
-				'es6': true,
-				'cypress/globals': true
-			},
-			rules: {
-				'no-undefined': 'off',
-				'sort-keys': 'off',
-				'@typescript-eslint/no-unsafe-call': 'off',
-				'@typescript-eslint/no-unsafe-assignment': 'off',
-				'@typescript-eslint/no-unsafe-member-access': 'off'
-			}
-		},
-		{
-			files: ['**/__tests__/**', '**/test/**'],
-			extends: ['plugin:jest/all', 'plugin:jest-dom/recommended'],
-			plugins: ['jest', 'testing-library'],
-			env: {
-				'browser': true,
-				'es6': true,
-				'jest/globals': true
-			},
-			rules: {
-				'no-undefined': 'off',
-				'sort-keys': 'off',
-				'jest/no-hooks': 'off',
-				'jest/no-disabled-tests': 'off',
-				'jest/prefer-expect-assertions': 'off',
-				'@typescript-eslint/no-unsafe-call': 'off',
-				'@typescript-eslint/no-unsafe-assignment': 'off',
-				'@typescript-eslint/no-unsafe-member-access': 'off'
-			}
-		}
-	],
-
 	extends: [
 		'@magister_zito/eslint-config-base',
 		'plugin:react/all',
 		'plugin:jsx-a11y/strict'
 	],
 
-	settings: {
-		react: {
-			version: '17.0'
+	overrides: [
+		...base.overrides,
+		{
+			env: {
+				'browser': true,
+				'cypress/globals': true,
+				'es6': true
+			},
+			extends: ['plugin:cypress/recommended'],
+			files: '**/cypress/**',
+			rules: {
+				'@typescript-eslint/no-unsafe-assignment': 'off',
+				'@typescript-eslint/no-unsafe-call': 'off',
+				'@typescript-eslint/no-unsafe-member-access': 'off',
+				'no-undefined': 'off',
+				'sort-keys': 'off'
+			}
+		},
+		{
+			env: {
+				'browser': true,
+				'es6': true,
+				'jest/globals': true
+			},
+			extends: ['plugin:jest/all', 'plugin:jest-dom/recommended'],
+			files: ['**/__tests__/**', '**/test/**'],
+			plugins: ['jest', 'testing-library'],
+			rules: {
+				'@typescript-eslint/no-unsafe-assignment': 'off',
+				'@typescript-eslint/no-unsafe-call': 'off',
+				'@typescript-eslint/no-unsafe-member-access': 'off',
+				'jest/no-disabled-tests': 'off',
+				'jest/no-hooks': 'off',
+				'jest/prefer-expect-assertions': 'off',
+				'no-undefined': 'off',
+				'sort-keys': 'off'
+			}
 		}
-	},
+	],
 
 	plugins: ['jsx-a11y', 'react-hooks'],
 
 	rules: {
-		'react/react-in-jsx-scope': 'off',
-		'react/jsx-no-literals': 'off',
-		'react/jsx-props-no-spreading': 'off',
-		'react/jsx-max-depth': 'off',
-		'react/jsx-no-bind': 'off',
 		'jsx-quotes': ['error', 'prefer-double'],
-		'react-hooks/rules-of-hooks': 'error',
 		'react-hooks/exhaustive-deps': 'warn',
+		'react-hooks/rules-of-hooks': 'error',
 		'react/jsx-filename-extension': [
 			2,
 			{ extensions: ['.js', '.jsx', '.ts', '.tsx'] }
@@ -72,6 +61,17 @@ module.exports = {
 			2,
 			'tab',
 			{ checkAttributes: true, indentLogicalExpressions: true }
-		]
+		],
+		'react/jsx-max-depth': 'off',
+		'react/jsx-no-bind': 'off',
+		'react/jsx-no-literals': 'off',
+		'react/jsx-props-no-spreading': 'off',
+		'react/react-in-jsx-scope': 'off'
+	},
+
+	settings: {
+		react: {
+			version: '17.0'
+		}
 	}
 };

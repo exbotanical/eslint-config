@@ -1,6 +1,14 @@
 const base = require('@magister_zito/eslint-config-base');
 
 module.exports = {
+	extends: [
+		'plugin:vue/vue3-recommended',
+		'plugin:vuejs-accessibility/recommended',
+		'@magister_zito/eslint-config-base'
+	],
+
+	ignorePatterns: ['.quasar'],
+
 	overrides: [
 		...base.overrides,
 		{
@@ -10,69 +18,61 @@ module.exports = {
 				parser: '@typescript-eslint/parser'
 			},
 			rules: {
-				'no-unused-vars': 'off',
+				'@typescript-eslint/no-unused-vars': 'off',
 				'no-undef': 'off',
-				'sort-keys': 'off',
-				'@typescript-eslint/no-unused-vars': 'off'
+				'no-unused-vars': 'off',
+				'sort-keys': 'off'
 			}
 		},
 		{
-			files: '**/cypress/**',
-			extends: ['plugin:cypress/recommended'],
 			env: {
 				'browser': true,
-				'es6': true,
-				'cypress/globals': true
+				'cypress/globals': true,
+				'es6': true
 			},
+			extends: ['plugin:cypress/recommended'],
+			files: '**/cypress/**',
 			rules: {
-				'no-undefined': 'off',
-				'sort-keys': 'off',
-				'@typescript-eslint/no-unsafe-call': 'off',
 				'@typescript-eslint/no-unsafe-assignment': 'off',
-				'@typescript-eslint/no-unsafe-member-access': 'off'
+				'@typescript-eslint/no-unsafe-call': 'off',
+				'@typescript-eslint/no-unsafe-member-access': 'off',
+				'no-undefined': 'off',
+				'sort-keys': 'off'
 			}
 		},
 		{
-			files: ['**/__tests__/**', '**/test/**'],
-			extends: ['plugin:jest/all', 'plugin:jest-dom/recommended'],
-			plugins: ['jest', 'testing-library'],
 			env: {
 				'browser': true,
 				'es6': true,
 				'jest/globals': true
 			},
+			extends: ['plugin:jest/all', 'plugin:jest-dom/recommended'],
+			files: ['**/__tests__/**', '**/test/**'],
+			plugins: ['jest', 'testing-library'],
 			rules: {
-				'no-undefined': 'off',
-				'sort-keys': 'off',
-				'jest/no-hooks': 'off',
-				'jest/no-disabled-tests': 'off',
-				'jest/prefer-expect-assertions': 'off',
-				'@typescript-eslint/no-unsafe-call': 'off',
 				'@typescript-eslint/no-unsafe-assignment': 'off',
-				'@typescript-eslint/no-unsafe-member-access': 'off'
+				'@typescript-eslint/no-unsafe-call': 'off',
+				'@typescript-eslint/no-unsafe-member-access': 'off',
+				'jest/no-disabled-tests': 'off',
+				'jest/no-hooks': 'off',
+				'jest/prefer-expect-assertions': 'off',
+				'no-undefined': 'off',
+				'sort-keys': 'off'
 			}
 		}
 	],
 
-	extends: [
-		'plugin:vue/vue3-recommended',
-		'plugin:vuejs-accessibility/recommended',
-		'@magister_zito/eslint-config-base'
-	],
-
 	rules: {
-		'vue/max-attributes-per-line': ['warn', { singleline: 5 }],
-		'vue/html-indent': 'off',
 		'vue/html-closing-bracket-newline': 'off',
-		'vue/multiline-html-element-content-newline': 'off',
-		'vue/singleline-html-element-content-newline': 'off',
-		'vue/html-self-closing': 'off',
 		'vue/html-closing-bracket-spacing': 'off',
-		'vue/require-default-prop': 'off',
+		'vue/html-indent': 'off',
+		'vue/html-self-closing': 'off',
+		'vue/max-attributes-per-line': ['warn', { singleline: 5 }],
+		'vue/multiline-html-element-content-newline': 'off',
 		'vue/mustache-interpolation-spacing': 'off',
+		'vue/new-line-between-multi-line-property': 'error',
 		'vue/no-multi-spaces': 'off',
 		'vue/no-mutating-props': 'off',
-		'vue/new-line-between-multi-line-property': 'error',
 		'vue/order-in-components': [
 			'error',
 			{
@@ -99,8 +99,8 @@ module.exports = {
 					'renderError'
 				]
 			}
-		]
-	},
-
-	ignorePatterns: ['.quasar']
+		],
+		'vue/require-default-prop': 'off',
+		'vue/singleline-html-element-content-newline': 'off'
+	}
 };

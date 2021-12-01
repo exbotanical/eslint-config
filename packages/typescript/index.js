@@ -9,19 +9,18 @@ module.exports = {
 	overrides: base.overrides,
 
 	rules: {
-		'semi': 'off',
+		'@typescript-eslint/ban-ts-comment': 'off',
+		'@typescript-eslint/ban-ts-ignore': 'off',
+		'@typescript-eslint/explicit-module-boundary-types': 'off',
+		'@typescript-eslint/indent': ['error', 'tab'],
+		'@typescript-eslint/no-empty-function': 'off',
+		'@typescript-eslint/no-explicit-any': 'off',
+		'@typescript-eslint/no-redeclare': ['error'],
+		'@typescript-eslint/no-unused-vars': 'error',
 		'@typescript-eslint/semi': ['error', 'always'],
 		'indent': 'off',
-		'@typescript-eslint/indent': ['error', 'tab'],
-		'no-unused-vars': 'off',
-		'@typescript-eslint/no-unused-vars': 'error',
 		'no-redeclare': 'off',
-		'@typescript-eslint/no-redeclare': ['error'],
-
-		'@typescript-eslint/ban-ts-ignore': 'off',
-		'@typescript-eslint/ban-ts-comment': 'off',
-		'@typescript-eslint/explicit-module-boundary-types': 'off',
-		'@typescript-eslint/no-empty-function': 'off',
-		'@typescript-eslint/no-explicit-any': 'off'
+		'no-unused-vars': 'off',
+		'semi': 'off'
 	}
 };

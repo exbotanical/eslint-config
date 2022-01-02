@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.6.0](https://github.com/MatthewZito/eslint-config/compare/v0.5.0...v0.6.0) (2022-01-02)
+
+
+### Features
+
+* update test overrides ([3c48ad3](https://github.com/MatthewZito/eslint-config/commit/3c48ad38236525beb4b5394a2666c4d85e4a5d5c))
+
+
+
+
+
 # [0.5.0](https://github.com/MatthewZito/eslint-config/compare/v0.4.0...v0.5.0) (2022-01-02)
 
 

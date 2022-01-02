@@ -148,6 +148,7 @@ module.exports = {
 			extends: ['plugin:cypress/recommended'],
 			files: '**/cypress/**',
 			rules: {
+				'@typescript-eslint/no-non-null-assertion': 'off',
 				'@typescript-eslint/no-unsafe-assignment': 'off',
 				'@typescript-eslint/no-unsafe-call': 'off',
 				'@typescript-eslint/no-unsafe-member-access': 'off',
@@ -164,6 +165,7 @@ module.exports = {
 			files: ['**/__tests__/**', '**/test/**'],
 			plugins: ['jest', 'testing-library'],
 			rules: {
+				'@typescript-eslint/no-non-null-assertion': 'off',
 				'@typescript-eslint/no-unsafe-assignment': 'off',
 				'@typescript-eslint/no-unsafe-call': 'off',
 				'@typescript-eslint/no-unsafe-member-access': 'off',
@@ -180,6 +182,7 @@ module.exports = {
 
 	reportUnusedDisableDirectives: true,
 
+	/* Base Rules */
 	rules: {
 		'array-bracket-spacing': ['error', 'never'],
 		'array-callback-return': 'error',
@@ -277,6 +280,7 @@ module.exports = {
 		'no-implicit-coercion': 'off',
 		'no-inline-comments': 'off',
 		'no-magic-numbers': 'off',
+		'no-multi-assign': 'off',
 		'no-multi-spaces': 'error',
 		'no-multi-str': 'error',
 		'no-negated-condition': 'off',

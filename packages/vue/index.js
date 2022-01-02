@@ -7,7 +7,9 @@ module.exports = {
 		'@magister_zito/eslint-config-base'
 	],
 
-	ignorePatterns: ['.quasar'],
+	ignorePatterns: [
+		'.quasar'
+	],
 
 	overrides: [
 		...base.overrides,
@@ -21,42 +23,6 @@ module.exports = {
 				'@typescript-eslint/no-unused-vars': 'off',
 				'no-undef': 'off',
 				'no-unused-vars': 'off',
-				'sort-keys': 'off'
-			}
-		},
-		{
-			env: {
-				'browser': true,
-				'cypress/globals': true,
-				'es6': true
-			},
-			extends: ['plugin:cypress/recommended'],
-			files: '**/cypress/**',
-			rules: {
-				'@typescript-eslint/no-unsafe-assignment': 'off',
-				'@typescript-eslint/no-unsafe-call': 'off',
-				'@typescript-eslint/no-unsafe-member-access': 'off',
-				'no-undefined': 'off',
-				'sort-keys': 'off'
-			}
-		},
-		{
-			env: {
-				'browser': true,
-				'es6': true,
-				'jest/globals': true
-			},
-			extends: ['plugin:jest/all', 'plugin:jest-dom/recommended'],
-			files: ['**/__tests__/**', '**/test/**'],
-			plugins: ['jest', 'testing-library'],
-			rules: {
-				'@typescript-eslint/no-unsafe-assignment': 'off',
-				'@typescript-eslint/no-unsafe-call': 'off',
-				'@typescript-eslint/no-unsafe-member-access': 'off',
-				'jest/no-disabled-tests': 'off',
-				'jest/no-hooks': 'off',
-				'jest/prefer-expect-assertions': 'off',
-				'no-undefined': 'off',
 				'sort-keys': 'off'
 			}
 		}

@@ -14,9 +14,10 @@ module.exports = {
 		'plugin:yml/standard'
 	],
 
-	ignorePatterns: ['node_modules', 'dist', 'public'],
+	ignorePatterns: ['node_modules', 'dist', 'public', 'coverage'],
 
 	overrides: [
+		/* TypeScript and tsx */
 		{
 			extends: ['plugin:@typescript-eslint/all'],
 			files: ['**/*.{ts,tsx}'],
@@ -67,6 +68,8 @@ module.exports = {
 				'semi': 'off'
 			}
 		},
+
+		/* JSON */
 		{
 			files: ['*.json', '*.json5'],
 			parser: 'jsonc-eslint-parser',
@@ -77,6 +80,8 @@ module.exports = {
 				'quotes': ['error', 'double']
 			}
 		},
+
+		/* package.json */
 		{
 			files: ['package.json'],
 			parser: 'jsonc-eslint-parser',
@@ -118,16 +123,55 @@ module.exports = {
 				]
 			}
 		},
+
+		/* TypeScript Declaration Files */
 		{
 			files: ['*.d.ts'],
 			rules: {
 				'import/no-duplicates': 'off'
 			}
 		},
+
+		/* JavaScript */
 		{
 			files: ['*.js'],
 			rules: {
 				'@typescript-eslint/no-var-requires': 'off'
+			}
+		},
+
+		/* Cypress */
+		{
+			env: {
+				'cypress/globals': true,
+			},
+			extends: ['plugin:cypress/recommended'],
+			files: '**/cypress/**',
+			rules: {
+				'@typescript-eslint/no-unsafe-assignment': 'off',
+				'@typescript-eslint/no-unsafe-call': 'off',
+				'@typescript-eslint/no-unsafe-member-access': 'off',
+				'sort-keys': 'off'
+			}
+		},
+
+		/* Jest */
+		{
+			env: {
+				'jest/globals': true
+			},
+			extends: ['plugin:jest/all', 'plugin:jest-dom/recommended'],
+			files: ['**/__tests__/**', '**/test/**'],
+			plugins: ['jest', 'testing-library'],
+			rules: {
+				'@typescript-eslint/no-unsafe-assignment': 'off',
+				'@typescript-eslint/no-unsafe-call': 'off',
+				'@typescript-eslint/no-unsafe-member-access': 'off',
+				'jest/no-disabled-tests': 'off',
+				'jest/no-hooks': 'off',
+				'jest/prefer-expect-assertions': 'off',
+				'jest/require-to-throw-message': 'off',
+				'sort-keys': 'off'
 			}
 		}
 	],
@@ -250,6 +294,7 @@ module.exports = {
 		'no-return-await': 'off',
 		'no-tabs': 'off',
 		'no-ternary': 'off',
+		'no-undefined': 'off',
 		'no-underscore-dangle': 'off',
 		'no-unmodified-loop-condition': 'off',
 		'no-unused-expressions': 'off',

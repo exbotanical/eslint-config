@@ -8,43 +8,7 @@ module.exports = {
 	],
 
 	overrides: [
-		...base.overrides,
-		{
-			env: {
-				'browser': true,
-				'cypress/globals': true,
-				'es6': true
-			},
-			extends: ['plugin:cypress/recommended'],
-			files: '**/cypress/**',
-			rules: {
-				'@typescript-eslint/no-unsafe-assignment': 'off',
-				'@typescript-eslint/no-unsafe-call': 'off',
-				'@typescript-eslint/no-unsafe-member-access': 'off',
-				'no-undefined': 'off',
-				'sort-keys': 'off'
-			}
-		},
-		{
-			env: {
-				'browser': true,
-				'es6': true,
-				'jest/globals': true
-			},
-			extends: ['plugin:jest/all', 'plugin:jest-dom/recommended'],
-			files: ['**/__tests__/**', '**/test/**'],
-			plugins: ['jest', 'testing-library'],
-			rules: {
-				'@typescript-eslint/no-unsafe-assignment': 'off',
-				'@typescript-eslint/no-unsafe-call': 'off',
-				'@typescript-eslint/no-unsafe-member-access': 'off',
-				'jest/no-disabled-tests': 'off',
-				'jest/no-hooks': 'off',
-				'jest/prefer-expect-assertions': 'off',
-				'no-undefined': 'off',
-				'sort-keys': 'off'
-			}
-		}
+		...base.overrides
 	],
 
 	plugins: ['jsx-a11y', 'react-hooks'],
@@ -53,6 +17,7 @@ module.exports = {
 		'jsx-quotes': ['error', 'prefer-double'],
 		'react-hooks/exhaustive-deps': 'warn',
 		'react-hooks/rules-of-hooks': 'error',
+		'react/forbid-component-props': 'off',
 		'react/jsx-filename-extension': [
 			2,
 			{ extensions: ['.js', '.jsx', '.ts', '.tsx'] }
@@ -66,7 +31,9 @@ module.exports = {
 		'react/jsx-no-bind': 'off',
 		'react/jsx-no-literals': 'off',
 		'react/jsx-props-no-spreading': 'off',
-		'react/react-in-jsx-scope': 'off'
+		'react/no-multi-comp': 'off',
+		'react/react-in-jsx-scope': 'off',
+		'react/require-default-props': 'off'
 	},
 
 	settings: {

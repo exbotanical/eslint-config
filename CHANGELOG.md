@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.5.0](https://github.com/MatthewZito/eslint-config/compare/v0.4.0...v0.5.0) (2022-01-02)
+
+
+### Features
+
+* consolidate cypress, jest configs in base ([2e60479](https://github.com/MatthewZito/eslint-config/commit/2e60479678e860e7b68dbc57f93499feb0f912a9))
+
+
+
+
+
 # [0.4.0](https://github.com/MatthewZito/eslint-config/compare/v0.3.0...v0.4.0) (2021-12-01)
 
 

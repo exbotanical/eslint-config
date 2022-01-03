@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.8.0](https://github.com/MatthewZito/eslint-config/compare/v0.7.0...v0.8.0) (2022-01-03)
+
+
+### Features
+
+* rm react/proptypes ([b640e67](https://github.com/MatthewZito/eslint-config/commit/b640e6729d449a176ad094b2c7d236224d32ed67))
+
+
+
+
+
 # [0.7.0](https://github.com/MatthewZito/eslint-config/compare/v0.6.0...v0.7.0) (2022-01-03)
 
 

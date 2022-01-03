@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.7.0](https://github.com/MatthewZito/eslint-config/compare/v0.6.0...v0.7.0) (2022-01-03)
+
+
+### Features
+
+* amend ts rules ([bad3bbe](https://github.com/MatthewZito/eslint-config/commit/bad3bbe8803e3087176ee86d8573c49ce15d0523))
+
+
+
+
+
 # [0.6.0](https://github.com/MatthewZito/eslint-config/compare/v0.5.0...v0.6.0) (2022-01-02)
 
 

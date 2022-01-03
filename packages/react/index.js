@@ -32,6 +32,7 @@ module.exports = {
 		'react/jsx-no-literals': 'off',
 		'react/jsx-props-no-spreading': 'off',
 		'react/no-multi-comp': 'off',
+		'react/prop-types': 'off',
 		'react/react-in-jsx-scope': 'off',
 		'react/require-default-props': 'off'
 	},

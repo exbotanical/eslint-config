@@ -29,6 +29,7 @@ module.exports = {
 				'@typescript-eslint/ban-ts-comment': 'off',
 				'@typescript-eslint/ban-ts-ignore': 'off',
 				'@typescript-eslint/consistent-indexed-object-style': 'off',
+				'@typescript-eslint/consistent-type-imports': 'off',
 				'@typescript-eslint/explicit-function-return-type': 'off',
 				'@typescript-eslint/explicit-member-accessibility': 'off',
 				'@typescript-eslint/explicit-module-boundary-types': 'off',
@@ -43,6 +44,7 @@ module.exports = {
 				'@typescript-eslint/no-floating-promises': 'off',
 				'@typescript-eslint/no-magic-numbers': 'off',
 				'@typescript-eslint/no-misused-promises': 'off',
+				'@typescript-eslint/no-non-null-assertion': 'off',
 				'@typescript-eslint/no-parameter-properties': 'off',
 				'@typescript-eslint/no-redeclare': ['error'],
 				'@typescript-eslint/no-shadow': 'off',
@@ -140,19 +142,37 @@ module.exports = {
 			}
 		},
 
+		/* Tests (general) */
+		{
+// TODO
+			files: ['**/*/*.{test,spec}.{js,jsx,ts,tsx}'],
+			rules: {
+				'sort-keys': 'off'
+			}
+		},
+		{
+
+			files: ['**/*/*.{test,spec}.{ts,tsx}'],
+			rules: {
+				'@typescript-eslint/no-unsafe-assignment': 'off',
+				'@typescript-eslint/no-unsafe-call': 'off',
+				'@typescript-eslint/no-unsafe-member-access': 'off',
+				'@typescript-eslint/unbound-method': 'off'
+			}
+		},
+
 		/* Cypress */
 		{
 			env: {
 				'cypress/globals': true,
 			},
 			extends: ['plugin:cypress/recommended'],
-			files: '**/cypress/**',
+			files: ['**/cypress/**'],
 			rules: {
 				'@typescript-eslint/no-non-null-assertion': 'off',
 				'@typescript-eslint/no-unsafe-assignment': 'off',
 				'@typescript-eslint/no-unsafe-call': 'off',
 				'@typescript-eslint/no-unsafe-member-access': 'off',
-				'sort-keys': 'off'
 			}
 		},
 
@@ -165,15 +185,12 @@ module.exports = {
 			files: ['**/__tests__/**', '**/test/**'],
 			plugins: ['jest', 'testing-library'],
 			rules: {
-				'@typescript-eslint/no-non-null-assertion': 'off',
-				'@typescript-eslint/no-unsafe-assignment': 'off',
-				'@typescript-eslint/no-unsafe-call': 'off',
-				'@typescript-eslint/no-unsafe-member-access': 'off',
 				'jest/no-disabled-tests': 'off',
 				'jest/no-hooks': 'off',
+				'jest/prefer-called-with': 'off',
 				'jest/prefer-expect-assertions': 'off',
 				'jest/require-to-throw-message': 'off',
-				'sort-keys': 'off'
+				'jest/unbound-method': 'off'
 			}
 		}
 	],

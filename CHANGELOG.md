@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.9.0](https://github.com/MatthewZito/eslint-config/compare/v0.8.0...v0.9.0) (2022-03-08)
+
+
+### Features
+
+* remove sort-keys, amend unused-vars to excl positional args ([f852700](https://github.com/MatthewZito/eslint-config/commit/f85270065d36b493b234c1ecc2dccff154990c27))
+
+
+
+
+
 # [0.8.0](https://github.com/MatthewZito/eslint-config/compare/v0.7.0...v0.8.0) (2022-01-03)
 
 

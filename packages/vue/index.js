@@ -7,9 +7,7 @@ module.exports = {
 		'@magister_zito/eslint-config-base'
 	],
 
-	ignorePatterns: [
-		'.quasar'
-	],
+	ignorePatterns: ['.quasar'],
 
 	overrides: [
 		...base.overrides,
@@ -39,6 +37,7 @@ module.exports = {
 		'vue/new-line-between-multi-line-property': 'error',
 		'vue/no-multi-spaces': 'off',
 		'vue/no-mutating-props': 'off',
+		'vue/multi-word-component-names': 'off',
 		'vue/order-in-components': [
 			'error',
 			{

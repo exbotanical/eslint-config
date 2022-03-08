@@ -51,8 +51,9 @@ module.exports = {
 				'@typescript-eslint/no-type-alias': 'off',
 				'@typescript-eslint/no-unsafe-return': 'off',
 				'@typescript-eslint/no-unused-expressions': 'off',
-				'@typescript-eslint/no-unused-vars': 'error',
+				'@typescript-eslint/no-unused-vars': ['error', { args: 'after-used' }],
 				'@typescript-eslint/no-use-before-define': 'off',
+				'@typescript-eslint/no-empty-interface': 'off',
 				'@typescript-eslint/object-curly-spacing': ['error', 'always'],
 				'@typescript-eslint/prefer-function-type': 'off',
 				'@typescript-eslint/prefer-nullish-coalescing': 'off',
@@ -144,14 +145,6 @@ module.exports = {
 
 		/* Tests (general) */
 		{
-// TODO
-			files: ['**/*/*.{test,spec}.{js,jsx,ts,tsx}'],
-			rules: {
-				'sort-keys': 'off'
-			}
-		},
-		{
-
 			files: ['**/*/*.{test,spec}.{ts,tsx}'],
 			rules: {
 				'@typescript-eslint/no-unsafe-assignment': 'off',
@@ -164,7 +157,7 @@ module.exports = {
 		/* Cypress */
 		{
 			env: {
-				'cypress/globals': true,
+				'cypress/globals': true
 			},
 			extends: ['plugin:cypress/recommended'],
 			files: ['**/cypress/**'],
@@ -172,7 +165,7 @@ module.exports = {
 				'@typescript-eslint/no-non-null-assertion': 'off',
 				'@typescript-eslint/no-unsafe-assignment': 'off',
 				'@typescript-eslint/no-unsafe-call': 'off',
-				'@typescript-eslint/no-unsafe-member-access': 'off',
+				'@typescript-eslint/no-unsafe-member-access': 'off'
 			}
 		},
 
@@ -387,6 +380,7 @@ module.exports = {
 		'require-await': 'off',
 		'require-unicode-regexp': 'off',
 		'semi': ['error', 'always'],
+		'sort-keys': 'off',
 		'sort-imports': 'off',
 		'space-before-function-paren': 'error',
 		'template-curly-spacing': 'error',

@@ -316,7 +316,7 @@ module.exports = {
 		'no-use-before-define': 'off',
 		'no-useless-escape': 'off',
 		'no-var': 'error',
-		'no-void': 'error',
+		'no-void': 'off',
 		'no-warning-comments': 'off',
 		'no-with': 'error',
 		'object-curly-spacing': ['error', 'always'],

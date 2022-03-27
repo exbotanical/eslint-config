@@ -1,6 +1,6 @@
 {
   "name": "@magister_zito/eslint-config-react",
-  "version": "0.9.0",
+  "version": "0.9.1",
   "license": "MIT",
   "author": "Matthew Zito <matthewtzito@gmail.com> (goldmund)",
   "files": [
@@ -17,7 +17,7 @@
     "access": "public"
   },
   "dependencies": {
-    "@magister_zito/eslint-config-base": "^0.9.0",
+    "@magister_zito/eslint-config-base": "^0.9.1",
     "eslint-plugin-cypress": "2.12.1",
     "eslint-plugin-jest": "25.2.2",
     "eslint-plugin-jest-dom": "3.9.2",

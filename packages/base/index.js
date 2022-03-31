@@ -280,6 +280,7 @@ module.exports = {
 		'multiline-comment-style': 'off',
 		'new-cap': 'off',
 		'no-alert': 'warn',
+		'no-bitwise': 'off',
 		'no-case-declarations': 'error',
 		'no-cond-assign': ['error', 'always'],
 		'no-console': ['error', { allow: ['warn', 'error'] }],
@@ -382,7 +383,7 @@ module.exports = {
 		'semi': ['error', 'always'],
 		'sort-keys': 'off',
 		'sort-imports': 'off',
-		'space-before-function-paren': 'error',
+		'space-before-function-paren': 'off',
 		'template-curly-spacing': 'error',
 		'vars-on-top': 'error'
 	},

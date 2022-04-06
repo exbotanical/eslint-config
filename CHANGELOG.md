@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.9.3](https://github.com/MatthewZito/eslint-config/compare/v0.9.2...v0.9.3) (2022-04-06)
+
+**Note:** Version bump only for package @magister_zito/eslint-config-collection
+
+
+
+
+
 ## [0.9.2](https://github.com/MatthewZito/eslint-config/compare/v0.9.1...v0.9.2) (2022-03-31)
 
 **Note:** Version bump only for package @magister_zito/eslint-config-collection

@@ -183,7 +183,8 @@ module.exports = {
 				'jest/prefer-called-with': 'off',
 				'jest/prefer-expect-assertions': 'off',
 				'jest/require-to-throw-message': 'off',
-				'jest/unbound-method': 'off'
+				'jest/unbound-method': 'off',
+				'jest/prefer-snapshot-hint': 'off'
 			}
 		}
 	],
@@ -249,13 +250,13 @@ module.exports = {
 						position: 'before'
 					},
 					{
-						group: 'external',
-						pattern: '{@**}',
+						group: 'internal',
+						pattern: '@/**',
 						position: 'before'
 					},
 					{
 						group: 'internal',
-						pattern: '{@/**}',
+						pattern: '@@/**',
 						position: 'before'
 					}
 				]

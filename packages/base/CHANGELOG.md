@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.11.0](https://github.com/MatthewZito/eslint-config/compare/v0.10.0...v0.11.0) (2022-04-15)
+
+
+### Features
+
+* switch from tabs to spaces, semi to none ([3136d7a](https://github.com/MatthewZito/eslint-config/commit/3136d7aec8c9e4acf72f3518ae7f5cb789a240c1))
+
+
+
+
+
 # [0.10.0](https://github.com/MatthewZito/eslint-config/compare/v0.9.3...v0.10.0) (2022-04-06)
 
 ### Features

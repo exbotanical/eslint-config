@@ -11,8 +11,8 @@
     "eslint": ">=8.0"
   },
   "dependencies": {
-    "@magister_zito/eslint-config-react": "workspace:*",
-    "@magister_zito/eslint-config-vue": "workspace:*",
+    "@magister_zito/eslint-config-react": "^0.10.0",
+    "@magister_zito/eslint-config-vue": "^0.10.0",
     "@typescript-eslint/eslint-plugin": "^5.18.0",
     "@typescript-eslint/parser": "^5.18.0",
     "eslint-config-standard": "^16.0.3",

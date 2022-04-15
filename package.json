@@ -2,19 +2,20 @@
   "name": "@magister_zito/eslint-config-collection",
   "version": "0.0.1",
   "description": "Shared eslint configurations",
-  "license": "MIT",
-  "author": "Matthew Zito <matthewtzito@gmail.com> (goldmund)",
-  "main": "index.js",
-  "private": true,
   "keywords": [
     "eslint",
     "eslint-config"
   ],
+  "license": "MIT",
+  "author": "Matthew Zito <matthewtzito@gmail.com> (goldmund)",
+  "main": "index.js",
+  "private": true,
   "scripts": {
     "format": "prettier --write .",
     "lint": "eslint . --fix",
     "preinstall": "npx only-allow pnpm",
-    "release": "pnpm lint && pnpm format && lerna publish --conventional-commits"
+    "prep": "pnpm lint && pnpm format && git add .",
+    "release": "lerna publish --conventional-commits"
   },
   "devDependencies": {
     "@magister_zito/eslint-config": "*",

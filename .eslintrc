@@ -1,3 +1,3 @@
 {
-  "extends": ["@magister_zito/eslint-config", "prettier"]
+  "extends": ["@magister_zito", "prettier"]
 }

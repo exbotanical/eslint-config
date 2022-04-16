@@ -21,6 +21,7 @@ module.exports = {
         'sort-keys': 'off'
       }
     },
+
     /* Cypress */
     {
       env: {

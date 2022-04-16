@@ -5,6 +5,7 @@ importers:
   .:
     specifiers:
       '@magister_zito/eslint-config': '*'
+      '@magister_zito/prettier-config': ^0.0.1
       eslint: ^8.3.0
       eslint-config-prettier: 8.3.0
       lerna: ^4.0.0
@@ -12,6 +13,7 @@ importers:
       typescript: ^4.5.2
     devDependencies:
       '@magister_zito/eslint-config': link:packages/all
+      '@magister_zito/prettier-config': 0.0.1
       eslint: 8.3.0
       eslint-config-prettier: 8.3.0_eslint@8.3.0
       lerna: 4.0.0
@@ -941,6 +943,11 @@ packages:
     dependencies:
       npmlog: 4.1.2
       write-file-atomic: 3.0.3
+    dev: true
+
+  /@magister_zito/prettier-config/0.0.1:
+    resolution: {integrity: sha512-FvykKB8WGc2SEy6KXOnjO2KbqFixsqyhxJRggMSeSYMeDV91tOivUODheKAF5N4a2blcnRxiFUdfTbMPFyrDlQ==}
+    requiresBuild: true
     dev: true
 
   /@nodelib/fs.scandir/2.1.5:

@@ -34,10 +34,14 @@ const rules = {
   '@typescript-eslint/restrict-template-expressions': 'off',
   '@typescript-eslint/semi': ['error', 'never'],
   '@typescript-eslint/strict-boolean-expressions': 'off',
+  '@typescript-eslint/member-delimiter-style': 'off',
+  '@typescript-eslint/space-before-function-paren': 'off',
+  '@typescript-eslint/comma-dangle': ['error', 'always'],
   'indent': ['error', 2],
   'no-redeclare': 'off',
   'no-unused-vars': 'off',
   'object-curly-spacing': 'off',
+  'comma-dangle': 'off',
   'quotes': 'off',
 }
 
@@ -51,7 +55,11 @@ module.exports = {
   overrides: [
     /* TypeScript and tsx */
     {
-      extends: ['plugin:import/typescript', 'plugin:@typescript-eslint/all'],
+      extends: [
+        '@magister_zito/eslint-config-base',
+        'plugin:import/typescript',
+        'plugin:@typescript-eslint/all',
+      ],
       files: ['**/*.{ts,tsx}'],
       parser: '@typescript-eslint/parser',
       parserOptions: {

@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.14.0](https://github.com/MatthewZito/eslint-config/compare/v0.13.0...v0.14.0) (2022-04-19)
+
+
+### Features
+
+* **base,typescript:** update configurations ([d8c2a63](https://github.com/MatthewZito/eslint-config/commit/d8c2a6320fc4fe0e4ec104f647f02a018944b2c2))
+
+
+
+
+
 # [0.13.0](https://github.com/MatthewZito/eslint-config/compare/v0.12.0...v0.13.0) (2022-04-19)
 
 

@@ -1,6 +1,6 @@
 {
   "name": "@magister_zito/eslint-config-javascript",
-  "version": "0.13.0",
+  "version": "0.14.0",
   "license": "MIT",
   "author": "Matthew Zito <matthewtzito@gmail.com> (goldmund)",
   "files": [
@@ -17,7 +17,7 @@
     "eslint": ">=7.4.0"
   },
   "dependencies": {
-    "@magister_zito/eslint-config-base": "^0.13.0"
+    "@magister_zito/eslint-config-base": "^0.14.0"
   },
   "devDependencies": {
     "eslint": "^8.3.0"

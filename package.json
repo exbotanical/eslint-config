@@ -19,7 +19,7 @@
   },
   "devDependencies": {
     "@magister_zito/eslint-config": "*",
-    "@magister_zito/prettier-config": "^0.0.1",
+    "@magister_zito/prettier-config": "^0.0.3",
     "eslint": "^8.3.0",
     "eslint-config-prettier": "8.3.0",
     "lerna": "^4.0.0",

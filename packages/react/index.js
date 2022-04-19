@@ -2,14 +2,14 @@ module.exports = {
   extends: [
     '@magister_zito/eslint-config-typescript',
     'plugin:react/all',
-    'plugin:jsx-a11y/strict'
+    'plugin:jsx-a11y/strict',
   ],
 
   overrides: [
     /* Cypress */
     {
       env: {
-        'cypress/globals': true
+        'cypress/globals': true,
       },
       extends: ['plugin:cypress/recommended'],
       files: ['**/cypress/**'],
@@ -17,9 +17,9 @@ module.exports = {
         '@typescript-eslint/no-non-null-assertion': 'off',
         '@typescript-eslint/no-unsafe-assignment': 'off',
         '@typescript-eslint/no-unsafe-call': 'off',
-        '@typescript-eslint/no-unsafe-member-access': 'off'
-      }
-    }
+        '@typescript-eslint/no-unsafe-member-access': 'off',
+      },
+    },
   ],
 
   plugins: ['jsx-a11y', 'react-hooks'],
@@ -31,12 +31,12 @@ module.exports = {
     'react/forbid-component-props': 'off',
     'react/jsx-filename-extension': [
       2,
-      { extensions: ['.js', '.jsx', '.ts', '.tsx'] }
+      { extensions: ['.js', '.jsx', '.ts', '.tsx'] },
     ],
     'react/jsx-indent': [
       2,
       'tab',
-      { checkAttributes: true, indentLogicalExpressions: true }
+      { checkAttributes: true, indentLogicalExpressions: true },
     ],
     'react/jsx-max-depth': 'off',
     'react/jsx-no-bind': 'off',
@@ -45,12 +45,12 @@ module.exports = {
     'react/no-multi-comp': 'off',
     'react/prop-types': 'off',
     'react/react-in-jsx-scope': 'off',
-    'react/require-default-props': 'off'
+    'react/require-default-props': 'off',
   },
 
   settings: {
     react: {
-      version: '17.0'
-    }
-  }
+      version: '17.0',
+    },
+  },
 }

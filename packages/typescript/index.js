@@ -38,15 +38,15 @@ const rules = {
   'no-redeclare': 'off',
   'no-unused-vars': 'off',
   'object-curly-spacing': 'off',
-  'quotes': 'off'
+  'quotes': 'off',
 }
 
 module.exports = {
   extends: ['@magister_zito/eslint-config-base'],
   settings: {
     'import/resolver': {
-      node: { extensions: ['.js', '.jsx', '.mjs', '.ts', '.tsx', '.d.ts'] }
-    }
+      node: { extensions: ['.js', '.jsx', '.mjs', '.ts', '.tsx', '.d.ts'] },
+    },
   },
   overrides: [
     /* TypeScript and tsx */
@@ -55,9 +55,9 @@ module.exports = {
       files: ['**/*.{ts,tsx}'],
       parser: '@typescript-eslint/parser',
       parserOptions: {
-        project: 'tsconfig.json'
+        project: 'tsconfig.json',
       },
-      rules
+      rules,
     },
 
     /* Tests (general) */
@@ -68,8 +68,8 @@ module.exports = {
         '@typescript-eslint/no-unsafe-assignment': 'off',
         '@typescript-eslint/no-unsafe-call': 'off',
         '@typescript-eslint/no-unsafe-member-access': 'off',
-        '@typescript-eslint/unbound-method': 'off'
-      }
-    }
-  ]
+        '@typescript-eslint/unbound-method': 'off',
+      },
+    },
+  ],
 }

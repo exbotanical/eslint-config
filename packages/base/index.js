@@ -2,7 +2,7 @@ module.exports = {
   env: {
     browser: true,
     es6: true,
-    node: true
+    node: true,
   },
 
   plugins: ['html'],
@@ -14,7 +14,7 @@ module.exports = {
     'plugin:import/recommended',
     'plugin:eslint-comments/recommended',
     'plugin:jsonc/recommended-with-jsonc',
-    'plugin:yml/standard'
+    'plugin:yml/standard',
   ],
 
   ignorePatterns: [
@@ -30,7 +30,7 @@ module.exports = {
     'yarn.lock',
     '__snapshots__',
     '!.github',
-    '!.vscode'
+    '!.vscode',
   ],
 
   overrides: [
@@ -41,8 +41,8 @@ module.exports = {
       rules: {
         'spaced-comment': 'off',
         'yml/quotes': ['error', { prefer: 'single', avoidEscape: false }],
-        'yml/no-empty-document': 'off'
-      }
+        'yml/no-empty-document': 'off',
+      },
     },
 
     /* JSON */
@@ -53,8 +53,8 @@ module.exports = {
         'comma-dangle': ['error', 'never'],
         'max-lines': 'off',
         'quote-props': ['error', 'always'],
-        'quotes': ['error', 'double']
-      }
+        'quotes': ['error', 'double'],
+      },
     },
 
     /* package.json */
@@ -88,32 +88,32 @@ module.exports = {
               'peerDependenciesMeta',
               'dependencies',
               'devDependencies',
-              'eslintConfig'
+              'eslintConfig',
             ],
-            pathPattern: '^$'
+            pathPattern: '^$',
           },
           {
             order: { type: 'asc' },
-            pathPattern: '^(?:dev|peer|optional|bundled)?[Dd]ependencies$'
-          }
-        ]
-      }
+            pathPattern: '^(?:dev|peer|optional|bundled)?[Dd]ependencies$',
+          },
+        ],
+      },
     },
 
     /* TypeScript Declaration Files */
     {
       files: ['*.d.ts'],
       rules: {
-        'import/no-duplicates': 'off'
-      }
+        'import/no-duplicates': 'off',
+      },
     },
 
     /* JavaScript */
     {
       files: ['*.js'],
       rules: {
-        '@typescript-eslint/no-var-requires': 'off'
-      }
+        '@typescript-eslint/no-var-requires': 'off',
+      },
     },
 
     {
@@ -130,14 +130,14 @@ module.exports = {
         'no-restricted-imports': 'off',
         'no-undef': 'off',
         'no-unused-expressions': 'off',
-        'no-unused-vars': 'off'
-      }
+        'no-unused-vars': 'off',
+      },
     },
 
     /* Jest */
     {
       env: {
-        'jest/globals': true
+        'jest/globals': true,
       },
       extends: ['plugin:jest/all', 'plugin:jest-dom/recommended'],
       files: ['**/__tests__/**', '**/test/**'],
@@ -149,9 +149,9 @@ module.exports = {
         'jest/prefer-expect-assertions': 'off',
         'jest/require-to-throw-message': 'off',
         'jest/unbound-method': 'off',
-        'jest/prefer-snapshot-hint': 'off'
-      }
-    }
+        'jest/prefer-snapshot-hint': 'off',
+      },
+    },
   ],
 
   /* Base Rules */
@@ -166,7 +166,7 @@ module.exports = {
     'camelcase': 'off',
     'capitalized-comments': 'off',
     'class-methods-use-this': 'off',
-    'comma-dangle': ['error', 'never'],
+    'comma-dangle': ['error', 'always'],
     'comma-spacing': ['error', { after: true, before: false }],
     'comma-style': ['error', 'last'],
     'complexity': ['off', 11],
@@ -186,7 +186,7 @@ module.exports = {
       {
         'alphabetize': {
           caseInsensitive: true,
-          order: 'asc'
+          order: 'asc',
         },
         'groups': [
           'builtin',
@@ -196,44 +196,44 @@ module.exports = {
           'sibling',
           'index',
           'object',
-          'type'
+          'type',
         ],
         'newlines-between': 'always',
         'pathGroups': [
           {
             group: 'external',
             pattern: '{vue,@vue/**}',
-            position: 'before'
+            position: 'before',
           },
           {
             group: 'external',
             pattern: '{react,@react/**}',
-            position: 'before'
+            position: 'before',
           },
           {
             group: 'internal',
             pattern: '@/**',
-            position: 'before'
+            position: 'before',
           },
           {
             group: 'internal',
             pattern: '@@/**',
-            position: 'before'
-          }
-        ]
-      }
+            position: 'before',
+          },
+        ],
+      },
     ],
     'indent': [
       'error',
       2,
-      { SwitchCase: 1, VariableDeclarator: 1, outerIIFEBody: 1 }
+      { SwitchCase: 1, VariableDeclarator: 1, outerIIFEBody: 1 },
     ],
     'key-spacing': ['error', { afterColon: true, beforeColon: false }],
     'line-comment-position': 'off',
     'max-len': 'off',
     'max-lines': [
       'error',
-      { max: 500, skipBlankLines: true, skipComments: true }
+      { max: 500, skipBlankLines: true, skipComments: true },
     ],
     'max-lines-per-function': 'off',
     'max-params': 'off',
@@ -267,7 +267,7 @@ module.exports = {
       'DebuggerStatement',
       'ForInStatement',
       'LabeledStatement',
-      'WithStatement'
+      'WithStatement',
     ],
     'no-return-assign': 'off',
     'no-return-await': 'off',
@@ -290,8 +290,8 @@ module.exports = {
       'always',
       {
         avoidQuotes: true,
-        ignoreConstructors: false
-      }
+        ignoreConstructors: false,
+      },
     ],
     'one-var': ['error', 'never'],
     'operator-linebreak': ['error', 'after'],
@@ -304,37 +304,37 @@ module.exports = {
       { blankLine: 'always', next: 'function', prev: 'function' },
       { blankLine: 'always', next: 'let', prev: 'const' },
       { blankLine: 'always', next: 'if', prev: 'const' },
-      { blankLine: 'always', next: 'const', prev: 'let' }
+      { blankLine: 'always', next: 'const', prev: 'let' },
     ],
     'prefer-arrow-callback': [
       'error',
       {
         allowNamedFunctions: false,
-        allowUnboundThis: true
-      }
+        allowUnboundThis: true,
+      },
     ],
     'prefer-const': [
       'error',
       {
         destructuring: 'any',
-        ignoreReadBeforeAssign: true
-      }
+        ignoreReadBeforeAssign: true,
+      },
     ],
     'prefer-destructuring': [
       'error',
       {
         AssignmentExpression: {
           array: false,
-          object: true
+          object: true,
         },
         VariableDeclarator: {
           array: false,
-          object: false
-        }
+          object: false,
+        },
       },
       {
-        enforceForRenamedProperties: false
-      }
+        enforceForRenamedProperties: false,
+      },
     ],
     'prefer-named-capture-group': 'off',
     'prefer-rest-params': 'error',
@@ -349,12 +349,12 @@ module.exports = {
     'sort-imports': 'off',
     'space-before-function-paren': 'off',
     'template-curly-spacing': 'error',
-    'vars-on-top': 'error'
+    'vars-on-top': 'error',
   },
 
   settings: {
     'import/resolver': {
-      node: { extensions: ['.js', '.mjs', '.ts', '.d.ts'] }
-    }
-  }
+      node: { extensions: ['.js', '.mjs', '.ts', '.d.ts'] },
+    },
+  },
 }

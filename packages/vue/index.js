@@ -2,7 +2,7 @@ module.exports = {
   extends: [
     'plugin:vue/vue3-recommended',
     'plugin:vuejs-accessibility/recommended',
-    '@magister_zito/eslint-config-typescript'
+    '@magister_zito/eslint-config-typescript',
   ],
 
   ignorePatterns: ['.quasar'],
@@ -12,20 +12,20 @@ module.exports = {
       files: ['*.vue', '*.tsx'],
       parser: 'vue-eslint-parser',
       parserOptions: {
-        parser: '@typescript-eslint/parser'
+        parser: '@typescript-eslint/parser',
       },
       rules: {
         '@typescript-eslint/no-unused-vars': 'off',
         'no-undef': 'off',
         'no-unused-vars': 'off',
-        'sort-keys': 'off'
-      }
+        'sort-keys': 'off',
+      },
     },
 
     /* Cypress */
     {
       env: {
-        'cypress/globals': true
+        'cypress/globals': true,
       },
       extends: ['plugin:cypress/recommended'],
       files: ['**/cypress/**'],
@@ -33,9 +33,9 @@ module.exports = {
         '@typescript-eslint/no-non-null-assertion': 'off',
         '@typescript-eslint/no-unsafe-assignment': 'off',
         '@typescript-eslint/no-unsafe-call': 'off',
-        '@typescript-eslint/no-unsafe-member-access': 'off'
-      }
-    }
+        '@typescript-eslint/no-unsafe-member-access': 'off',
+      },
+    },
   ],
 
   rules: {
@@ -73,11 +73,11 @@ module.exports = {
           'ROUTER_GUARDS',
           'LIFECYCLE_HOOKS',
           ['template', 'render'],
-          'renderError'
-        ]
-      }
+          'renderError',
+        ],
+      },
     ],
     'vue/require-default-prop': 'off',
-    'vue/singleline-html-element-content-newline': 'off'
-  }
+    'vue/singleline-html-element-content-newline': 'off',
+  },
 }

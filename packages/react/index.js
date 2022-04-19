@@ -35,7 +35,7 @@ module.exports = {
     ],
     'react/jsx-indent': [
       2,
-      'tab',
+      2,
       { checkAttributes: true, indentLogicalExpressions: true },
     ],
     'react/jsx-max-depth': 'off',

@@ -34,7 +34,7 @@ const rules = {
   '@typescript-eslint/restrict-template-expressions': 'off',
   '@typescript-eslint/semi': ['error', 'never'],
   '@typescript-eslint/strict-boolean-expressions': 'off',
-  'indent': ['error', 'tab'],
+  'indent': ['error', 2],
   'no-redeclare': 'off',
   'no-unused-vars': 'off',
   'object-curly-spacing': 'off',

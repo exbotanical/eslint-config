@@ -226,7 +226,7 @@ module.exports = {
     'indent': [
       'error',
       2,
-      { SwitchCase: 1, VariableDeclarator: 1, outerIIFEBody: 1 },
+      { SwitchCase: 1, VariableDeclarator: 2, outerIIFEBody: 1 },
     ],
     'key-spacing': ['error', { afterColon: true, beforeColon: false }],
     'line-comment-position': 'off',

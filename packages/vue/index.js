@@ -41,7 +41,16 @@ module.exports = {
   rules: {
     'vue/html-closing-bracket-newline': 'off',
     'vue/html-closing-bracket-spacing': 'off',
-    'vue/html-indent': 'off',
+    'vue/html-indent': [
+      'error',
+      2,
+      {
+        attribute: 1,
+        baseIndent: 1,
+        closeBracket: 0,
+        alignAttributesVertically: true,
+      },
+    ],
     'vue/html-self-closing': 'off',
     'vue/max-attributes-per-line': ['warn', { singleline: 5 }],
     'vue/multiline-html-element-content-newline': 'off',

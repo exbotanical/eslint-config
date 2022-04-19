@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.12.0](https://github.com/MatthewZito/eslint-config/compare/v0.11.0...v0.12.0) (2022-04-19)
+
+
+### Features
+
+* adopt trailing commas ([4a026fc](https://github.com/MatthewZito/eslint-config/commit/4a026fcb0b101d3fba232fb008bef64b472a307c))
+
+
+
+
+
 # [0.11.0](https://github.com/MatthewZito/eslint-config/compare/v0.10.0...v0.11.0) (2022-04-15)
 
 

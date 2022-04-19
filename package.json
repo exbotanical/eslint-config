@@ -13,7 +13,6 @@
   "scripts": {
     "format": "prettier . --write --ignore-path node_modules/@magister_zito/prettier-config/.prettierignore",
     "lint": "eslint . --fix",
-    "preinstall": "npx only-allow pnpm",
     "prep": "pnpm lint && pnpm format && git add .",
     "release": "lerna publish --conventional-commits"
   },

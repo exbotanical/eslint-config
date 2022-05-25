@@ -7,9 +7,9 @@ Extensible eslint configurations for the punctilious developer.
 - `all` Aggregate of Vue, React, and Typescript-specific rulesets.
 - `base` Base configuration with rulesets for markdown, yaml, json, package.json, and code.
 - `javascript` Extension of `base` for JavaScript codebases.
-- `react` React TypeScript rulesets. Additionally includes Cypress, Jest, and accessibility rulesets.
+- `react` React TypeScript rulesets. Additionally includes Cypress and accessibility rulesets.
 - `typescript` TypeScript rulesets.
-- `vue` Vue TypeScript rulesets. Additionally includes Cypress, Jest, and accessibility rulesets.
+- `vue` Vue TypeScript rulesets. Additionally includes Cypress and accessibility rulesets.
 
 ## Usage
 

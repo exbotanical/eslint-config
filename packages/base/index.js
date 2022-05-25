@@ -133,25 +133,6 @@ module.exports = {
         'no-unused-vars': 'off',
       },
     },
-
-    /* Jest */
-    {
-      env: {
-        'jest/globals': true,
-      },
-      extends: ['plugin:jest/all', 'plugin:jest-dom/recommended'],
-      files: ['**/__tests__/**', '**/test/**'],
-      plugins: ['jest', 'testing-library'],
-      rules: {
-        'jest/no-disabled-tests': 'off',
-        'jest/no-hooks': 'off',
-        'jest/prefer-called-with': 'off',
-        'jest/prefer-expect-assertions': 'off',
-        'jest/require-to-throw-message': 'off',
-        'jest/unbound-method': 'off',
-        'jest/prefer-snapshot-hint': 'off',
-      },
-    },
   ],
 
   /* Base Rules */

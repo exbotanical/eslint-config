@@ -22,8 +22,8 @@ importers:
 
   packages/all:
     specifiers:
-      '@magister_zito/eslint-config-react': ^0.10.0
-      '@magister_zito/eslint-config-vue': ^0.10.0
+      '@magister_zito/eslint-config-react': ^0.14.1
+      '@magister_zito/eslint-config-vue': ^0.14.1
       '@typescript-eslint/eslint-plugin': ^5.18.0
       '@typescript-eslint/parser': ^5.18.0
       eslint: ^8.12.0
@@ -88,7 +88,7 @@ importers:
 
   packages/javascript:
     specifiers:
-      '@magister_zito/eslint-config-base': ^0.10.0
+      '@magister_zito/eslint-config-base': ^0.14.1
       eslint: ^8.3.0
     dependencies:
       '@magister_zito/eslint-config-base': link:../base
@@ -97,7 +97,7 @@ importers:
 
   packages/react:
     specifiers:
-      '@magister_zito/eslint-config-typescript': ^0.14.0
+      '@magister_zito/eslint-config-typescript': ^0.14.1
       eslint: ^8.12.0
       eslint-plugin-cypress: 2.12.1
       eslint-plugin-jsx-a11y: 6.5.1
@@ -118,7 +118,7 @@ importers:
 
   packages/typescript:
     specifiers:
-      '@magister_zito/eslint-config-base': ^0.10.0
+      '@magister_zito/eslint-config-base': ^0.14.1
       '@typescript-eslint/eslint-plugin': ^5.4.0
       '@typescript-eslint/parser': ^5.4.0
       eslint: ^8.3.0
@@ -131,8 +131,8 @@ importers:
 
   packages/vue:
     specifiers:
-      '@magister_zito/eslint-config-base': ^0.14.0
-      '@magister_zito/eslint-config-typescript': ^0.14.0
+      '@magister_zito/eslint-config-base': ^0.14.1
+      '@magister_zito/eslint-config-typescript': ^0.14.1
       eslint: ^8.12.0
       eslint-plugin-cypress: 2.12.1
       eslint-plugin-vue: 8.6.0

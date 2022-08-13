@@ -7,7 +7,7 @@
     "eslint-config"
   ],
   "license": "MIT",
-  "author": "Matthew Zito <matthewtzito@gmail.com> (goldmund)",
+  "author": "Matthew Zito <exbotanical@protonmail.com>",
   "main": "index.js",
   "private": true,
   "scripts": {

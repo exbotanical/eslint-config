@@ -5,10 +5,6 @@ module.exports = {
     node: true,
   },
 
-  plugins: ['html'],
-
-  reportUnusedDisableDirectives: true,
-
   extends: [
     'eslint:all',
     'plugin:import/recommended',
@@ -40,8 +36,8 @@ module.exports = {
       parser: 'yaml-eslint-parser',
       rules: {
         'spaced-comment': 'off',
-        'yml/quotes': ['error', { prefer: 'single', avoidEscape: false }],
         'yml/no-empty-document': 'off',
+        'yml/quotes': ['error', { avoidEscape: false, prefer: 'single' }],
       },
     },
 
@@ -135,6 +131,10 @@ module.exports = {
     },
   ],
 
+  plugins: ['html'],
+
+  reportUnusedDisableDirectives: true,
+
   /* Base Rules */
   rules: {
     'array-bracket-spacing': ['error', 'never'],
@@ -157,10 +157,10 @@ module.exports = {
     'dot-location': ['error', 'property'],
     'eqeqeq': 'off',
     'eslint-comments/disable-enable-pair': 'off',
-    'function-call-argument-newline': ['error', 'consistent'],
     'func-call-spacing': ['off', 'never'],
-    'function-paren-newline': ['error', 'consistent'],
     'func-style': ['error', 'declaration', { allowArrowFunctions: true }],
+    'function-call-argument-newline': ['error', 'consistent'],
+    'function-paren-newline': ['error', 'consistent'],
     'generator-star-spacing': 'off',
     'id-length': 'off',
     'implicit-arrow-linebreak': 'off',
@@ -239,8 +239,8 @@ module.exports = {
     'no-implicit-coercion': 'off',
     'no-inline-comments': 'off',
     'no-magic-numbers': 'off',
-    'no-multi-assign': 'off',
     'no-mixed-spaces-and-tabs': 'error',
+    'no-multi-assign': 'off',
     'no-multi-spaces': 'error',
     'no-multi-str': 'error',
     'no-multiple-empty-lines': ['error', { max: 1, maxEOF: 0 }],
@@ -331,8 +331,8 @@ module.exports = {
     'require-await': 'off',
     'require-unicode-regexp': 'off',
     'semi': ['error', 'never'],
-    'sort-keys': 'off',
     'sort-imports': 'off',
+    'sort-keys': 'off',
     'space-before-function-paren': 'off',
     'template-curly-spacing': 'error',
     'vars-on-top': 'error',

@@ -45,20 +45,20 @@ module.exports = {
       'error',
       2,
       {
+        alignAttributesVertically: true,
         attribute: 1,
         baseIndent: 1,
         closeBracket: 0,
-        alignAttributesVertically: true,
       },
     ],
     'vue/html-self-closing': 'off',
     'vue/max-attributes-per-line': ['warn', { singleline: 5 }],
+    'vue/multi-word-component-names': 'off',
     'vue/multiline-html-element-content-newline': 'off',
     'vue/mustache-interpolation-spacing': 'off',
     'vue/new-line-between-multi-line-property': 'error',
     'vue/no-multi-spaces': 'off',
     'vue/no-mutating-props': 'off',
-    'vue/multi-word-component-names': 'off',
     'vue/order-in-components': [
       'error',
       {

@@ -1,6 +1,6 @@
 {
   "name": "@magister_zito/eslint-config-vue",
-  "version": "0.14.1",
+  "version": "0.14.2",
   "license": "MIT",
   "author": "Matthew Zito <matthewtzito@gmail.com> (goldmund)",
   "files": [
@@ -14,8 +14,8 @@
     "access": "public"
   },
   "dependencies": {
-    "@magister_zito/eslint-config-base": "^0.14.1",
-    "@magister_zito/eslint-config-typescript": "^0.14.1",
+    "@magister_zito/eslint-config-base": "^0.14.2",
+    "@magister_zito/eslint-config-typescript": "^0.14.2",
     "eslint-plugin-cypress": "2.12.1",
     "eslint-plugin-vue": "8.6.0",
     "eslint-plugin-vuejs-accessibility": "1.1.1"

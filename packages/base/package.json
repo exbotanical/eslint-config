@@ -1,6 +1,6 @@
 {
   "name": "@magister_zito/eslint-config-base",
-  "version": "0.14.2",
+  "version": "0.15.0",
   "license": "MIT",
   "author": "Matthew Zito <matthewtzito@gmail.com> (goldmund)",
   "files": [

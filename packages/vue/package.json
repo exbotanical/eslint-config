@@ -8,7 +8,7 @@
   ],
   "main": "index.js",
   "peerDependencies": {
-    "eslint": ">=7.4.0"
+    "eslint": ">=8.0"
   },
   "publishConfig": {
     "access": "public"
@@ -17,12 +17,12 @@
     "@magister_zito/eslint-config-base": "^0.14.2",
     "@magister_zito/eslint-config-typescript": "^0.14.2",
     "eslint-plugin-cypress": "2.12.1",
-    "eslint-plugin-vue": "8.6.0",
-    "eslint-plugin-vuejs-accessibility": "1.1.1"
+    "eslint-plugin-vue": "9.8.0",
+    "eslint-plugin-vuejs-accessibility": "2.0.0"
   },
   "devDependencies": {
-    "eslint": "^8.12.0",
-    "typescript": "^4.6.3"
+    "eslint": "^8.31.0",
+    "typescript": "^4.9.4"
   },
   "gitHead": "f916ecc123e9b3efb6f9dc5fac7f0ed5191e57bd"
 }

@@ -14,13 +14,13 @@
     "access": "public"
   },
   "peerDependencies": {
-    "eslint": ">=7.4.0"
+    "eslint": ">=8.0"
   },
   "dependencies": {
     "@magister_zito/eslint-config-base": "^0.14.2"
   },
   "devDependencies": {
-    "eslint": "^8.3.0"
+    "eslint": "^8.31.0"
   },
   "gitHead": "f916ecc123e9b3efb6f9dc5fac7f0ed5191e57bd"
 }

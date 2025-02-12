@@ -1,6 +1,6 @@
 {
   "name": "@magister_zito/eslint-config-react",
-  "version": "0.15.2",
+  "version": "0.15.3",
   "license": "MIT",
   "author": "Matthew Zito <matthewtzito@gmail.com> (goldmund)",
   "files": [

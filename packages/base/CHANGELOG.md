@@ -5,74 +5,41 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 # [0.15.0](https://github.com/MatthewZito/eslint-config/compare/v0.14.2...v0.15.0) (2023-01-10)
 
-
 ### Features
 
-* upgrade all package deps ([78f4706](https://github.com/MatthewZito/eslint-config/commit/78f47061a451cecee75436bc916ebce7a6f11b94))
-
-
-
-
+- upgrade all package deps ([78f4706](https://github.com/MatthewZito/eslint-config/commit/78f47061a451cecee75436bc916ebce7a6f11b94))
 
 ## [0.14.2](https://github.com/MatthewZito/eslint-config/compare/v0.14.1...v0.14.2) (2023-01-08)
 
 **Note:** Version bump only for package @magister_zito/eslint-config-base
 
-
-
-
-
 ## [0.14.1](https://github.com/exbotanical/eslint-config/compare/v0.14.0...v0.14.1) (2022-05-25)
 
 **Note:** Version bump only for package @magister_zito/eslint-config-base
 
-
-
-
-
 # [0.14.0](https://github.com/exbotanical/eslint-config/compare/v0.13.0...v0.14.0) (2022-04-19)
-
 
 ### Features
 
-* **base,typescript:** update configurations ([d8c2a63](https://github.com/exbotanical/eslint-config/commit/d8c2a6320fc4fe0e4ec104f647f02a018944b2c2))
-
-
-
-
+- **base,typescript:** update configurations ([d8c2a63](https://github.com/exbotanical/eslint-config/commit/d8c2a6320fc4fe0e4ec104f647f02a018944b2c2))
 
 # [0.13.0](https://github.com/exbotanical/eslint-config/compare/v0.12.0...v0.13.0) (2022-04-19)
 
-
 ### Features
 
-* fix indent rules ([284bdd9](https://github.com/exbotanical/eslint-config/commit/284bdd98935fa63c48ffef8415621bcbed1d07f7))
-
-
-
-
+- fix indent rules ([284bdd9](https://github.com/exbotanical/eslint-config/commit/284bdd98935fa63c48ffef8415621bcbed1d07f7))
 
 # [0.12.0](https://github.com/exbotanical/eslint-config/compare/v0.11.0...v0.12.0) (2022-04-19)
 
-
 ### Features
 
-* adopt trailing commas ([4a026fc](https://github.com/exbotanical/eslint-config/commit/4a026fcb0b101d3fba232fb008bef64b472a307c))
-
-
-
-
+- adopt trailing commas ([4a026fc](https://github.com/exbotanical/eslint-config/commit/4a026fcb0b101d3fba232fb008bef64b472a307c))
 
 # [0.11.0](https://github.com/exbotanical/eslint-config/compare/v0.10.0...v0.11.0) (2022-04-15)
 
-
 ### Features
 
-* switch from tabs to spaces, semi to none ([3136d7a](https://github.com/exbotanical/eslint-config/commit/3136d7aec8c9e4acf72f3518ae7f5cb789a240c1))
-
-
-
-
+- switch from tabs to spaces, semi to none ([3136d7a](https://github.com/exbotanical/eslint-config/commit/3136d7aec8c9e4acf72f3518ae7f5cb789a240c1))
 
 # [0.10.0](https://github.com/exbotanical/eslint-config/compare/v0.9.3...v0.10.0) (2022-04-06)
 

@@ -24,7 +24,7 @@ In .eslintrc,
 Base
 
 ```bash
-pnpm add -D @magister_zito/eslint-config-base
+npm i -D @magister_zito/eslint-config-base
 ```
 
 ```json
@@ -36,7 +36,7 @@ pnpm add -D @magister_zito/eslint-config-base
 Javascript
 
 ```bash
-pnpm add -D @magister_zito/eslint-config-javascript
+npm i -D @magister_zito/eslint-config-javascript
 ```
 
 ```json
@@ -48,7 +48,7 @@ pnpm add -D @magister_zito/eslint-config-javascript
 React
 
 ```bash
-pnpm add -D @magister_zito/eslint-config-react
+npm i -D @magister_zito/eslint-config-react
 ```
 
 ```json
@@ -60,7 +60,7 @@ pnpm add -D @magister_zito/eslint-config-react
 TypeScript
 
 ```bash
-pnpm add -D @magister_zito/eslint-config-typescript
+npm i -D @magister_zito/eslint-config-typescript
 ```
 
 ```json
@@ -72,7 +72,7 @@ pnpm add -D @magister_zito/eslint-config-typescript
 Vue
 
 ```bash
-pnpm add -D @magister_zito/eslint-config-vue
+npm i -D @magister_zito/eslint-config-vue
 ```
 
 ```json

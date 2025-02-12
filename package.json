@@ -2,6 +2,9 @@
   "name": "@magister_zito/eslint-config-collection",
   "version": "0.0.1",
   "description": "Shared eslint configurations",
+  "workspaces": [
+    "packages/*"
+  ],
   "keywords": [
     "eslint",
     "eslint-config"
@@ -11,9 +14,9 @@
   "main": "index.js",
   "private": true,
   "scripts": {
-    "format": "prettier . --write --ignore-path node_modules/@magister_zito/prettier-config/.prettierignore",
+    "format": "prettier . --write",
     "lint": "eslint . --fix",
-    "prep": "pnpm lint && pnpm format && git add .",
+    "prep": "npm run lint && npm run format && git add .",
     "release": "lerna publish --conventional-commits"
   },
   "devDependencies": {

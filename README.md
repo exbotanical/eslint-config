@@ -2,6 +2,8 @@
 
 Extensible eslint configurations for the punctilious developer.
 
+v2 is based on Anthony Fu's eslint setup.
+
 ## Packages
 
 - `all` Aggregate of Vue, React, and Typescript-specific rulesets.

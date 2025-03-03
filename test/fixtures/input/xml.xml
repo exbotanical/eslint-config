@@ -1,0 +1,18 @@
+<?xml version="1.0"encoding="UTF-8"?>
+<root>
+<item id="1"  name="Item One"   type="A" >
+    <description> This is a poorly formatted XML file.   </description>
+  <value>  100 </value>
+</item>
+<item id= "2"name= "Item Two"type ="B">
+<description>Another item with bad spacing.</description>
+    <value>  200</value>
+  </item>
+
+  <items>
+  <subitem id="A">  Alpha   </subitem>
+  <subitem   id="B">Beta</subitem>
+    <subitem id="C" >  Gamma  </subitem>
+  </items>
+
+</root>

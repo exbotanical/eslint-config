@@ -61,7 +61,8 @@ export async function javascript({ overrides = {} }: AllOptions = {}): Promise<
         'no-dupe-else-if': ['error'],
         'no-dupe-keys': ['error'],
         'no-duplicate-case': ['error'],
-        'no-duplicate-imports': ['error'],
+        // See `import` ruleset
+        'no-duplicate-imports': ['off'],
         'no-empty-character-class': ['error'],
         'no-empty-pattern': ['error'],
         'no-unsafe-finally': ['error'],

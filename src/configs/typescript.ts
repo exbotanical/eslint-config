@@ -112,7 +112,6 @@ export async function typescript(
         ...renameRules(plugin.configs.strict.rules!, {
           '@typescript-eslint': 'ts',
         }),
-
         'no-dupe-class-members': ['off'],
         'no-redeclare': ['off'],
         'no-use-before-define': ['off'],

@@ -9,3 +9,5 @@ export type FlatConfigRecord = Omit<
 > & {
   plugins?: Record<string, any>
 }
+
+export type Awaitable<T> = T | Promise<T>

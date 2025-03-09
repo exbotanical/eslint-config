@@ -27,37 +27,42 @@ import { tsconfig } from './configs/tsconfig'
 import { STYLE_DEFAULTS } from './defaults'
 
 import type { OptionsConfig } from './options'
-import type { FlatConfigRecord } from './types'
+import type { Awaitable, FlatConfigRecord } from './types'
+import type { Linter } from 'eslint'
 
 type LinterOptions = OptionsConfig
 
-export async function exbotanical({
-  javascript: optionsJavascript,
-  ignores: optionsIgnore,
-  jsonc: optionsJsonc = true,
-  markdown: optionsMarkdown = true,
-  toml: optionsToml = true,
-  yaml: optionsYaml = true,
-  test: optionsTest = true,
-  formatter = true,
-  typescript: optionsTypescript = isPackageExists('typescript'),
-  style: optionsStyle = STYLE_DEFAULTS,
-  react: optionsReact,
-  vue: optionsVue,
-
-  ...otherOptions
-}: LinterOptions): Promise<FlatConfigRecord[]> {
+export async function exbotanical(
+  {
+    javascript: optionsJavascript,
+    ignores: optionsIgnore,
+    jsonc: optionsJsonc = true,
+    markdown: optionsMarkdown = true,
+    toml: optionsToml = true,
+    yaml: optionsYaml = true,
+    test: optionsTest = true,
+    formatter = true,
+    typescript: optionsTypescript = isPackageExists('typescript'),
+    style: optionsStyle = STYLE_DEFAULTS,
+    react: optionsReact,
+    vue: optionsVue,
+    type,
+  }: LinterOptions,
+  ...userConfigs: Awaitable<
+    FlatConfigRecord | FlatConfigRecord[] | Linter.Config[]
+  >[]
+): Promise<FlatConfigRecord[]> {
   const configs = [
     perfectionist(),
     unicorn(),
     comments(),
     imports(),
-    javascript({ ...optionsJavascript, ...otherOptions }),
+    javascript({ ...optionsJavascript, type }),
     jsdoc(),
     jsx(),
     node(),
     regexpr(),
-    test({ ...factoryConfig(optionsTest), ...otherOptions }),
+    test({ ...factoryConfig(optionsTest) }),
   ]
 
   if (optionsJsonc) {
@@ -67,48 +72,46 @@ export async function exbotanical({
       jsonc({
         ...factoryConfig(optionsJsonc),
         ...optionsStyle,
-        ...otherOptions,
       }),
     )
   }
 
   if (optionsMarkdown) {
-    configs.push(
-      markdown({ ...factoryConfig(optionsMarkdown), ...otherOptions }),
-    )
+    configs.push(markdown({ ...factoryConfig(optionsMarkdown) }))
   }
 
   if (optionsReact) {
-    configs.push(react({ ...factoryConfig(optionsReact), ...otherOptions }))
+    configs.push(react({ ...factoryConfig(optionsReact) }))
   }
 
   if (optionsToml) {
-    configs.push(
-      toml({ ...factoryConfig(optionsToml), ...optionsStyle, ...otherOptions }),
-    )
+    configs.push(toml({ ...factoryConfig(optionsToml), ...optionsStyle }))
   }
 
   if (optionsTypescript) {
-    configs.push(
-      typescript({ ...factoryConfig(optionsTypescript), ...otherOptions }),
-    )
+    configs.push(typescript({ ...factoryConfig(optionsTypescript), type }))
   }
 
   if (optionsVue) {
-    configs.push(vue({ ...factoryConfig(optionsVue), ...otherOptions }))
+    configs.push(vue({ ...factoryConfig(optionsVue) }))
   }
 
   if (optionsYaml) {
-    configs.push(
-      yaml({ ...factoryConfig(optionsYaml), ...optionsStyle, ...otherOptions }),
-    )
+    configs.push(yaml({ ...factoryConfig(optionsYaml), ...optionsStyle }))
   }
 
   if (formatter) {
     configs.push(prettier())
   }
 
-  configs.push(disables(), ignores({ ...optionsIgnore, ...otherOptions }))
+  configs.push(disables(), ignores({ ...optionsIgnore }))
+
+  if (userConfigs.length > 0) {
+    const resolved = await Promise.all(userConfigs)
+    configs.push(
+      ...resolved.map(r => Promise.resolve(Array.isArray(r) ? r : [r])),
+    )
+  }
 
   const resolved = await Promise.all(configs)
 

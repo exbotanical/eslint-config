@@ -1,0 +1,40 @@
+title = "Badly formatted TOML"
+
+[owner]
+name = "John Doe"
+email = "johndoe@example.com"
+
+[database]
+server = "192.168.1.1"
+ports = [
+  8000,
+  9000 ,
+  10000 
+]
+connection_max = 5000
+enabled = "yes"
+
+[servers]
+
+# Inconsistent indentation and spacing
+[servers.alpha]
+ip = "10.0.0.1"
+location = "US"
+
+[servers.beta]
+ip = "10.0.0.2"
+location = "EU"
+
+[clients]
+data = [
+  "item1"  ,
+  "item2",
+  "item3",
+  "item4" 
+]
+
+# Misformatted booleans and numbers
+debug = true
+timeout = 0.5000
+max_connections = 100
+x = 1

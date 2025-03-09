@@ -1,6 +1,0 @@
-{
-  "extends": ["@magister_zito", "prettier"],
-  "rules": {
-    "sort-keys": "error"
-  }
-}

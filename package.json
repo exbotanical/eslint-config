@@ -1,7 +1,7 @@
 {
   "name": "@exbotanical/eslint-config",
   "type": "module",
-  "version": "1.0.1",
+  "version": "1.1.0",
   "private": false,
   "description": "Zito's eslint config",
   "author": "Matthew Zito <exbotanical@protonmail.com> (https://github.com/exbotanical/)",

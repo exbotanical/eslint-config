@@ -17,6 +17,8 @@ export async function unicorn(): Promise<FlatConfigRecord[]> {
         'unicorn/no-null': 'off',
         'unicorn/prefer-top-level-await': 'off',
         'unicorn/filename-case': 'off',
+        'unicorn/no-await-expression-member': 'off',
+        'unicorn/throw-new-error': 'off',
       },
     },
   ]

@@ -14,7 +14,6 @@ const configs = await exbotanical({
   test: true,
   graphql: true,
 })
-
 const configNames = configs.map(({ name }) => name).filter(Boolean) as string[]
 
 let dts = await flatConfigsToRulesDTS(configs, {
@@ -26,4 +25,4 @@ dts += `
 export type ConfigNames = ${configNames.map(name => `'${name}'`).join(' | ')}
 `
 
-await fs.writeFile('../typegen.d.ts', dts)
+await fs.writeFile('./src/typegen.d.ts', dts)

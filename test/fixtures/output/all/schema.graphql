@@ -1,0 +1,35 @@
+# Root query type
+type Query {
+  getUser(id: ID!): User
+  listUsers: [User]
+}
+
+# Root mutation type
+type Mutation {
+  createUser(name: String!): User
+  deleteUser(id: ID!): Boolean
+}
+
+# Root subscription type
+type Subscription {
+  userCreated: User
+}
+
+# Missing descriptions for type and fields (require-description)
+type User {
+  id: ID!
+  name: String!
+  email: String! @deprecated # Deprecated without reason (require-deprecation-reason)
+}
+
+# Unused type (no-unreachable-types)
+type UnusedType {
+  someField: String
+}
+
+# Hashtag-style descriptions (no-hashtag-description)
+# This is an enum of user roles
+enum UserRole {
+  ADMIN
+  USER
+}

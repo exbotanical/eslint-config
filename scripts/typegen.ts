@@ -12,6 +12,7 @@ const configs = await exbotanical({
   typescript: true,
   toml: true,
   test: true,
+  graphql: true,
 })
 
 const configNames = configs.map(({ name }) => name).filter(Boolean) as string[]

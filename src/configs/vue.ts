@@ -1,6 +1,6 @@
 import { STYLE_DEFAULTS } from '../defaults'
 import { GLOB_VUE } from '../filepaths'
-import { interopDefault } from '../utils'
+import { interopDefault, mergeProcessors } from '../utils'
 
 import type { AllOptions, OptionsHasTypeScript } from '../options'
 import type { FlatConfigRecord } from '../types'
@@ -9,6 +9,7 @@ const NAMESPACE = 'exbotanical/vue'
 
 export interface OptionsVue extends AllOptions, OptionsHasTypeScript {
   vueVersion?: 2 | 3
+  graphql?: boolean
 }
 export async function vue(
   {
@@ -16,13 +17,16 @@ export async function vue(
     overrides = {},
     typescript = true,
     vueVersion = 3,
+    graphql = false,
   }: OptionsVue,
   { indent } = STYLE_DEFAULTS,
 ): Promise<FlatConfigRecord[]> {
-  const [pluginVue, parserVue] = await Promise.all([
+  const [pluginVue, parserVue, processorVueBlocks] = await Promise.all([
     interopDefault(import('eslint-plugin-vue')),
     interopDefault(import('vue-eslint-parser')),
+    interopDefault(import('eslint-processor-vue-blocks')),
   ] as const)
+
   return [
     {
       name: `${NAMESPACE}/setup`,
@@ -64,7 +68,19 @@ export async function vue(
           sourceType: 'module',
         },
       },
-      processor: pluginVue.processors['.vue'],
+      processor:
+        graphql === false
+          ? pluginVue.processors['.vue']
+          : mergeProcessors([
+              pluginVue.processors['.vue'],
+              processorVueBlocks({
+                blocks: {
+                  script: true,
+                  scriptSetup: true,
+                  customBlocks: true,
+                },
+              }),
+            ]),
       rules: {
         ...pluginVue.configs.base.rules,
 
@@ -96,12 +112,7 @@ export async function vue(
         'vue/define-macros-order': [
           'error',
           {
-            order: [
-              'defineOptions',
-              'defineProps',
-              'defineEmits',
-              'defineSlots',
-            ],
+            order: ['defineOptions', 'defineProps', 'defineEmits', 'defineSlots'],
           },
         ],
         'vue/dot-location': ['error', 'property'],

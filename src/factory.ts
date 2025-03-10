@@ -21,6 +21,7 @@ import {
   unicorn,
   vue,
   yaml,
+  graphql,
 } from './configs'
 import { packageJson } from './configs/package.json'
 import { tsconfig } from './configs/tsconfig'
@@ -46,11 +47,10 @@ export async function exbotanical(
     style: optionsStyle = STYLE_DEFAULTS,
     react: optionsReact,
     vue: optionsVue,
+    graphql: optionsGraphql,
     type,
   }: LinterOptions,
-  ...userConfigs: Awaitable<
-    FlatConfigRecord | FlatConfigRecord[] | Linter.Config[]
-  >[]
+  ...userConfigs: Awaitable<FlatConfigRecord | FlatConfigRecord[] | Linter.Config[]>[]
 ): Promise<FlatConfigRecord[]> {
   const configs = [
     perfectionist(),
@@ -80,6 +80,10 @@ export async function exbotanical(
     configs.push(markdown({ ...factoryConfig(optionsMarkdown) }))
   }
 
+  if (optionsGraphql) {
+    configs.push(graphql())
+  }
+
   if (optionsReact) {
     configs.push(react({ ...factoryConfig(optionsReact) }))
   }
@@ -93,7 +97,7 @@ export async function exbotanical(
   }
 
   if (optionsVue) {
-    configs.push(vue({ ...factoryConfig(optionsVue) }))
+    configs.push(vue({ ...factoryConfig(optionsVue), graphql: !!optionsGraphql }))
   }
 
   if (optionsYaml) {
@@ -108,9 +112,7 @@ export async function exbotanical(
 
   if (userConfigs.length > 0) {
     const resolved = await Promise.all(userConfigs)
-    configs.push(
-      ...resolved.map(r => Promise.resolve(Array.isArray(r) ? r : [r])),
-    )
+    configs.push(...resolved.map(r => Promise.resolve(Array.isArray(r) ? r : [r])))
   }
 
   const resolved = await Promise.all(configs)

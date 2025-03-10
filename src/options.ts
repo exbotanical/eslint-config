@@ -4,6 +4,7 @@ import type {
   OptionsTest,
   OptionsToml,
   OptionsTypescript,
+  OptionsVue,
 } from './configs'
 import type { FlatConfigRecord } from './types'
 import type { ParserOptions } from '@typescript-eslint/parser'
@@ -61,7 +62,7 @@ export interface OptionsConfig extends OptionsProjectType {
   /**
    * Core ruleset. Cannot be disabled.
    */
-  javascript?: OptionsOverrides
+  javascript?: OptionsOverrides & OptionsFiles
 
   /**
    * Enables TypeScript support.
@@ -81,24 +82,25 @@ export interface OptionsConfig extends OptionsProjectType {
    * Enables Vue rules.
    *
    * Requires installing:
-   * - `eslint-plugin-vue`
-   * - `vue-eslint-parser`
+   * - eslint-plugin-vue
+   * - vue-eslint-parser
+   * - eslint-processor-vue-blocks (only if embedded graphql is enabled)
    *
    * @default false
    */
-  vue?: boolean | OptionsOverrides
+  vue?: boolean | OptionsVue
 
   /**
    * Enables React rules.
    *
    * Requires installing:
-   * - `@eslint-react/eslint-plugin`
-   * - `eslint-plugin-react-hooks`
-   * - `eslint-plugin-react-refresh`
+   * - @eslint-react/eslint-plugin
+   * - eslint-plugin-react-hooks
+   * - eslint-plugin-react-refresh
    *
    * @default false
    */
-  react?: boolean | OptionsOverrides
+  react?: boolean | (OptionsOverrides & OptionsFiles)
 
   /**
    * Enables JSONC support.
@@ -110,7 +112,7 @@ export interface OptionsConfig extends OptionsProjectType {
    *
    * @default true
    */
-  yaml?: boolean | OptionsOverrides
+  yaml?: boolean | (OptionsOverrides & OptionsFiles)
 
   /**
    * Enables TOML support.
@@ -124,7 +126,7 @@ export interface OptionsConfig extends OptionsProjectType {
    * TODO: update rules
    * @default true
    */
-  markdown?: boolean | OptionsOverrides
+  markdown?: boolean | (OptionsOverrides & OptionsFiles)
 
   /**
    * Configurable global ignores.
@@ -142,6 +144,17 @@ export interface OptionsConfig extends OptionsProjectType {
    * @default true
    */
   formatter?: boolean
+
+  /**
+   * Enables graphql linting.
+   *
+   * Requires installing:
+   * - @graphql-eslint/eslint-plugin
+   * - eslint-processor-vue-blocks (only if graphql embedded in vue is enabled)
+   
+   * @default false
+   */
+  graphql?: boolean | (OptionsOverrides & OptionsFiles)
 }
 
 export interface OptionsStyle {

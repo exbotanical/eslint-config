@@ -1,7 +1,6 @@
 import exbotanical from './src'
 
 export default exbotanical({
-  // Formatter: true,
   markdown: true,
   jsonc: true,
   react: true,
@@ -15,6 +14,8 @@ export default exbotanical({
   },
   toml: true,
   test: true,
+  graphql: true,
+  formatter: true,
   type: 'app',
   ignores: {
     files: ['**/*.d.ts', '**/fixtures'],

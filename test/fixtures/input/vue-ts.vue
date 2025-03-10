@@ -11,6 +11,71 @@
 // Define reactive data and props
 import { ref } from 'vue';
 
+const graphql = `
+    query userConfig {
+    site {
+        siteMetadata {
+          config {
+            contentDir
+            assetDir
+            embeddedImageWidth
+            embeddedVideoWidth
+            basePath
+            iconPath
+            iconCachePaths
+            iconList {
+              src
+              sizes
+              type
+              purpose
+            }
+            organization {
+              description
+              logoUrl
+              name
+              url
+            }
+            pathPrefix
+            user {
+              about
+              avatar
+              firstName
+              github
+              email
+              id
+              surname
+              linkedIn
+              location
+              twitterHandle
+              youtubeUrl
+            }
+            site {
+              backgroundColor
+              copyright {
+                link
+                name
+              }
+              description
+              language
+              facebookAppId
+              googleAnalyticsId
+              disqusShortname
+              logoUrl
+              name
+              rss
+              rssTitle
+              themeColor
+              title
+              titleAbridged
+              twitterHandle
+              url,
+            }
+          }
+        }
+      }
+    }
+`
+
 const greeting = ref('Hello, Vue 3!');
 let counter = ref<number  | 1>(0);
 

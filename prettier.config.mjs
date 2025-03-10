@@ -1,3 +1,3 @@
-import exbotanical from "@exbotanical/prettier-config";
+import exbotanical from '@exbotanical/prettier-config'
 
-export default exbotanical({});
+export default exbotanical({})

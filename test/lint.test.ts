@@ -6,6 +6,7 @@ import { promisify } from 'node:util'
 import { afterAll, beforeAll, it } from 'vitest'
 
 import type { OptionsConfig } from '../src/options'
+import type { ExecException } from 'node:child_process';
 
 const TEST_DIR = 'test/fixtures.tmp'
 
@@ -21,11 +22,14 @@ runWithConfig('all', {
   markdown: true,
   jsonc: true,
   react: true,
-  vue: true,
+  vue: {
+    graphql: true,
+  },
   yaml: true,
   typescript: true,
   toml: true,
   test: true,
+  graphql: true
 })
 
 async function runWithConfig(name: string, config: OptionsConfig) {
@@ -51,7 +55,11 @@ export default exbotanical(${JSON.stringify(config)})
       await promisify(exec)('eslint . --fix', {
         cwd: destination,
       })
-    } catch {}
+    } catch (error) {
+      const nodeErr = error as ExecException
+      // eslint-disable-next-line no-console -- helps debugging in GH actions
+      console.info({ stdout: nodeErr.stdout, stderr: nodeErr.stderr, })
+    }
 
     const files = await fs.readdir(destination)
 

@@ -20,7 +20,6 @@ export const GLOB_SVG = '**/*.svg'
 export const GLOB_HTML = '**/*.htm?(l)'
 export const GLOB_GRAPHQL = '**/*.{g,graph}ql'
 
-
 export const GLOB_STYLE = '**/*.{c,le,sc}ss'
 export const GLOB_CSS = '**/*.css'
 export const GLOB_POSTCSS = '**/*.{p,post}css'

@@ -1,0 +1,7 @@
+query GetUser {
+  user(id: "123") {
+    id
+    name
+    email
+  }
+}

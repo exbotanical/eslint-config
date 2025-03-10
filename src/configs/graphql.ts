@@ -24,6 +24,7 @@ export async function graphql(): Promise<FlatConfigRecord[]> {
       plugins: {
         '@graphql-eslint': graphqlPlugin,
       },
+      // @ts-expect-error weird rule types in gql plugin
       rules,
     },
   ]

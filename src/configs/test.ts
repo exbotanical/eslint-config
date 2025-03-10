@@ -1,10 +1,8 @@
-
 import { GLOB_TESTS } from '../filepaths'
 import { interopDefault } from '../utils'
 
-import type { AllOptions } from '../options'
-import type { FlatConfigRecord } from '../types'
-import type { Awaitable, OptionsFiles, OptionsOverrides } from 'dist'
+import type { AllOptions, OptionsFiles, OptionsOverrides } from '../options'
+import type { Awaitable, FlatConfigRecord } from '../types'
 
 type Runner = 'vitest' | 'jest' | 'tap'
 

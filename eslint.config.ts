@@ -17,7 +17,5 @@ export default exbotanical({
   graphql: true,
   formatter: true,
   type: 'app',
-  ignores: {
-    files: ['**/*.d.ts', '**/fixtures'],
-  },
+  ignores: ['**/*.d.ts', '**/fixtures'],
 })

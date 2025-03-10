@@ -1,5 +1,4 @@
 import type {
-  OptionsIgnores,
   OptionsJsonc,
   OptionsTest,
   OptionsToml,
@@ -131,7 +130,7 @@ export interface OptionsConfig extends OptionsProjectType {
   /**
    * Configurable global ignores.
    */
-  ignores?: OptionsIgnores
+  ignores?: string[]
 
   /**
    * Style settings.

@@ -108,7 +108,7 @@ export async function exbotanical(
     configs.push(prettier())
   }
 
-  configs.push(disables(), ignores({ ...optionsIgnore }))
+  configs.push(disables(), ignores(optionsIgnore))
 
   if (userConfigs.length > 0) {
     const resolved = await Promise.all(userConfigs)

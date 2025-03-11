@@ -1,15 +1,15 @@
+import pluginCypress from 'eslint-plugin-cypress/flat'
+
 import { GLOB_TESTS } from '../filepaths'
 import { interopDefault } from '../utils'
+// @ts-expect-error no types
 
 import type { AllOptions, OptionsFiles, OptionsOverrides } from '../options'
-import type { Awaitable, FlatConfigRecord } from '../types'
+import type { FlatConfigRecord } from '../types'
 
 type Runner = 'vitest' | 'jest' | 'tap'
 
-const PLUGIN_RUNNER_MAP: Record<
-  Runner | ('cypress' & Runner),
-  [string, () => Awaitable<Record<string, any>>]
-> = {
+const PLUGIN_RUNNER_MAP = {
   tap: [
     'eslint-plugin-tap',
     () => ({
@@ -32,19 +32,17 @@ const PLUGIN_RUNNER_MAP: Record<
   ],
   vitest: [
     '@vitest/eslint-plugin',
-    async () => ({
-      ...(await interopDefault(import('@vitest/eslint-plugin'))).configs.recommended
-        .rules,
+    (plugin: typeof import('@vitest/eslint-plugin').default) => ({
+      ...plugin.configs.recommended.rules,
     }),
   ],
   jest: [
     'eslint-plugin-jest',
-    async () => ({
-      ...(await interopDefault(import('eslint-plugin-jest'))).configs['flat/recommended']
-        .rules,
+    (plugin: typeof import('eslint-plugin-jest')) => ({
+      ...plugin.configs['flat/recommended'].rules,
     }),
   ],
-}
+} as const
 
 const NAMESPACE = 'exbotanical/test'
 
@@ -88,9 +86,6 @@ export async function test({
   const extraConfigs: FlatConfigRecord[] = []
 
   if (cypress) {
-    // @ts-expect-error no types
-    const pluginCypress = await interopDefault(import('eslint-plugin-cypress/flat'))
-
     extraConfigs.push({
       name: `${NAMESPACE}/cypress/rules`,
       ...pluginCypress.configs.recommended,
@@ -105,12 +100,22 @@ export async function test({
         test: {
           ...pluginRunner,
           rules: {
-            ...(await Promise.resolve(rules())),
             ...pluginNoOnlyTests.rules,
+            ...rules(pluginRunner),
           },
         },
       },
     },
+    runner === 'jest'
+      ? {
+          name: `${NAMESPACE}/jest`,
+          ...pluginRunner.configs['flat/recommended'],
+          rules: {
+            ...pluginRunner.configs['flat/recommended'].rules,
+          },
+        }
+      : {},
+
     {
       name: `${NAMESPACE}/rules`,
       files,

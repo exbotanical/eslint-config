@@ -1,8 +1,8 @@
+// @ts-expect-error no types
 import pluginCypress from 'eslint-plugin-cypress/flat'
 
 import { GLOB_TESTS } from '../filepaths'
 import { interopDefault } from '../utils'
-// @ts-expect-error no types
 
 import type { AllOptions, OptionsFiles, OptionsOverrides } from '../options'
 import type { FlatConfigRecord } from '../types'
@@ -109,6 +109,9 @@ export async function test({
     runner === 'jest'
       ? {
           name: `${NAMESPACE}/jest`,
+          ...(cypress && typeof cypress !== 'boolean'
+            ? { ignores: [...(cypress.files ?? [])] }
+            : {}),
           ...pluginRunner.configs['flat/recommended'],
           rules: {
             ...pluginRunner.configs['flat/recommended'].rules,

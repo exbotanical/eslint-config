@@ -24,9 +24,10 @@
   },
   "scripts": {
     "build": "npm run typegen && tsup --clean --dts",
-    "lint": "eslint .",
-    "lint:fix": "npm run lint -- --fix",
     "dev": "npx @eslint/config-inspector --config eslint.config.ts",
+    "lint": "eslint --cache",
+    "lint:fix": "npm run lint -- --fix",
+    "fmt": "prettier --cache --write \"**/*.{js,jsx,ts,tsx,md,json}\"",
     "typegen": "tsx scripts/typegen.ts",
     "pretest": "npm run build",
     "test": "vitest --run",
@@ -133,6 +134,9 @@
     "pre-commit": "npx lint-staged"
   },
   "lint-staged": {
-    "*": "eslint --fix"
+    "*/**/*.{js,jsx,ts,tsx,md,json}": [
+      "npm run fmt",
+      "npm run lint:fix"
+    ]
   }
 }

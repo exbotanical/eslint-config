@@ -33,16 +33,15 @@ export async function react({
     'react/no-leaked-conditional-rendering': 'warn',
   }
 
-  const [pluginReact, pluginReactHooks, pluginReactRefresh] = await Promise.all(
-    [
-      interopDefault(import('@eslint-react/eslint-plugin')),
-      interopDefault(import('eslint-plugin-react-hooks')),
-      interopDefault(import('eslint-plugin-react-refresh')),
-    ] as const,
-  )
+  const [pluginReact, pluginReactHooks, pluginReactRefresh] = await Promise.all([
+    interopDefault(import('@eslint-react/eslint-plugin')),
+    interopDefault(import('eslint-plugin-react-hooks')),
+    interopDefault(import('eslint-plugin-react-refresh')),
+  ] as const)
 
-  const isAllowConstantExport =
-    REACT_REFRESH_ALLOW_CONSTANT_EXPORT_PACKAGES.some(index => isPackageExists(index))
+  const isAllowConstantExport = REACT_REFRESH_ALLOW_CONSTANT_EXPORT_PACKAGES.some(index =>
+    isPackageExists(index),
+  )
   const isUsingReactRouter = REACT_ROUTER_PACKAGES.some(index => isPackageExists(index))
 
   const plugins = pluginReact.configs.all.plugins

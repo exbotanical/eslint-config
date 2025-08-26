@@ -3,7 +3,6 @@ import { configs } from 'eslint-plugin-regexp'
 import type { AllOptions } from '../options'
 import type { FlatConfigRecord } from '../types'
 
-
 const NAMESPACE = 'exbotanical/regexpr'
 export interface OptionsRegExpr extends AllOptions {
   level?: 'error' | 'warn'

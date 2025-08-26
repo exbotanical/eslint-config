@@ -30,10 +30,7 @@ export async function markdown({
       ignores: ['**/*.md/*.md'],
       // `eslint-plugin-markdown` only creates virtual files for code blocks,
       // but not the markdown file itself (we use passthrough for this).
-      processor: mergeProcessors([
-        markdown.processors!.markdown,
-        processorPassThrough,
-      ]),
+      processor: mergeProcessors([markdown.processors!.markdown, processorPassThrough]),
     },
     {
       name: `${NAMESPACE}/parser`,

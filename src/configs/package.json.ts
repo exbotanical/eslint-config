@@ -68,8 +68,7 @@ export async function packageJson(): Promise<FlatConfigRecord[]> {
           },
           {
             order: { type: 'asc' },
-            pathPattern:
-              '^(?:dev|peer|optional|bundled)?[Dd]ependencies(Meta)?$',
+            pathPattern: '^(?:dev|peer|optional|bundled)?[Dd]ependencies(Meta)?$',
           },
           {
             order: { type: 'asc' },

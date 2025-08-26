@@ -10,6 +10,7 @@ import type { ParserOptions } from '@typescript-eslint/parser'
 
 export interface OptionsOverrides {
   overrides?: FlatConfigRecord['rules']
+  addConfigs?: FlatConfigRecord[]
 }
 
 export interface OptionsProjectType {

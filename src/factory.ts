@@ -1,27 +1,27 @@
 import { isPackageExists } from 'local-pkg'
 
 import {
-  comments,
-  disables,
-  ignores,
-  imports,
-  javascript,
-  jsdoc,
+  CommentsConfig,
+  DisablesConfig,
+  IgnoresConfig,
+  ImportsConfig,
+  JavascriptConfig,
+  JsdocConfig,
   jsonc,
   jsx,
   markdown,
   node,
-  perfectionist,
+  PerfectionistConfig,
   prettier,
   react,
   regexpr,
   test,
   toml,
-  typescript,
-  unicorn,
+  UnicornConfig,
   vue,
   yaml,
-  graphql,
+  GraphqlConfig,
+  TypescriptConfig,
 } from './configs'
 import { packageJson } from './configs/package.json'
 import { tsconfig } from './configs/tsconfig'
@@ -53,12 +53,12 @@ export async function exbotanical(
   ...userConfigs: Awaitable<FlatConfigRecord | FlatConfigRecord[] | Linter.Config[]>[]
 ): Promise<FlatConfigRecord[]> {
   const configs = [
-    perfectionist(),
-    unicorn(),
-    comments(),
-    imports(),
-    javascript({ ...optionsJavascript, type }),
-    jsdoc(),
+    new PerfectionistConfig().rules(),
+    new UnicornConfig().rules(),
+    new CommentsConfig().rules(),
+    new ImportsConfig().rules(),
+    new JavascriptConfig({ ...optionsJavascript, type }).rules(),
+    new JsdocConfig().rules(),
     jsx(),
     node(),
     regexpr(),
@@ -81,7 +81,7 @@ export async function exbotanical(
   }
 
   if (optionsGraphql) {
-    configs.push(graphql())
+    configs.push(new GraphqlConfig().rules())
   }
 
   if (optionsReact) {
@@ -93,7 +93,9 @@ export async function exbotanical(
   }
 
   if (optionsTypescript) {
-    configs.push(typescript({ ...factoryConfig(optionsTypescript), type }))
+    configs.push(
+      new TypescriptConfig({ ...factoryConfig(optionsTypescript), type }).rules(),
+    )
   }
 
   if (optionsVue) {
@@ -108,7 +110,10 @@ export async function exbotanical(
     configs.push(prettier())
   }
 
-  configs.push(disables(), ignores(optionsIgnore))
+  configs.push(
+    new DisablesConfig().rules(),
+    new IgnoresConfig({ files: optionsIgnore }).rules(),
+  )
 
   if (userConfigs.length > 0) {
     const resolved = await Promise.all(userConfigs)

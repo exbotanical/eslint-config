@@ -10,10 +10,7 @@ const NAMESPACE = 'exbotanical/jsonc'
 export interface OptionsJsonc extends AllOptions {}
 
 export async function jsonc(
-  {
-    files = [GLOB_JSON, GLOB_JSON5, GLOB_JSONC],
-    overrides = {},
-  }: OptionsJsonc = {},
+  { files = [GLOB_JSON, GLOB_JSON5, GLOB_JSONC], overrides = {} }: OptionsJsonc = {},
   { indent } = STYLE_DEFAULTS,
 ): Promise<FlatConfigRecord[]> {
   const [plugin, parser] = await Promise.all([
@@ -65,14 +62,8 @@ export async function jsonc(
         'jsonc/comma-dangle': ['error', 'never'],
         'jsonc/comma-style': ['error', 'last'],
         'jsonc/indent': ['error', indent],
-        'jsonc/key-spacing': [
-          'error',
-          { afterColon: true, beforeColon: false },
-        ],
-        'jsonc/object-curly-newline': [
-          'error',
-          { consistent: true, multiline: true },
-        ],
+        'jsonc/key-spacing': ['error', { afterColon: true, beforeColon: false }],
+        'jsonc/object-curly-newline': ['error', { consistent: true, multiline: true }],
         'jsonc/object-curly-spacing': ['error', 'always'],
         'jsonc/object-property-newline': [
           'error',

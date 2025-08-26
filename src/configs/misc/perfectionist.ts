@@ -1,50 +1,31 @@
 import pluginPerfectionist from 'eslint-plugin-perfectionist'
 
+import { CustomConfig } from '../../base-config'
+
+import type { AllOptions } from '../..'
 import type { FlatConfigRecord } from '../../types'
 
-const NAMESPACE = 'exbotanical/misc/perfectionist'
+export class PerfectionistConfig extends CustomConfig<AllOptions> {
+  protected namespace: string = 'misc/perfectionist'
 
-export async function perfectionist(): Promise<FlatConfigRecord[]> {
-  return [
-    {
-      name: `${NAMESPACE}/setup`,
-      plugins: {
-        perfectionist: pluginPerfectionist,
-      },
-      rules: {
-        'perfectionist/sort-exports': [
-          'error',
-          { order: 'asc', type: 'natural' },
-        ],
-        // 'perfectionist/sort-imports': [
-        //   'error',
-        //   {
-        //     groups: [
-        //       'type',
-        //       ['parent-type', 'sibling-type', 'index-type', 'internal-type'],
+  constructor(options: AllOptions = {}) {
+    super(options)
+  }
 
-        //       'builtin',
-        //       'external',
-        //       'internal',
-        //       ['parent', 'sibling', 'index'],
-        //       'side-effect',
-        //       'object',
-        //       'unknown',
-        //     ],
-        //     newlinesBetween: 'ignore',
-        //     order: 'asc',
-        //     type: 'natural',
-        //   },
-        // ],
-        'perfectionist/sort-named-exports': [
-          'error',
-          { order: 'asc', type: 'natural' },
-        ],
-        // 'perfectionist/sort-named-imports': [
-        //   'error',
-        //   { order: 'asc', type: 'natural' },
-        // ],
-      },
-    },
-  ]
+  protected async _rules(): Promise<FlatConfigRecord[]> {
+    return [
+      this.createRuleConfig('setup', {
+        plugins: {
+          perfectionist: pluginPerfectionist,
+        },
+        rules: {
+          'perfectionist/sort-exports': ['error', { order: 'asc', type: 'natural' }],
+          'perfectionist/sort-named-exports': [
+            'error',
+            { order: 'asc', type: 'natural' },
+          ],
+        },
+      }),
+    ]
+  }
 }

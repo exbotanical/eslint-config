@@ -1,37 +1,46 @@
 import { configs } from 'eslint-plugin-regexp'
 
+import { CustomConfig } from '../base-config'
+
 import type { AllOptions } from '../options'
 import type { FlatConfigRecord } from '../types'
 
-
-const NAMESPACE = 'exbotanical/regexpr'
 export interface OptionsRegExpr extends AllOptions {
   level?: 'error' | 'warn'
 }
-export async function regexpr({
-  level = 'error',
-  overrides = {},
-}: OptionsRegExpr = {}): Promise<FlatConfigRecord[]> {
-  const config = configs['flat/recommended']
 
-  const rules = {
-    ...config.rules,
+export class RegexprConfig extends CustomConfig<OptionsRegExpr> {
+  protected namespace: string = 'regexpr'
+
+  constructor({ level = 'error', ...rest }: OptionsRegExpr = {}) {
+    super({
+      level,
+      ...rest,
+    })
   }
 
-  if (level === 'warn') {
-    for (const key in rules) {
-      if (rules[key] === 'error') rules[key] = 'warn'
+  protected async _rules(): Promise<FlatConfigRecord[]> {
+    const { level = 'error', overrides = {} } = this.options
+    const config = configs['flat/recommended']
+
+    const rules = {
+      ...config.rules,
     }
-  }
 
-  return [
-    {
-      ...config,
-      name: `${NAMESPACE}/rules`,
-      rules: {
-        ...rules,
-        ...overrides,
-      },
-    },
-  ]
+    if (level === 'warn') {
+      for (const key in rules) {
+        if (rules[key] === 'error') rules[key] = 'warn'
+      }
+    }
+
+    return [
+      this.createRuleConfig('rules', {
+        ...config,
+        rules: {
+          ...rules,
+          ...overrides,
+        },
+      }),
+    ]
+  }
 }

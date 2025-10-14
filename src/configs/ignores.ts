@@ -1,14 +1,21 @@
+import { CustomConfig } from '../base-config'
 import { GLOB_EXCLUDES } from '../filepaths'
 
+import type { AllOptions } from '..'
 import type { FlatConfigRecord } from '../types'
 
-const NAMESPACE = 'exbotanical/ignores'
+export class IgnoresConfig extends CustomConfig<AllOptions> {
+  protected namespace: string = 'ignores'
 
-export async function ignores(files: string[] = []): Promise<FlatConfigRecord[]> {
-  return [
-    {
-      name: NAMESPACE,
-      ignores: [...GLOB_EXCLUDES, ...files],
-    },
-  ]
+  constructor(options: AllOptions = {}) {
+    super(options)
+  }
+
+  protected async _rules(): Promise<FlatConfigRecord[]> {
+    return [
+      this.createRuleConfig('setup', {
+        ignores: [...GLOB_EXCLUDES, ...(this.options.files ?? [])],
+      }),
+    ]
+  }
 }

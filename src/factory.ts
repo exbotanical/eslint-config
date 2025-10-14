@@ -1,30 +1,30 @@
 import { isPackageExists } from 'local-pkg'
 
 import {
-  comments,
-  disables,
-  ignores,
-  imports,
-  javascript,
-  jsdoc,
-  jsonc,
-  jsx,
-  markdown,
-  node,
-  perfectionist,
-  prettier,
-  react,
-  regexpr,
-  test,
-  toml,
-  typescript,
-  unicorn,
-  vue,
-  yaml,
-  graphql,
+  CommentsConfig,
+  DisablesConfig,
+  IgnoresConfig,
+  ImportsConfig,
+  JavascriptConfig,
+  JsdocConfig,
+  JsoncConfig,
+  JsxConfig,
+  MarkdownConfig,
+  NodeConfig,
+  PackageJsonConfig,
+  PerfectionistConfig,
+  PrettierConfig,
+  ReactConfig,
+  RegexprConfig,
+  TestConfig,
+  TomlConfig,
+  TsconfigConfig,
+  UnicornConfig,
+  VueConfig,
+  YamlConfig,
+  GraphqlConfig,
+  TypescriptConfig,
 } from './configs'
-import { packageJson } from './configs/package.json'
-import { tsconfig } from './configs/tsconfig'
 import { STYLE_DEFAULTS } from './defaults'
 
 import type { OptionsConfig } from './options'
@@ -53,62 +53,73 @@ export async function exbotanical(
   ...userConfigs: Awaitable<FlatConfigRecord | FlatConfigRecord[] | Linter.Config[]>[]
 ): Promise<FlatConfigRecord[]> {
   const configs = [
-    perfectionist(),
-    unicorn(),
-    comments(),
-    imports(),
-    javascript({ ...optionsJavascript, type }),
-    jsdoc(),
-    jsx(),
-    node(),
-    regexpr(),
-    test({ ...factoryConfig(optionsTest) }),
+    new PerfectionistConfig().rules(),
+    new UnicornConfig().rules(),
+    new CommentsConfig().rules(),
+    new ImportsConfig().rules(),
+    new JavascriptConfig({ ...optionsJavascript, type }).rules(),
+    new JsdocConfig().rules(),
+    new JsxConfig().rules(),
+    new NodeConfig().rules(),
+    new RegexprConfig().rules(),
+    new TestConfig({ ...factoryConfig(optionsTest) }).rules(),
   ]
 
   if (optionsJsonc) {
     configs.push(
-      packageJson(),
-      tsconfig(),
-      jsonc({
+      new PackageJsonConfig().rules(),
+      new TsconfigConfig().rules(),
+      new JsoncConfig({
         ...factoryConfig(optionsJsonc),
         ...optionsStyle,
-      }),
+      }).rules(),
     )
   }
 
   if (optionsMarkdown) {
-    configs.push(markdown({ ...factoryConfig(optionsMarkdown) }))
+    configs.push(new MarkdownConfig({ ...factoryConfig(optionsMarkdown) }).rules())
   }
 
   if (optionsGraphql) {
-    configs.push(graphql())
+    configs.push(new GraphqlConfig().rules())
   }
 
   if (optionsReact) {
-    configs.push(react({ ...factoryConfig(optionsReact) }))
+    configs.push(new ReactConfig({ ...factoryConfig(optionsReact) }).rules())
   }
 
   if (optionsToml) {
-    configs.push(toml({ ...factoryConfig(optionsToml), ...optionsStyle }))
+    configs.push(
+      new TomlConfig({ ...factoryConfig(optionsToml), ...optionsStyle }).rules(),
+    )
   }
 
   if (optionsTypescript) {
-    configs.push(typescript({ ...factoryConfig(optionsTypescript), type }))
+    configs.push(
+      new TypescriptConfig({ ...factoryConfig(optionsTypescript), type }).rules(),
+    )
   }
 
   if (optionsVue) {
-    configs.push(vue({ ...factoryConfig(optionsVue), graphql: !!optionsGraphql }))
+    configs.push(
+      new VueConfig({ ...factoryConfig(optionsVue), graphql: !!optionsGraphql }).rules(),
+    )
   }
 
   if (optionsYaml) {
-    configs.push(yaml({ ...factoryConfig(optionsYaml), ...optionsStyle }))
+    configs.push(
+      new YamlConfig({ ...factoryConfig(optionsYaml), ...optionsStyle }).rules(),
+    )
   }
 
   if (formatter) {
-    configs.push(prettier())
+    configs.push(new PrettierConfig().rules())
   }
 
-  configs.push(disables(), ignores(optionsIgnore))
+  configs.push(
+    new DisablesConfig().rules(),
+    new IgnoresConfig({ files: optionsIgnore }).rules(),
+  )
 
   if (userConfigs.length > 0) {
     const resolved = await Promise.all(userConfigs)

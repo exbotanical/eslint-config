@@ -1,3 +1,4 @@
+import { CustomConfig } from '../base-config'
 import { STYLE_DEFAULTS } from '../defaults'
 import { GLOB_YAML } from '../filepaths'
 import { interopDefault } from '../utils'
@@ -5,67 +6,87 @@ import { interopDefault } from '../utils'
 import type { AllOptions } from '../options'
 import type { FlatConfigRecord } from '../types'
 
-const NAMESPACE = 'exbotanical/yaml'
+export interface OptionsYaml extends AllOptions {
+  indent?: number | 'tab'
+  quotes?: 'single' | 'double' | 'backtick'
+}
 
-export interface OptionsYaml extends AllOptions {}
+export class YamlConfig extends CustomConfig<OptionsYaml> {
+  protected namespace: string = 'yaml'
 
-export async function yaml(
-  { files = [GLOB_YAML], overrides = {} }: OptionsYaml = {},
-  { indent, quotes } = STYLE_DEFAULTS,
-): Promise<FlatConfigRecord[]> {
-  const [plugin, parser] = await Promise.all([
-    interopDefault(import('eslint-plugin-yml')),
-    interopDefault(import('yaml-eslint-parser')),
-  ] as const)
-
-  return [
-    {
-      name: `${NAMESPACE}/setup`,
-      plugins: {
-        yaml: plugin as any,
-      },
-    },
-    {
-      name: `${NAMESPACE}/rules`,
+  constructor({
+    files = [GLOB_YAML],
+    indent = STYLE_DEFAULTS.indent,
+    quotes = STYLE_DEFAULTS.quotes,
+    ...rest
+  }: OptionsYaml = {}) {
+    super({
       files,
-      languageOptions: {
-        parser,
-      },
-      rules: {
-        'style/spaced-comment': 'off',
-        'yaml/block-mapping-colon-indicator-newline': 'error',
-        'yaml/block-mapping-question-indicator-newline': 'error',
-        'yaml/block-mapping': 'error',
-        'yaml/block-sequence': 'error',
-        'yaml/no-empty-key': 'error',
-        'yaml/no-empty-sequence-entry': 'error',
-        'yaml/no-irregular-whitespace': 'error',
-        'yaml/plain-scalar': 'error',
+      indent,
+      quotes,
+      ...rest,
+    })
+  }
 
-        'yaml/vue-custom-block/no-parsing-error': 'error',
+  protected async _rules(): Promise<FlatConfigRecord[]> {
+    const {
+      files = [GLOB_YAML],
+      overrides = {},
+      indent = STYLE_DEFAULTS.indent,
+      quotes = STYLE_DEFAULTS.quotes,
+    } = this.options
+    const [plugin, parser] = await Promise.all([
+      interopDefault(import('eslint-plugin-yml')),
+      interopDefault(import('yaml-eslint-parser')),
+    ] as const)
 
-        'yaml/block-sequence-hyphen-indicator-newline': 'error',
-        'yaml/flow-mapping-curly-newline': 'error',
-        'yaml/flow-mapping-curly-spacing': 'error',
-        'yaml/flow-sequence-bracket-newline': 'error',
-        'yaml/flow-sequence-bracket-spacing': 'error',
-        'yaml/indent': ['error', indent === 'tab' ? 2 : indent],
-        'yaml/key-spacing': 'error',
-        'yaml/no-tab-indent': 'error',
-        'yaml/quotes': [
-          'error',
-          {
-            avoidEscape: true,
-            prefer: quotes === 'backtick' ? 'single' : quotes,
-          },
-        ],
-        'yaml/spaced-comment': 'error',
-        'yaml/no-empty-document': 'error',
-        'yaml/no-empty-mapping-value': 'error',
-        'yaml/no-trailing-zeros': 'error',
-        'yaml/no-multiple-empty-lines': 'error',
-        ...overrides,
-      },
-    },
-  ]
+    return [
+      this.createRuleConfig('setup', {
+        plugins: {
+          yaml: plugin as any,
+        },
+      }),
+      this.createRuleConfig('rules', {
+        files,
+        languageOptions: {
+          parser,
+        },
+        rules: {
+          'style/spaced-comment': 'off',
+          'yaml/block-mapping-colon-indicator-newline': 'error',
+          'yaml/block-mapping-question-indicator-newline': 'error',
+          'yaml/block-mapping': 'error',
+          'yaml/block-sequence': 'error',
+          'yaml/no-empty-key': 'error',
+          'yaml/no-empty-sequence-entry': 'error',
+          'yaml/no-irregular-whitespace': 'error',
+          'yaml/plain-scalar': 'error',
+
+          'yaml/vue-custom-block/no-parsing-error': 'error',
+
+          'yaml/block-sequence-hyphen-indicator-newline': 'error',
+          'yaml/flow-mapping-curly-newline': 'error',
+          'yaml/flow-mapping-curly-spacing': 'error',
+          'yaml/flow-sequence-bracket-newline': 'error',
+          'yaml/flow-sequence-bracket-spacing': 'error',
+          'yaml/indent': ['error', indent === 'tab' ? 2 : indent],
+          'yaml/key-spacing': 'error',
+          'yaml/no-tab-indent': 'error',
+          'yaml/quotes': [
+            'error',
+            {
+              avoidEscape: true,
+              prefer: quotes === 'backtick' ? 'single' : quotes,
+            },
+          ],
+          'yaml/spaced-comment': 'error',
+          'yaml/no-empty-document': 'error',
+          'yaml/no-empty-mapping-value': 'error',
+          'yaml/no-trailing-zeros': 'error',
+          'yaml/no-multiple-empty-lines': 'error',
+          ...overrides,
+        },
+      }),
+    ]
+  }
 }

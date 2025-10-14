@@ -43,17 +43,14 @@ export function renameRules(
   return Object.fromEntries(
     Object.entries(rules).map(([key, value]) => {
       for (const [from, to] of Object.entries(map)) {
-        if (key.startsWith(`${from}/`))
-          return [to + key.slice(from.length), value]
+        if (key.startsWith(`${from}/`)) return [to + key.slice(from.length), value]
       }
       return [key, value]
     }),
   )
 }
 
-export function mergeProcessors(
-  processors: Linter.Processor[],
-): Linter.Processor {
+export function mergeProcessors(processors: Linter.Processor[]): Linter.Processor {
   const cache = new Map<string, number[]>()
 
   return {
@@ -73,7 +70,6 @@ export function mergeProcessors(
       })
     },
     postprocess(messages, filename) {
-       
       const counts = cache.get(filename)!
       cache.delete(filename)
       let index = 0

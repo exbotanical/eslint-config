@@ -1,6 +1,7 @@
 // @ts-expect-error no types
 import pluginCypress from 'eslint-plugin-cypress/flat'
 
+import { CustomConfig } from '../base-config'
 import { GLOB_TESTS } from '../filepaths'
 import { interopDefault } from '../utils'
 
@@ -44,8 +45,6 @@ const PLUGIN_RUNNER_MAP = {
   ],
 } as const
 
-const NAMESPACE = 'exbotanical/test'
-
 export interface OptionsTest extends AllOptions {
   /**
    * Specifies which test runner is being used (and therefore which rules will be applied).
@@ -69,63 +68,81 @@ export interface OptionsTest extends AllOptions {
   cypress?: boolean | (OptionsOverrides & OptionsFiles)
 }
 
-export async function test({
-  runner = 'vitest',
-  cypress = false,
-  files = GLOB_TESTS,
-  overrides = {},
-}: OptionsTest): Promise<FlatConfigRecord[]> {
-  const [plugin, rules] = PLUGIN_RUNNER_MAP[runner]
+export class TestConfig extends CustomConfig<OptionsTest> {
+  protected namespace: string = 'test'
 
-  const [pluginRunner, pluginNoOnlyTests] = await Promise.all([
-    interopDefault(import(plugin)),
-    // @ts-expect-error no types
-    interopDefault(import('eslint-plugin-no-only-tests')),
-  ] as const)
-
-  const extraConfigs: FlatConfigRecord[] = []
-
-  if (cypress) {
-    extraConfigs.push({
-      name: `${NAMESPACE}/cypress/rules`,
-      ...pluginCypress.configs.recommended,
-      ...(typeof cypress === 'boolean' ? {} : cypress),
+  constructor({
+    runner = 'vitest',
+    cypress = false,
+    files = GLOB_TESTS,
+    ...rest
+  }: OptionsTest = {}) {
+    super({
+      runner,
+      cypress,
+      files,
+      ...rest,
     })
   }
 
-  return [
-    {
-      name: `${NAMESPACE}/setup`,
-      plugins: {
-        test: {
-          ...pluginRunner,
-          rules: {
-            ...pluginNoOnlyTests.rules,
-            ...rules(pluginRunner),
+  protected async _rules(): Promise<FlatConfigRecord[]> {
+    const {
+      runner = 'vitest',
+      cypress = false,
+      files = GLOB_TESTS,
+      overrides = {},
+    } = this.options
+    const [plugin, rules] = PLUGIN_RUNNER_MAP[runner]
+
+    const [pluginRunner, pluginNoOnlyTests] = await Promise.all([
+      interopDefault(import(plugin)),
+      // @ts-expect-error no types
+      interopDefault(import('eslint-plugin-no-only-tests')),
+    ] as const)
+
+    const extraConfigs: FlatConfigRecord[] = []
+
+    if (cypress) {
+      extraConfigs.push(
+        this.createRuleConfig('cypress/rules', {
+          ...pluginCypress.configs.recommended,
+          ...(typeof cypress === 'boolean' ? {} : cypress),
+        }),
+      )
+    }
+
+    return [
+      this.createRuleConfig('setup', {
+        plugins: {
+          test: {
+            ...pluginRunner,
+            rules: {
+              ...pluginNoOnlyTests.rules,
+              ...rules(pluginRunner),
+            },
           },
         },
-      },
-    },
-    runner === 'jest'
-      ? {
-          name: `${NAMESPACE}/jest`,
-          ...(cypress && typeof cypress !== 'boolean'
-            ? { ignores: [...(cypress.files ?? [])] }
-            : {}),
-          ...pluginRunner.configs['flat/recommended'],
-          rules: {
-            ...pluginRunner.configs['flat/recommended'].rules,
-          },
-        }
-      : {},
-
-    {
-      name: `${NAMESPACE}/rules`,
-      files,
-      rules: {
-        ...overrides,
-      },
-    },
-    ...extraConfigs,
-  ]
+      }),
+      ...(runner === 'jest'
+        ? [
+            this.createRuleConfig('jest', {
+              ...(cypress && typeof cypress !== 'boolean'
+                ? { ignores: [...(cypress.files ?? [])] }
+                : {}),
+              ...pluginRunner.configs['flat/recommended'],
+              rules: {
+                ...pluginRunner.configs['flat/recommended'].rules,
+              },
+            }),
+          ]
+        : []),
+      this.createRuleConfig('rules', {
+        files,
+        rules: {
+          ...overrides,
+        },
+      }),
+      ...extraConfigs,
+    ]
+  }
 }

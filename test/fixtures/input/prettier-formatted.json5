@@ -1,0 +1,5 @@
+// Formatted by prettier
+{
+  name: 'fixture',
+  list: [1, 2],
+}

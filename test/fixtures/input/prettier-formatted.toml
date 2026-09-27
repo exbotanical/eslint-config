@@ -1,0 +1,6 @@
+# Formatted by prettier-plugin-toml
+args = ["--login"]
+point = { x = 1, y = 2 }
+
+[server]
+ports = [8000, 8001]

@@ -1,25 +1,25 @@
 key: value
 another_key: [item1,  item2,  item3]
 badly-formatted-list:
-  - item one
-  - item two
+ - item one
+ - item two
 
-  - item three
+ - item three
 
 nested:
-  key: value with extra spaces
-  another_key: value
-  misaligned:
-    -item1
-    - item2
+    key: value with extra spaces
+    another_key: value
+    misaligned:
+         -item1
+       - item2
 
 # Missing space after colon, inconsistent indentation, and incorrect list formatting
 array:
   -one
-  -two
-  - three
+   -two
+    - three
 
-object: {nested_key :"value", another_key:"value"}
+object: { nested_key :"value", another_key:"value"  }
 
 # Inconsistent boolean formatting
 enabled: Yes
@@ -31,10 +31,10 @@ some_number: 123
 float_value: .5
 
 # Trailing whitespace
-trailing: 'This has extra spaces at the end.    '
+trailing: "This has extra spaces at the end.    "
 
 x:
-  - {a: b,c: d}
+  - { a: b,c: d }
 
 
 # BAD

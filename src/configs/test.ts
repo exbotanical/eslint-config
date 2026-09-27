@@ -139,6 +139,7 @@ export class TestConfig extends CustomConfig<OptionsTest> {
       this.createRuleConfig('rules', {
         files,
         rules: {
+          'test/no-only-tests': 'error',
           ...overrides,
         },
       }),

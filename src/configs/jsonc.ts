@@ -3,10 +3,10 @@ import { STYLE_DEFAULTS } from '../defaults'
 import { GLOB_JSON, GLOB_JSON5, GLOB_JSONC } from '../filepaths'
 import { interopDefault } from '../utils'
 
-import type { AllOptions } from '../options'
+import type { AllOptions, OptionsSortKeys } from '../options'
 import type { FlatConfigRecord } from '../types'
 
-export interface OptionsJsonc extends AllOptions {
+export interface OptionsJsonc extends AllOptions, OptionsSortKeys {
   indent?: number | 'tab'
 }
 
@@ -30,6 +30,7 @@ export class JsoncConfig extends CustomConfig<OptionsJsonc> {
       files = [GLOB_JSON, GLOB_JSON5, GLOB_JSONC],
       overrides = {},
       indent = STYLE_DEFAULTS.indent,
+      sortKeys = [],
     } = this.options
     const [plugin, parser] = await Promise.all([
       interopDefault(import('eslint-plugin-jsonc')),
@@ -90,6 +91,24 @@ export class JsoncConfig extends CustomConfig<OptionsJsonc> {
           ...overrides,
         },
       }),
+      ...(sortKeys.length > 0
+        ? [
+            this.createRuleConfig('sort-keys', {
+              files: sortKeys,
+              ignores: ['**/package.json', '**/tsconfig.json', '**/tsconfig.*.json'],
+              languageOptions: {
+                parser,
+              },
+              rules: {
+                'jsonc/sort-keys': [
+                  'error',
+                  'asc',
+                  { allowLineSeparatedGroups: true, natural: true },
+                ],
+              },
+            }),
+          ]
+        : []),
     ]
   }
 }

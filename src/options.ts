@@ -27,6 +27,16 @@ export interface OptionsFiles {
   files?: string[]
 }
 
+export interface OptionsSortKeys {
+  /**
+   * Glob patterns for files whose keys are sorted in ascending natural order at every
+   * depth. A blank line starts a new group that is sorted separately. `package.json`
+   * and `tsconfig.json` keep their own key order.
+   * @default []
+   */
+  sortKeys?: string[]
+}
+
 export interface OptionsHasTypeScript {
   typescript?: boolean
 }
@@ -111,7 +121,7 @@ export interface OptionsConfig extends OptionsProjectType {
    *
    * @default true
    */
-  yaml?: boolean | (OptionsOverrides & OptionsFiles)
+  yaml?: boolean | (OptionsOverrides & OptionsFiles & OptionsSortKeys)
 
   /**
    * Enables TOML support.

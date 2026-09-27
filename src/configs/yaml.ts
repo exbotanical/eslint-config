@@ -3,10 +3,10 @@ import { STYLE_DEFAULTS } from '../defaults'
 import { GLOB_YAML } from '../filepaths'
 import { interopDefault } from '../utils'
 
-import type { AllOptions } from '../options'
+import type { AllOptions, OptionsSortKeys } from '../options'
 import type { FlatConfigRecord } from '../types'
 
-export interface OptionsYaml extends AllOptions {
+export interface OptionsYaml extends AllOptions, OptionsSortKeys {
   indent?: number | 'tab'
   quotes?: 'single' | 'double' | 'backtick'
 }
@@ -34,6 +34,7 @@ export class YamlConfig extends CustomConfig<OptionsYaml> {
       overrides = {},
       indent = STYLE_DEFAULTS.indent,
       quotes = STYLE_DEFAULTS.quotes,
+      sortKeys = [],
     } = this.options
     const [plugin, parser] = await Promise.all([
       interopDefault(import('eslint-plugin-yml')),
@@ -87,6 +88,23 @@ export class YamlConfig extends CustomConfig<OptionsYaml> {
           ...overrides,
         },
       }),
+      ...(sortKeys.length > 0
+        ? [
+            this.createRuleConfig('sort-keys', {
+              files: sortKeys,
+              languageOptions: {
+                parser,
+              },
+              rules: {
+                'yaml/sort-keys': [
+                  'error',
+                  'asc',
+                  { allowLineSeparatedGroups: true, natural: true },
+                ],
+              },
+            }),
+          ]
+        : []),
     ]
   }
 }

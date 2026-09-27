@@ -204,6 +204,16 @@ export interface OptionsConfig extends OptionsProjectType {
   githubAction?: boolean | (OptionsFiles & OptionsOverrides)
 
   /**
+   * Enables CSS linting with the `recommended` rules of @eslint/css.
+   *
+   * Requires installing:
+   * - @eslint/css
+   *
+   * @default false
+   */
+  css?: boolean | (OptionsFiles & OptionsOverrides)
+
+  /**
    * Configures sorting rules.
    */
   perfectionist?: OptionsPerfectionist

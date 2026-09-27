@@ -2,6 +2,7 @@ import { isPackageExists } from 'local-pkg'
 
 import {
   CommentsConfig,
+  CssConfig,
   DataFilesConfig,
   DisablesConfig,
   GithubActionConfig,
@@ -56,6 +57,7 @@ export async function exbotanical(
     packageJson: optionsPackageJson = false,
     jsonSchema: optionsJsonSchema = false,
     githubAction: optionsGithubAction = false,
+    css: optionsCss = false,
     perfectionist: optionsPerfectionist,
     type,
   }: LinterOptions = {},
@@ -99,6 +101,10 @@ export async function exbotanical(
     configs.push(
       new GithubActionConfig({ ...factoryConfig(optionsGithubAction) }).rules(),
     )
+  }
+
+  if (optionsCss) {
+    configs.push(new CssConfig({ ...factoryConfig(optionsCss) }).rules())
   }
 
   if (optionsMarkdown) {

@@ -3,6 +3,7 @@ import globals from 'globals'
 
 import { CustomConfig } from '../base-config'
 import { VAR_IGNORE_PATTERN } from '../common'
+import { GLOB_SCRIPTS } from '../filepaths'
 
 import type { AllOptions } from '../options'
 import type { FlatConfigRecord } from '../types'
@@ -15,8 +16,11 @@ export class JavascriptConfig extends CustomConfig<AllOptions> {
   }
 
   protected async _rules(): Promise<FlatConfigRecord[]> {
+    const { files = GLOB_SCRIPTS } = this.options
+
     return [
       this.createRuleConfig('setup', {
+        files,
         languageOptions: {
           ecmaVersion: 'latest',
           globals: {
@@ -40,6 +44,7 @@ export class JavascriptConfig extends CustomConfig<AllOptions> {
         },
       }),
       this.createRuleConfig('rules', {
+        files,
         plugins: {
           'unused-imports': pluginUnusedImports,
         },

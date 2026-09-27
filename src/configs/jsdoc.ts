@@ -1,4 +1,5 @@
 import { CustomConfig } from '../base-config'
+import { GLOB_SCRIPTS } from '../filepaths'
 import { interopDefault } from '../utils'
 
 import type { AllOptions } from '..'
@@ -14,6 +15,7 @@ export class JsdocConfig extends CustomConfig<AllOptions> {
   protected async _rules(): Promise<FlatConfigRecord[]> {
     return [
       this.createRuleConfig('rules', {
+        files: GLOB_SCRIPTS,
         plugins: {
           jsdoc: await interopDefault(import('eslint-plugin-jsdoc')),
         },

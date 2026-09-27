@@ -1,6 +1,7 @@
 import pluginPerfectionist from 'eslint-plugin-perfectionist'
 
 import { CustomConfig } from '../../base-config'
+import { GLOB_SCRIPTS } from '../../filepaths'
 
 import type { AllOptions } from '../..'
 import type { FlatConfigRecord } from '../../types'
@@ -32,6 +33,7 @@ export class PerfectionistConfig extends CustomConfig<OptionsPerfectionist> {
 
     return [
       this.createRuleConfig('setup', {
+        files: GLOB_SCRIPTS,
         plugins: {
           perfectionist: pluginPerfectionist,
         },
@@ -47,6 +49,7 @@ export class PerfectionistConfig extends CustomConfig<OptionsPerfectionist> {
       ...(sortDeclarations
         ? [
             this.createRuleConfig('declarations', {
+              files: GLOB_SCRIPTS,
               rules: {
                 'perfectionist/sort-classes': ['error', SORT_OPTIONS],
                 'perfectionist/sort-enums': ['error', SORT_OPTIONS],

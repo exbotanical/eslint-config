@@ -29,6 +29,8 @@ export const GLOB_SCSS = '**/*.scss'
 
 export const GLOB_MARKDOWN_CODE = `${GLOB_MARKDOWN}/${GLOB_SRC}`
 
+export const GLOB_SCRIPTS = [GLOB_SRC, GLOB_VUE, GLOB_MARKDOWN_CODE]
+
 export const GLOB_TESTS = [
   `**/__tests__/**/*.${GLOB_SRC_EXT}`,
   `**/*.spec.${GLOB_SRC_EXT}`,

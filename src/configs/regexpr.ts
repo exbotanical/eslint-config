@@ -1,6 +1,7 @@
 import { configs } from 'eslint-plugin-regexp'
 
 import { CustomConfig } from '../base-config'
+import { GLOB_SCRIPTS } from '../filepaths'
 
 import type { AllOptions } from '../options'
 import type { FlatConfigRecord } from '../types'
@@ -36,6 +37,7 @@ export class RegexprConfig extends CustomConfig<OptionsRegExpr> {
     return [
       this.createRuleConfig('rules', {
         ...config,
+        files: GLOB_SCRIPTS,
         rules: {
           ...rules,
           'regexp/prefer-quantifier': level,

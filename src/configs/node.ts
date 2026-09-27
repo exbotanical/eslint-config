@@ -1,6 +1,7 @@
 import plugin from 'eslint-plugin-n'
 
 import { CustomConfig } from '../base-config'
+import { GLOB_SCRIPTS } from '../filepaths'
 
 import type { AllOptions } from '../options'
 import type { FlatConfigRecord } from '../types'
@@ -15,6 +16,7 @@ export class NodeConfig extends CustomConfig<AllOptions> {
   protected async _rules(): Promise<FlatConfigRecord[]> {
     return [
       this.createRuleConfig('rules', {
+        files: GLOB_SCRIPTS,
         plugins: {
           node: plugin,
         },

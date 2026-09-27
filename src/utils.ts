@@ -4,28 +4,6 @@ import { isPackageExists } from 'local-pkg'
 
 import type { Linter } from 'eslint'
 
-// See: https://github.com/so1ve/eslint-parser-plain
-export const parserPlain = {
-  meta: {
-    name: 'parser-plain',
-  },
-  parseForESLint: (code: string) => ({
-    ast: {
-      body: [],
-      comments: [],
-      loc: { end: code.length, start: 0 },
-      range: [0, code.length],
-      tokens: [],
-      type: 'Program',
-    },
-    scopeManager: null,
-    services: { isPlain: true },
-    visitorKeys: {
-      Program: [],
-    },
-  }),
-}
-
 export async function interopDefault<T>(
   module: Promise<T> | T,
 ): Promise<T extends { default: infer U } ? U : T> {

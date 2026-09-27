@@ -1,4 +1,4 @@
-#Linting  Test
+# Linting  Test
 
 this is a markdown file    with   inconsistent spacing.
 

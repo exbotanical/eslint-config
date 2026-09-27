@@ -1,11 +1,6 @@
 import { CustomConfig } from '../base-config'
 import { GLOB_MARKDOWN, GLOB_MARKDOWN_CODE } from '../filepaths'
-import {
-  interopDefault,
-  mergeProcessors,
-  parserPlain as parser,
-  processorPassThrough,
-} from '../utils'
+import { interopDefault, mergeProcessors, processorPassThrough } from '../utils'
 
 import type { AllOptions } from '../options'
 import type { FlatConfigRecord } from '../types'
@@ -37,10 +32,11 @@ export class MarkdownConfig extends CustomConfig<OptionsMarkdown> {
         // but not the markdown file itself (we use passthrough for this).
         processor: mergeProcessors([markdown.processors!.markdown, processorPassThrough]),
       }),
-      this.createRuleConfig('parser', {
+      this.createRuleConfig('rules', {
         files,
-        languageOptions: {
-          parser,
+        language: 'markdown/gfm',
+        rules: {
+          ...markdown.configs.recommended[0].rules,
         },
       }),
       this.createRuleConfig('disables', {

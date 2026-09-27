@@ -3,6 +3,7 @@ import { isPackageExists } from 'local-pkg'
 import {
   CommentsConfig,
   DisablesConfig,
+  GithubActionConfig,
   GraphqlConfig,
   IgnoresConfig,
   ImportsConfig,
@@ -52,6 +53,7 @@ export async function exbotanical(
     graphql: optionsGraphql,
     packageJson: optionsPackageJson = false,
     jsonSchema: optionsJsonSchema = false,
+    githubAction: optionsGithubAction = false,
     perfectionist: optionsPerfectionist,
     type,
   }: LinterOptions = {},
@@ -89,6 +91,12 @@ export async function exbotanical(
 
   if (optionsJsonSchema) {
     configs.push(new JsonSchemaConfig({ ...factoryConfig(optionsJsonSchema) }).rules())
+  }
+
+  if (optionsGithubAction) {
+    configs.push(
+      new GithubActionConfig({ ...factoryConfig(optionsGithubAction) }).rules(),
+    )
   }
 
   if (optionsMarkdown) {

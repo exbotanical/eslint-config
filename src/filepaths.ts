@@ -19,6 +19,7 @@ export const GLOB_XML = '**/*.xml'
 export const GLOB_SVG = '**/*.svg'
 export const GLOB_HTML = '**/*.htm?(l)'
 export const GLOB_GRAPHQL = '**/*.{g,graph}ql'
+export const GLOB_GITHUB_WORKFLOW = '**/.github/workflows/*.y?(a)ml'
 
 export const GLOB_STYLE = '**/*.{c,le,sc}ss'
 export const GLOB_CSS = '**/*.css'

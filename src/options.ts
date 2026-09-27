@@ -194,6 +194,16 @@ export interface OptionsConfig extends OptionsProjectType {
   jsonSchema?: boolean | (OptionsFiles & OptionsOverrides)
 
   /**
+   * Enables GitHub Actions workflow rules from eslint-plugin-github-action.
+   *
+   * Requires installing:
+   * - eslint-plugin-github-action
+   *
+   * @default false
+   */
+  githubAction?: boolean | (OptionsFiles & OptionsOverrides)
+
+  /**
    * Configures sorting rules.
    */
   perfectionist?: OptionsPerfectionist

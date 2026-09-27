@@ -1,5 +1,6 @@
 export * from './comments'
 export * from './disables'
+export * from './github-action'
 export * from './graphql'
 export * from './ignores'
 export * from './imports'

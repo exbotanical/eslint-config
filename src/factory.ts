@@ -9,6 +9,7 @@ import {
   JavascriptConfig,
   JsdocConfig,
   JsoncConfig,
+  JsonSchemaConfig,
   JsxConfig,
   MarkdownConfig,
   NodeConfig,
@@ -50,6 +51,7 @@ export async function exbotanical(
     vue: optionsVue,
     graphql: optionsGraphql,
     packageJson: optionsPackageJson = false,
+    jsonSchema: optionsJsonSchema = false,
     perfectionist: optionsPerfectionist,
     type,
   }: LinterOptions = {},
@@ -83,6 +85,10 @@ export async function exbotanical(
     configs.push(
       new PackageJsonPluginConfig({ ...factoryConfig(optionsPackageJson) }).rules(),
     )
+  }
+
+  if (optionsJsonSchema) {
+    configs.push(new JsonSchemaConfig({ ...factoryConfig(optionsJsonSchema) }).rules())
   }
 
   if (optionsMarkdown) {

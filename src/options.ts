@@ -178,6 +178,22 @@ export interface OptionsConfig extends OptionsProjectType {
   packageJson?: boolean | OptionsOverrides
 
   /**
+   * Validates JSON, YAML, and TOML files against the JSON schema named by their `$schema`
+   * key or matched by file name in the SchemaStore catalog. Applies only to files that
+   * the `jsonc`, `yaml`, and `toml` options parse.
+   *
+   * At lint time the rule downloads the SchemaStore catalog and each matched schema over
+   * HTTPS on first use, then caches them on disk for 24 hours. When a download fails, the
+   * file is not validated and no error is reported.
+   *
+   * Requires installing:
+   * - eslint-plugin-json-schema-validator
+   *
+   * @default false
+   */
+  jsonSchema?: boolean | (OptionsFiles & OptionsOverrides)
+
+  /**
    * Configures sorting rules.
    */
   perfectionist?: OptionsPerfectionist

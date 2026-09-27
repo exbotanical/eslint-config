@@ -42,6 +42,7 @@
     "@graphql-eslint/eslint-plugin": "^4.3.0",
     "eslint": "^9.38.0",
     "eslint-plugin-cypress": "^4.2.0",
+    "eslint-plugin-json-schema-validator": "^6.3.1",
     "eslint-plugin-package-json": "^1.10.0",
     "eslint-plugin-react-hooks": "^5.0.0",
     "eslint-plugin-react-refresh": "^0.4.4",
@@ -58,6 +59,9 @@
       "optional": true
     },
     "eslint-plugin-cypress": {
+      "optional": true
+    },
+    "eslint-plugin-json-schema-validator": {
       "optional": true
     },
     "eslint-plugin-package-json": {
@@ -118,6 +122,7 @@
     "eslint": "^9.39.5",
     "eslint-plugin-cypress": "^4.2.0",
     "eslint-plugin-jest": "^28.11.0",
+    "eslint-plugin-json-schema-validator": "^6.3.1",
     "eslint-plugin-package-json": "^1.10.0",
     "eslint-plugin-react-hooks": "^5.2.0",
     "eslint-plugin-react-refresh": "^0.4.19",

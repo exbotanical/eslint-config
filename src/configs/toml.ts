@@ -7,7 +7,7 @@ import type { AllOptions } from '../options'
 import type { FlatConfigRecord } from '../types'
 
 export interface OptionsToml extends AllOptions {
-  indent?: number | 'tab'
+  indent?: 'tab' | number
 }
 
 export class TomlConfig extends CustomConfig<OptionsToml> {

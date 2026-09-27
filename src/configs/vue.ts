@@ -9,7 +9,7 @@ import type { FlatConfigRecord } from '../types'
 export interface OptionsVue extends AllOptions, OptionsHasTypeScript {
   vueVersion?: 2 | 3
   graphql?: boolean
-  indent?: number | 'tab'
+  indent?: 'tab' | number
 }
 
 export class VueConfig extends CustomConfig<OptionsVue> {

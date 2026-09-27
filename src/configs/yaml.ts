@@ -7,8 +7,8 @@ import type { AllOptions, OptionsSortKeys } from '../options'
 import type { FlatConfigRecord } from '../types'
 
 export interface OptionsYaml extends AllOptions, OptionsSortKeys {
-  indent?: number | 'tab'
-  quotes?: 'single' | 'double' | 'backtick'
+  indent?: 'tab' | number
+  quotes?: 'backtick' | 'double' | 'single'
 }
 
 export class YamlConfig extends CustomConfig<OptionsYaml> {

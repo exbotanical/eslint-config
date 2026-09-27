@@ -27,7 +27,7 @@ export const parserPlain = {
 }
 
 export async function interopDefault<T>(
-  module: T | Promise<T>,
+  module: Promise<T> | T,
 ): Promise<T extends { default: infer U } ? U : T> {
   const resolved = await module
   return (resolved as any).default || resolved

@@ -5,7 +5,7 @@ import { interopDefault } from '../utils'
 import type { AllOptions, OptionsFiles, OptionsOverrides } from '../options'
 import type { FlatConfigRecord } from '../types'
 
-type Runner = 'vitest' | 'jest' | 'tap'
+type Runner = 'jest' | 'tap' | 'vitest'
 
 const PLUGIN_RUNNER_MAP = {
   tap: [

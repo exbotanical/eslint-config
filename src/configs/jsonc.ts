@@ -7,7 +7,7 @@ import type { AllOptions, OptionsSortKeys } from '../options'
 import type { FlatConfigRecord } from '../types'
 
 export interface OptionsJsonc extends AllOptions, OptionsSortKeys {
-  indent?: number | 'tab'
+  indent?: 'tab' | number
 }
 
 export class JsoncConfig extends CustomConfig<OptionsJsonc> {

@@ -1,5 +1,6 @@
 import type {
   OptionsJsonc,
+  OptionsPerfectionist,
   OptionsTest,
   OptionsToml,
   OptionsTypescript,
@@ -164,11 +165,16 @@ export interface OptionsConfig extends OptionsProjectType {
    * @default false
    */
   graphql?: boolean | (OptionsOverrides & OptionsFiles)
+
+  /**
+   * Configures sorting rules.
+   */
+  perfectionist?: OptionsPerfectionist
 }
 
 export interface OptionsStyle {
-  indent?: number | 'tab'
-  quotes?: 'single' | 'double' | 'backtick'
+  indent?: 'tab' | number
+  quotes?: 'backtick' | 'double' | 'single'
   semi?: boolean
   jsx?: boolean
 }

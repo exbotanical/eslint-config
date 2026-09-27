@@ -3,6 +3,7 @@ import { isPackageExists } from 'local-pkg'
 import {
   CommentsConfig,
   DisablesConfig,
+  GraphqlConfig,
   IgnoresConfig,
   ImportsConfig,
   JavascriptConfig,
@@ -19,11 +20,10 @@ import {
   TestConfig,
   TomlConfig,
   TsconfigConfig,
+  TypescriptConfig,
   UnicornConfig,
   VueConfig,
   YamlConfig,
-  GraphqlConfig,
-  TypescriptConfig,
 } from './configs'
 import { STYLE_DEFAULTS } from './defaults'
 
@@ -48,12 +48,13 @@ export async function exbotanical(
     react: optionsReact,
     vue: optionsVue,
     graphql: optionsGraphql,
+    perfectionist: optionsPerfectionist,
     type,
   }: LinterOptions = {},
   ...userConfigs: Awaitable<FlatConfigRecord | FlatConfigRecord[] | Linter.Config[]>[]
 ): Promise<FlatConfigRecord[]> {
   const configs = [
-    new PerfectionistConfig().rules(),
+    new PerfectionistConfig({ ...optionsPerfectionist }).rules(),
     new UnicornConfig().rules(),
     new CommentsConfig().rules(),
     new ImportsConfig().rules(),
@@ -131,7 +132,7 @@ export async function exbotanical(
   return resolved.flat()
 }
 
-function factoryConfig<T>(options: T | boolean): T {
+function factoryConfig<T>(options: boolean | T): T {
   if (!options) return {} as T
   return (typeof options === 'boolean' ? {} : options) as T
 }

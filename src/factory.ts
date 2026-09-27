@@ -49,7 +49,7 @@ export async function exbotanical(
     vue: optionsVue,
     graphql: optionsGraphql,
     type,
-  }: LinterOptions,
+  }: LinterOptions = {},
   ...userConfigs: Awaitable<FlatConfigRecord | FlatConfigRecord[] | Linter.Config[]>[]
 ): Promise<FlatConfigRecord[]> {
   const configs = [

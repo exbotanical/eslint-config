@@ -13,6 +13,7 @@ import {
   MarkdownConfig,
   NodeConfig,
   PackageJsonConfig,
+  PackageJsonPluginConfig,
   PerfectionistConfig,
   PrettierConfig,
   ReactConfig,
@@ -48,6 +49,7 @@ export async function exbotanical(
     react: optionsReact,
     vue: optionsVue,
     graphql: optionsGraphql,
+    packageJson: optionsPackageJson = false,
     perfectionist: optionsPerfectionist,
     type,
   }: LinterOptions = {},
@@ -68,12 +70,18 @@ export async function exbotanical(
 
   if (optionsJsonc) {
     configs.push(
-      new PackageJsonConfig().rules(),
+      ...(optionsPackageJson ? [] : [new PackageJsonConfig().rules()]),
       new TsconfigConfig().rules(),
       new JsoncConfig({
         ...factoryConfig(optionsJsonc),
         ...optionsStyle,
       }).rules(),
+    )
+  }
+
+  if (optionsPackageJson) {
+    configs.push(
+      new PackageJsonPluginConfig({ ...factoryConfig(optionsPackageJson) }).rules(),
     )
   }
 

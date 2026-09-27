@@ -1,4 +1,5 @@
 import { CustomConfig } from '../base-config'
+import { interopDefault } from '../utils'
 
 import type { AllOptions } from '../options'
 import type { FlatConfigRecord } from '../types'
@@ -102,6 +103,30 @@ export class PackageJsonConfig extends CustomConfig<AllOptions> {
               pathPattern: '^(?:gitHooks|husky|simple-git-hooks)$',
             },
           ],
+          ...this.options.overrides,
+        },
+      }),
+    ]
+  }
+}
+
+export class PackageJsonPluginConfig extends CustomConfig<AllOptions> {
+  protected namespace: string = 'package.json/plugin'
+
+  constructor(options: AllOptions = {}) {
+    super(options)
+  }
+
+  protected async _rules(): Promise<FlatConfigRecord[]> {
+    const plugin = await interopDefault(import('eslint-plugin-package-json'))
+    const { recommended, stylistic } = plugin.configs
+
+    return [
+      this.createRuleConfig('rules', {
+        ...recommended,
+        rules: {
+          ...recommended.rules,
+          ...stylistic.rules,
           ...this.options.overrides,
         },
       }),

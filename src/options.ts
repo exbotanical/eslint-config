@@ -167,6 +167,17 @@ export interface OptionsConfig extends OptionsProjectType {
   graphql?: boolean | (OptionsOverrides & OptionsFiles)
 
   /**
+   * Enables eslint-plugin-package-json with its `recommended` and `stylistic` rules for
+   * `package.json`. Replaces the built-in `package.json` key and array order.
+   *
+   * Requires installing:
+   * - eslint-plugin-package-json
+   *
+   * @default false
+   */
+  packageJson?: boolean | OptionsOverrides
+
+  /**
    * Configures sorting rules.
    */
   perfectionist?: OptionsPerfectionist

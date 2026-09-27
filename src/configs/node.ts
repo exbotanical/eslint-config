@@ -26,6 +26,7 @@ export class NodeConfig extends CustomConfig<AllOptions> {
           'node/no-path-concat': 'error',
           'node/prefer-global/buffer': ['error', 'never'],
           'node/process-exit-as-throw': 'error',
+          'node/hashbang': 'error',
           ...this.options.overrides,
         },
       }),

@@ -38,6 +38,11 @@ export class RegexprConfig extends CustomConfig<OptionsRegExpr> {
         ...config,
         rules: {
           ...rules,
+          'regexp/prefer-quantifier': level,
+          'regexp/prefer-regexp-test': level,
+          'regexp/sort-alternatives': level,
+          'regexp/sort-character-class-elements': level,
+          'regexp/unicode-property': level,
           ...overrides,
         },
       }),

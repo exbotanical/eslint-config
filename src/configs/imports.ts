@@ -27,6 +27,9 @@ export class ImportsConfig extends CustomConfig<AllOptions> {
           'import/no-named-default': 'error',
           'import/no-self-import': 'error',
           'import/no-webpack-loader-syntax': 'error',
+          'import/no-absolute-path': 'error',
+          'import/no-empty-named-blocks': 'error',
+          'import/no-useless-path-segments': 'error',
           'import/newline-after-import': ['error', { count: 1 }],
           'import/no-unresolved': 'off',
           'import/order': [

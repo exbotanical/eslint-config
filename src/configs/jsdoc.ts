@@ -35,6 +35,10 @@ export class JsdocConfig extends CustomConfig<AllOptions> {
           'jsdoc/require-yields-check': ['warn'],
           'jsdoc/check-alignment': ['warn'],
           'jsdoc/multiline-blocks': ['warn'],
+          'jsdoc/check-line-alignment': ['warn'],
+          'jsdoc/no-blank-block-descriptions': ['warn'],
+          'jsdoc/no-blank-blocks': ['warn'],
+          'jsdoc/sort-tags': ['warn'],
         },
       }),
     ]

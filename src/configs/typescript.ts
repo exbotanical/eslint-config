@@ -1,5 +1,4 @@
 import { CustomConfig } from '../base-config'
-import { VAR_IGNORE_PATTERN } from '../common'
 import { GLOB_TS, GLOB_TSX } from '../filepaths'
 import { interopDefault, renameRules } from '../utils'
 
@@ -153,17 +152,7 @@ export class TypescriptConfig extends CustomConfig<OptionsTypescript> {
               allowTernary: true,
             },
           ],
-          'ts/no-unused-vars': [
-            'error',
-            {
-              vars: 'all',
-              args: 'all',
-              argsIgnorePattern: VAR_IGNORE_PATTERN,
-              caughtErrorsIgnorePattern: VAR_IGNORE_PATTERN,
-              destructuredArrayIgnorePattern: VAR_IGNORE_PATTERN,
-              reportUsedIgnorePattern: true,
-            },
-          ],
+          'ts/no-unused-vars': 'off',
           'ts/no-use-before-define': [
             'error',
             { classes: false, functions: false, variables: true },

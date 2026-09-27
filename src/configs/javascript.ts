@@ -94,7 +94,9 @@ export class JavascriptConfig extends CustomConfig<AllOptions> {
           'no-unsafe-negation': ['error'],
           'no-unsafe-optional-chaining': ['error'],
           'no-unused-private-class-members': ['error'],
-          'no-unused-vars': [
+          'no-unused-vars': 'off',
+          'unused-imports/no-unused-imports': 'error',
+          'unused-imports/no-unused-vars': [
             'error',
             {
               vars: 'all',

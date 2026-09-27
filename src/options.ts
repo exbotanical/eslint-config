@@ -1,5 +1,6 @@
 import type {
   OptionsJsonc,
+  OptionsMarkdown,
   OptionsPerfectionist,
   OptionsTest,
   OptionsToml,
@@ -132,11 +133,12 @@ export interface OptionsConfig extends OptionsProjectType {
   toml?: boolean | OptionsToml
 
   /**
-   * Enables linting for Markdown and Markdown code snippets.
-   * TODO: update rules
+   * Enables Markdown document rules. Code blocks are linted only when
+   * `lintCodeBlocks` is set.
+   *
    * @default true
    */
-  markdown?: boolean | (OptionsOverrides & OptionsFiles)
+  markdown?: boolean | OptionsMarkdown
 
   /**
    * Configurable global ignores.

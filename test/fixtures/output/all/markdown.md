@@ -11,7 +11,7 @@ this is a markdown file    with   inconsistent spacing.
 ``` js
    const foo = {bar:"baz"}
 
-console.log(foo.bar);
+console.log(foo[ "bar" ]);
 
 console.log( "indented code block should not be indented this way" )
 

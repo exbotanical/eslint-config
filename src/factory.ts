@@ -107,10 +107,6 @@ export async function exbotanical(
     configs.push(new CssConfig({ ...factoryConfig(optionsCss) }).rules())
   }
 
-  if (optionsMarkdown) {
-    configs.push(new MarkdownConfig({ ...factoryConfig(optionsMarkdown) }).rules())
-  }
-
   if (optionsGraphql) {
     configs.push(new GraphqlConfig().rules())
   }
@@ -141,6 +137,12 @@ export async function exbotanical(
     configs.push(
       new YamlConfig({ ...factoryConfig(optionsYaml), ...optionsStyle }).rules(),
     )
+  }
+
+  // Markdown code-block disables must follow every config that enables rules for
+  // source files, or those configs re-enable the disabled rules.
+  if (optionsMarkdown) {
+    configs.push(new MarkdownConfig({ ...factoryConfig(optionsMarkdown) }).rules())
   }
 
   configs.push(

@@ -1110,7 +1110,7 @@ Backward pagination arguments
    * disallow unnecessary escape usage
    * @see https://ota-meshi.github.io/eslint-plugin-jsonc/rules/no-useless-escape.html
    */
-  'jsonc/no-useless-escape'?: Linter.RuleEntry<[]>
+  'jsonc/no-useless-escape'?: Linter.RuleEntry<JsoncNoUselessEscape>
   /**
    * enforce consistent line breaks inside braces
    * @see https://ota-meshi.github.io/eslint-plugin-jsonc/rules/object-curly-newline.html
@@ -1163,32 +1163,109 @@ Backward pagination arguments
   'jsonc/vue-custom-block/no-parsing-error'?: Linter.RuleEntry<[]>
   /**
    * Require languages for fenced code blocks
+   * @see https://github.com/eslint/markdown/blob/main/docs/rules/fenced-code-language.md
    */
   'markdown/fenced-code-language'?: Linter.RuleEntry<MarkdownFencedCodeLanguage>
   /**
-   * Enforce heading levels increment by one
+   * Require or disallow metadata for fenced code blocks
+   * @see https://github.com/eslint/markdown/blob/main/docs/rules/fenced-code-meta.md
    */
-  'markdown/heading-increment'?: Linter.RuleEntry<[]>
+  'markdown/fenced-code-meta'?: Linter.RuleEntry<MarkdownFencedCodeMeta>
+  /**
+   * Enforce heading levels increment by one
+   * @see https://github.com/eslint/markdown/blob/main/docs/rules/heading-increment.md
+   */
+  'markdown/heading-increment'?: Linter.RuleEntry<MarkdownHeadingIncrement>
+  /**
+   * Disallow bare URLs
+   * @see https://github.com/eslint/markdown/blob/main/docs/rules/no-bare-urls.md
+   */
+  'markdown/no-bare-urls'?: Linter.RuleEntry<[]>
+  /**
+   * Disallow duplicate definitions
+   * @see https://github.com/eslint/markdown/blob/main/docs/rules/no-duplicate-definitions.md
+   */
+  'markdown/no-duplicate-definitions'?: Linter.RuleEntry<MarkdownNoDuplicateDefinitions>
   /**
    * Disallow duplicate headings in the same document
+   * @see https://github.com/eslint/markdown/blob/main/docs/rules/no-duplicate-headings.md
    */
-  'markdown/no-duplicate-headings'?: Linter.RuleEntry<[]>
+  'markdown/no-duplicate-headings'?: Linter.RuleEntry<MarkdownNoDuplicateHeadings>
+  /**
+   * Disallow empty definitions
+   * @see https://github.com/eslint/markdown/blob/main/docs/rules/no-empty-definitions.md
+   */
+  'markdown/no-empty-definitions'?: Linter.RuleEntry<MarkdownNoEmptyDefinitions>
+  /**
+   * Disallow empty images
+   * @see https://github.com/eslint/markdown/blob/main/docs/rules/no-empty-images.md
+   */
+  'markdown/no-empty-images'?: Linter.RuleEntry<[]>
   /**
    * Disallow empty links
+   * @see https://github.com/eslint/markdown/blob/main/docs/rules/no-empty-links.md
    */
   'markdown/no-empty-links'?: Linter.RuleEntry<[]>
   /**
    * Disallow HTML tags
+   * @see https://github.com/eslint/markdown/blob/main/docs/rules/no-html.md
    */
   'markdown/no-html'?: Linter.RuleEntry<MarkdownNoHtml>
   /**
    * Disallow invalid label references
+   * @see https://github.com/eslint/markdown/blob/main/docs/rules/no-invalid-label-refs.md
    */
   'markdown/no-invalid-label-refs'?: Linter.RuleEntry<[]>
   /**
-   * Disallow missing label references
+   * Disallow headings without a space after the hash characters
+   * @see https://github.com/eslint/markdown/blob/main/docs/rules/no-missing-atx-heading-space.md
    */
-  'markdown/no-missing-label-refs'?: Linter.RuleEntry<[]>
+  'markdown/no-missing-atx-heading-space'?: Linter.RuleEntry<MarkdownNoMissingAtxHeadingSpace>
+  /**
+   * Disallow missing label references
+   * @see https://github.com/eslint/markdown/blob/main/docs/rules/no-missing-label-refs.md
+   */
+  'markdown/no-missing-label-refs'?: Linter.RuleEntry<MarkdownNoMissingLabelRefs>
+  /**
+   * Disallow link fragments that do not reference valid headings
+   * @see https://github.com/eslint/markdown/blob/main/docs/rules/no-missing-link-fragments.md
+   */
+  'markdown/no-missing-link-fragments'?: Linter.RuleEntry<MarkdownNoMissingLinkFragments>
+  /**
+   * Disallow multiple H1 headings in the same document
+   * @see https://github.com/eslint/markdown/blob/main/docs/rules/no-multiple-h1.md
+   */
+  'markdown/no-multiple-h1'?: Linter.RuleEntry<MarkdownNoMultipleH1>
+  /**
+   * Disallow URLs that match defined reference identifiers
+   * @see https://github.com/eslint/markdown/blob/main/docs/rules/no-reference-like-urls.md
+   */
+  'markdown/no-reference-like-urls'?: Linter.RuleEntry<[]>
+  /**
+   * Disallow reversed link and image syntax
+   * @see https://github.com/eslint/markdown/blob/main/docs/rules/no-reversed-media-syntax.md
+   */
+  'markdown/no-reversed-media-syntax'?: Linter.RuleEntry<[]>
+  /**
+   * Disallow spaces around emphasis markers
+   * @see https://github.com/eslint/markdown/blob/main/docs/rules/no-space-in-emphasis.md
+   */
+  'markdown/no-space-in-emphasis'?: Linter.RuleEntry<MarkdownNoSpaceInEmphasis>
+  /**
+   * Disallow unused definitions
+   * @see https://github.com/eslint/markdown/blob/main/docs/rules/no-unused-definitions.md
+   */
+  'markdown/no-unused-definitions'?: Linter.RuleEntry<MarkdownNoUnusedDefinitions>
+  /**
+   * Require alternative text for images
+   * @see https://github.com/eslint/markdown/blob/main/docs/rules/require-alt-text.md
+   */
+  'markdown/require-alt-text'?: Linter.RuleEntry<[]>
+  /**
+   * Disallow data rows in a GitHub Flavored Markdown table from having more cells than the header row
+   * @see https://github.com/eslint/markdown/blob/main/docs/rules/table-column-count.md
+   */
+  'markdown/table-column-count'?: Linter.RuleEntry<MarkdownTableColumnCount>
   /**
    * require `return` statements after callbacks
    * @see https://github.com/eslint-community/eslint-plugin-n/blob/HEAD/docs/rules/callback-return.md
@@ -2383,10 +2460,20 @@ Backward pagination arguments
    */
   'toml/indent'?: Linter.RuleEntry<TomlIndent>
   /**
+   * enforce linebreaks after opening and before closing braces
+   * @see https://ota-meshi.github.io/eslint-plugin-toml/rules/inline-table-curly-newline.html
+   */
+  'toml/inline-table-curly-newline'?: Linter.RuleEntry<TomlInlineTableCurlyNewline>
+  /**
    * enforce consistent spacing inside braces
    * @see https://ota-meshi.github.io/eslint-plugin-toml/rules/inline-table-curly-spacing.html
    */
   'toml/inline-table-curly-spacing'?: Linter.RuleEntry<TomlInlineTableCurlySpacing>
+  /**
+   * enforce placing inline table key-value pairs on separate lines
+   * @see https://ota-meshi.github.io/eslint-plugin-toml/rules/inline-table-key-value-newline.html
+   */
+  'toml/inline-table-key-value-newline'?: Linter.RuleEntry<TomlInlineTableKeyValueNewline>
   /**
    * enforce consistent spacing between keys and values in key/value pairs
    * @see https://ota-meshi.github.io/eslint-plugin-toml/rules/key-spacing.html
@@ -5091,6 +5178,11 @@ Backward pagination arguments
    */
   'yaml/key-spacing'?: Linter.RuleEntry<YamlKeySpacing>
   /**
+   * disallow boolean mapping keys
+   * @see https://ota-meshi.github.io/eslint-plugin-yml/rules/no-boolean-key.html
+   */
+  'yaml/no-boolean-key'?: Linter.RuleEntry<[]>
+  /**
    * disallow empty document
    * @see https://ota-meshi.github.io/eslint-plugin-yml/rules/no-empty-document.html
    */
@@ -5125,6 +5217,11 @@ Backward pagination arguments
    * @see https://ota-meshi.github.io/eslint-plugin-yml/rules/no-tab-indent.html
    */
   'yaml/no-tab-indent'?: Linter.RuleEntry<[]>
+  /**
+   * disallow trailing whitespace at the end of lines
+   * @see https://ota-meshi.github.io/eslint-plugin-yml/rules/no-trailing-spaces.html
+   */
+  'yaml/no-trailing-spaces'?: Linter.RuleEntry<YamlNoTrailingSpaces>
   /**
    * disallow trailing zeros for floats
    * @see https://ota-meshi.github.io/eslint-plugin-yml/rules/no-trailing-zeros.html
@@ -6849,6 +6946,14 @@ type JsoncNoIrregularWhitespace =
         skipJSXText?: boolean
       },
     ]
+// ----- jsonc/no-useless-escape -----
+type JsoncNoUselessEscape =
+  | []
+  | [
+      {
+        allowRegexCharacters?: string[]
+      },
+    ]
 // ----- jsonc/object-curly-newline -----
 type JsoncObjectCurlyNewline =
   | []
@@ -6901,6 +7006,7 @@ type JsoncObjectCurlySpacing =
       {
         arraysInObjects?: boolean
         objectsInObjects?: boolean
+        emptyObjects?: 'ignore' | 'always' | 'never'
       },
     ]
 // ----- jsonc/object-property-newline -----
@@ -6953,6 +7059,7 @@ type JsoncSortArrayValues = [
                 type?: 'asc' | 'desc'
                 caseSensitive?: boolean
                 natural?: boolean
+                key?: string
               }
             }
         )[]
@@ -6960,6 +7067,7 @@ type JsoncSortArrayValues = [
           type?: 'asc' | 'desc'
           caseSensitive?: boolean
           natural?: boolean
+          key?: string
         }
     minValues?: number
   },
@@ -6974,6 +7082,7 @@ type JsoncSortArrayValues = [
                 type?: 'asc' | 'desc'
                 caseSensitive?: boolean
                 natural?: boolean
+                key?: string
               }
             }
         )[]
@@ -6981,6 +7090,7 @@ type JsoncSortArrayValues = [
           type?: 'asc' | 'desc'
           caseSensitive?: boolean
           natural?: boolean
+          key?: string
         }
     minValues?: number
   }[],
@@ -6996,17 +7106,24 @@ type JsoncSortKeys =
               | string
               | {
                   keyPattern?: string
-                  order?: {
-                    type?: 'asc' | 'desc'
-                    caseSensitive?: boolean
-                    natural?: boolean
-                  }
+                  order?:
+                    | {
+                        type?: 'asc' | 'desc'
+                        caseSensitive?: boolean
+                        natural?: boolean
+                      }
+                    | {
+                        type: 'ignore'
+                      }
                 }
             )[]
           | {
               type?: 'asc' | 'desc'
               caseSensitive?: boolean
               natural?: boolean
+            }
+          | {
+              type: 'ignore'
             }
         minKeys?: number
         allowLineSeparatedGroups?: boolean
@@ -7019,17 +7136,24 @@ type JsoncSortKeys =
               | string
               | {
                   keyPattern?: string
-                  order?: {
-                    type?: 'asc' | 'desc'
-                    caseSensitive?: boolean
-                    natural?: boolean
-                  }
+                  order?:
+                    | {
+                        type?: 'asc' | 'desc'
+                        caseSensitive?: boolean
+                        natural?: boolean
+                      }
+                    | {
+                        type: 'ignore'
+                      }
                 }
             )[]
           | {
               type?: 'asc' | 'desc'
               caseSensitive?: boolean
               natural?: boolean
+            }
+          | {
+              type: 'ignore'
             }
         minKeys?: number
         allowLineSeparatedGroups?: boolean
@@ -7066,12 +7190,110 @@ type MarkdownFencedCodeLanguage =
         required?: string[]
       },
     ]
+// ----- markdown/fenced-code-meta -----
+type MarkdownFencedCodeMeta = [] | ['always' | 'never']
+// ----- markdown/heading-increment -----
+type MarkdownHeadingIncrement =
+  | []
+  | [
+      {
+        frontmatterTitle?: string
+      },
+    ]
+// ----- markdown/no-duplicate-definitions -----
+type MarkdownNoDuplicateDefinitions =
+  | []
+  | [
+      {
+        allowDefinitions?: string[]
+        allowFootnoteDefinitions?: string[]
+        checkFootnoteDefinitions?: boolean
+      },
+    ]
+// ----- markdown/no-duplicate-headings -----
+type MarkdownNoDuplicateHeadings =
+  | []
+  | [
+      {
+        checkSiblingsOnly?: boolean
+      },
+    ]
+// ----- markdown/no-empty-definitions -----
+type MarkdownNoEmptyDefinitions =
+  | []
+  | [
+      {
+        allowDefinitions?: string[]
+        allowFootnoteDefinitions?: string[]
+        checkFootnoteDefinitions?: boolean
+      },
+    ]
 // ----- markdown/no-html -----
 type MarkdownNoHtml =
   | []
   | [
       {
         allowed?: string[]
+        allowedIgnoreCase?: boolean
+      },
+    ]
+// ----- markdown/no-missing-atx-heading-space -----
+type MarkdownNoMissingAtxHeadingSpace =
+  | []
+  | [
+      {
+        checkClosedHeadings?: boolean
+      },
+    ]
+// ----- markdown/no-missing-label-refs -----
+type MarkdownNoMissingLabelRefs =
+  | []
+  | [
+      {
+        allowLabels?: string[]
+      },
+    ]
+// ----- markdown/no-missing-link-fragments -----
+type MarkdownNoMissingLinkFragments =
+  | []
+  | [
+      {
+        ignoreCase?: boolean
+        allowPattern?: string
+      },
+    ]
+// ----- markdown/no-multiple-h1 -----
+type MarkdownNoMultipleH1 =
+  | []
+  | [
+      {
+        frontmatterTitle?: string
+      },
+    ]
+// ----- markdown/no-space-in-emphasis -----
+type MarkdownNoSpaceInEmphasis =
+  | []
+  | [
+      {
+        checkStrikethrough?: boolean
+      },
+    ]
+// ----- markdown/no-unused-definitions -----
+type MarkdownNoUnusedDefinitions =
+  | []
+  | [
+      {
+        allowDefinitions?: string[]
+        allowFootnoteDefinitions?: string[]
+        checkFootnoteDefinitions?: boolean
+      },
+    ]
+// ----- markdown/table-column-count -----
+type MarkdownTableColumnCount =
+  | []
+  | [
+      {
+        checkMissingCells?: boolean
       },
     ]
 // ----- node/callback-return -----
@@ -13084,6 +13306,17 @@ type TomlIndent =
         keyValuePairs?: number
       },
     ]
+// ----- toml/inline-table-curly-newline -----
+type TomlInlineTableCurlyNewline =
+  | []
+  | [
+      | ('always' | 'never')
+      | {
+          multiline?: boolean
+          minProperties?: number
+          consistent?: boolean
+        },
+    ]
 // ----- toml/inline-table-curly-spacing -----
 type TomlInlineTableCurlySpacing =
   | []
@@ -13093,6 +13326,15 @@ type TomlInlineTableCurlySpacing =
       {
         arraysInObjects?: boolean
         objectsInObjects?: boolean
+        emptyObjects?: 'ignore' | 'always' | 'never'
+      },
+    ]
+// ----- toml/inline-table-key-value-newline -----
+type TomlInlineTableKeyValueNewline =
+  | []
+  | [
+      {
+        allowAllPropertiesOnSameLine?: boolean
       },
     ]
 // ----- toml/key-spacing -----
@@ -16439,6 +16681,7 @@ type TsNoUnusedExpressions =
         allowTernary?: boolean
         allowTaggedTemplates?: boolean
         enforceForJSX?: boolean
+        ignoreDirectives?: boolean
       },
     ]
 // ----- ts/no-unused-vars -----
@@ -19205,6 +19448,7 @@ type YamlFlowMappingCurlySpacing =
       {
         arraysInObjects?: boolean
         objectsInObjects?: boolean
+        emptyObjects?: 'ignore' | 'always' | 'never'
       },
     ]
 // ----- yaml/flow-sequence-bracket-newline -----
@@ -19238,6 +19482,7 @@ type YamlIndent =
       {
         indentBlockSequences?: boolean
         indicatorValueIndent?: number
+        alignMultilineFlowScalars?: boolean
       },
     ]
 // ----- yaml/key-name-casing -----
@@ -19328,6 +19573,15 @@ type YamlNoMultipleEmptyLines =
         maxBOF?: number
       },
     ]
+// ----- yaml/no-trailing-spaces -----
+type YamlNoTrailingSpaces =
+  | []
+  | [
+      {
+        skipBlankLines?: boolean
+        ignoreComments?: boolean
+      },
+    ]
 // ----- yaml/plain-scalar -----
 type YamlPlainScalar =
   | []
@@ -19361,17 +19615,24 @@ type YamlSortKeys =
               | string
               | {
                   keyPattern?: string
-                  order?: {
-                    type?: 'asc' | 'desc'
-                    caseSensitive?: boolean
-                    natural?: boolean
-                  }
+                  order?:
+                    | {
+                        type?: 'asc' | 'desc'
+                        caseSensitive?: boolean
+                        natural?: boolean
+                      }
+                    | {
+                        type: 'ignore'
+                      }
                 }
             )[]
           | {
               type?: 'asc' | 'desc'
               caseSensitive?: boolean
               natural?: boolean
+            }
+          | {
+              type: 'ignore'
             }
         minKeys?: number
         allowLineSeparatedGroups?: boolean
@@ -19384,17 +19645,24 @@ type YamlSortKeys =
               | string
               | {
                   keyPattern?: string
-                  order?: {
-                    type?: 'asc' | 'desc'
-                    caseSensitive?: boolean
-                    natural?: boolean
-                  }
+                  order?:
+                    | {
+                        type?: 'asc' | 'desc'
+                        caseSensitive?: boolean
+                        natural?: boolean
+                      }
+                    | {
+                        type: 'ignore'
+                      }
                 }
             )[]
           | {
               type?: 'asc' | 'desc'
               caseSensitive?: boolean
               natural?: boolean
+            }
+          | {
+              type: 'ignore'
             }
         minKeys?: number
         allowLineSeparatedGroups?: boolean
@@ -19424,6 +19692,7 @@ type YamlSortSequenceValues = [
                 type?: 'asc' | 'desc'
                 caseSensitive?: boolean
                 natural?: boolean
+                key?: string
               }
             }
         )[]
@@ -19431,6 +19700,7 @@ type YamlSortSequenceValues = [
           type?: 'asc' | 'desc'
           caseSensitive?: boolean
           natural?: boolean
+          key?: string
         }
     minValues?: number
   },
@@ -19445,6 +19715,7 @@ type YamlSortSequenceValues = [
                 type?: 'asc' | 'desc'
                 caseSensitive?: boolean
                 natural?: boolean
+                key?: string
               }
             }
         )[]
@@ -19452,6 +19723,7 @@ type YamlSortSequenceValues = [
           type?: 'asc' | 'desc'
           caseSensitive?: boolean
           natural?: boolean
+          key?: string
         }
     minValues?: number
   }[],
@@ -19487,7 +19759,7 @@ export type ConfigNames =
   | 'exbotanical/jsonc/rules'
   | 'exbotanical/markdown/setup'
   | 'exbotanical/markdown/processor'
-  | 'exbotanical/markdown/parser'
+  | 'exbotanical/markdown/rules'
   | 'exbotanical/markdown/disables'
   | 'exbotanical/graphql/setup'
   | 'exbotanical/graphql/rules'
@@ -19502,6 +19774,7 @@ export type ConfigNames =
   | 'exbotanical/vue/rules'
   | 'exbotanical/yaml/setup'
   | 'exbotanical/yaml/rules'
+  | 'exbotanical/data-files/rules'
   | 'exbotanical/prettier/rules'
   | 'exbotanical/disables/scripts'
   | 'exbotanical/disables/dts'

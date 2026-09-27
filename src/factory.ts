@@ -2,6 +2,7 @@ import { isPackageExists } from 'local-pkg'
 
 import {
   CommentsConfig,
+  DataFilesConfig,
   DisablesConfig,
   GithubActionConfig,
   GraphqlConfig,
@@ -29,6 +30,7 @@ import {
   YamlConfig,
 } from './configs'
 import { STYLE_DEFAULTS } from './defaults'
+import { GLOB_JSON, GLOB_JSON5, GLOB_JSONC, GLOB_TOML, GLOB_YAML } from './filepaths'
 
 import type { OptionsConfig } from './options'
 import type { Awaitable, FlatConfigRecord } from './types'
@@ -134,6 +136,16 @@ export async function exbotanical(
       new YamlConfig({ ...factoryConfig(optionsYaml), ...optionsStyle }).rules(),
     )
   }
+
+  configs.push(
+    new DataFilesConfig({
+      files: [
+        ...(optionsJsonc ? [GLOB_JSON, GLOB_JSON5, GLOB_JSONC] : []),
+        ...(optionsYaml ? [GLOB_YAML] : []),
+        ...(optionsToml ? [GLOB_TOML] : []),
+      ],
+    }).rules(),
+  )
 
   if (formatter) {
     configs.push(new PrettierConfig().rules())

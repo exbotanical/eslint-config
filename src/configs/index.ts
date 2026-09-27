@@ -1,4 +1,5 @@
 export * from './comments'
+export * from './data-files'
 export * from './disables'
 export * from './github-action'
 export * from './graphql'

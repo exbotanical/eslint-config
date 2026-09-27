@@ -7,6 +7,15 @@ import { GLOB_SCRIPTS } from '../filepaths'
 import type { AllOptions } from '..'
 import type { FlatConfigRecord } from '../types'
 
+export const COMMENTS_RULES: FlatConfigRecord['rules'] = {
+  'comments/no-aggregating-enable': ['error'],
+  'comments/no-duplicate-disable': ['error'],
+  'comments/no-unlimited-disable': ['error'],
+  'comments/no-unused-enable': ['error'],
+  'comments/no-unused-disable': ['error'],
+  'comments/require-description': ['warn'],
+}
+
 export class CommentsConfig extends CustomConfig<AllOptions> {
   protected namespace: string = 'comments'
 
@@ -22,12 +31,7 @@ export class CommentsConfig extends CustomConfig<AllOptions> {
           comments: plugin,
         },
         rules: {
-          'comments/no-aggregating-enable': ['error'],
-          'comments/no-duplicate-disable': ['error'],
-          'comments/no-unlimited-disable': ['error'],
-          'comments/no-unused-enable': ['error'],
-          'comments/no-unused-disable': ['error'],
-          'comments/require-description': ['warn'],
+          ...COMMENTS_RULES,
         },
       }),
     ]

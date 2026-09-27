@@ -1,6 +1,3 @@
-// @ts-expect-error no types
-import pluginCypress from 'eslint-plugin-cypress/flat'
-
 import { CustomConfig } from '../base-config'
 import { GLOB_TESTS } from '../filepaths'
 import { interopDefault } from '../utils'
@@ -103,6 +100,9 @@ export class TestConfig extends CustomConfig<OptionsTest> {
     const extraConfigs: FlatConfigRecord[] = []
 
     if (cypress) {
+      // @ts-expect-error no types
+      const pluginCypress = await interopDefault(import('eslint-plugin-cypress/flat'))
+
       extraConfigs.push(
         this.createRuleConfig('cypress/rules', {
           ...pluginCypress.configs.recommended,

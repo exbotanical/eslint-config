@@ -1,1 +1,10 @@
 test/fixtures
+
+# Written by scripts/typegen.ts (npm run typegen)
+src/typegen.d.ts
+
+# Written by npm
+package-lock.json
+
+# Written by test/lint.test.ts during a test run
+test/fixtures.tmp
